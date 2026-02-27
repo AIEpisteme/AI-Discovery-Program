@@ -279,3 +279,7 @@ python Vibe_researchv1a.py --save outputs interactive
 ```
 
 Enter your research question, optionally provide data, and review each pipeline stage as the system builds a structured report and LaTeX paper.
+
+
+# Contact
+please add Discussion for the program
