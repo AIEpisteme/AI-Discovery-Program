@@ -114,7 +114,7 @@ From the menu you can choose:
 You can also switch models from the menu with:
 
 ```text
-/model gpt-5.2-pro
+/model gpt-5.5-pro
 ```
 
 ### Run interactive mode directly
@@ -126,7 +126,7 @@ python Vibe_researchv1a.py interactive
 Save outputs and choose a model:
 
 ```bash
-python Vibe_researchv1a.py --save outputs --model gpt-5.2 interactive
+python python EinsteinResearch.py interactive --save outputs --model gpt-5.2 interactive
 ```
 
 ### Run automated mode
@@ -134,7 +134,7 @@ python Vibe_researchv1a.py --save outputs --model gpt-5.2 interactive
 With an inline question only:
 
 ```bash
-python Vibe_researchv1a.py auto --question "Does retrieval augmentation improve factual accuracy in biotech QA systems?"
+python python EinsteinResearch.py interactive auto --question "Does retrieval augmentation improve factual accuracy in biotech QA systems?"
 ```
 
 With inline data:
@@ -156,37 +156,37 @@ python Vibe_researchv1a.py --save outputs auto \
 Pause after every stage:
 
 ```bash
-python Vibe_researchv1a.py auto --question "Your question here" --pause
+python python EinsteinResearch.py interactive auto --question "Your question here" --pause
 ```
 
 Skip PDF generation:
 
 ```bash
-python Vibe_researchv1a.py --no-pdf auto --question "Your question here"
+python python EinsteinResearch.py interactive --no-pdf auto --question "Your question here"
 ```
 
 ### Convert an existing LaTeX file to PDF
 
 ```bash
-python Vibe_researchv1a.py latex2pdf --tex-file ./report.tex
+python python EinsteinResearch.py interactive latex2pdf --tex-file ./report.tex
 ```
 
 Write the academic `.tex` and `.pdf` into a specific folder:
 
 ```bash
-python Vibe_researchv1a.py latex2pdf --tex-file ./report.tex --output-dir ./compiled
+python python EinsteinResearch.py interactive latex2pdf --tex-file ./report.tex --output-dir ./compiled
 ```
 
 ### Run the web chat server
 
 ```bash
-python Vibe_researchv1a.py serve
+python python EinsteinResearch.py interactive serve
 ```
 
 Custom host, port, and HTML entry file:
 
 ```bash
-python Vibe_researchv1a.py serve --host 127.0.0.1 --port 8000 --index index.html
+python python EinsteinResearch.py interactive serve --host 127.0.0.1 --port 8000 --index index.html
 ```
 
 Then open the served page in your browser and use the backend chat endpoint:
@@ -212,7 +212,7 @@ Example JSON request for `/api/chat`:
 ### Run lab mode
 
 ```bash
-python Vibe_researchv1a.py lab
+python python EinsteinResearch.py interactive lab
 ```
 
 This looks for and runs:
