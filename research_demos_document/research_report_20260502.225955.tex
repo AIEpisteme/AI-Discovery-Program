@@ -1,0 +1,618 @@
+\documentclass[12pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{enumitem}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=blue
+}
+
+\setstretch{1.15}
+
+\begin{document}
+\onehalfspacing
+
+\begin{titlepage}
+    \centering
+    {\Large \textbf{COVID-19 and Antibodies: A Structured Evidence Review of Immunity, Vaccination, Testing, Treatment, Variants, and Reinfection Risk}\par}
+    \vspace{1.2cm}
+    {\large OpenAI\par}
+    \vspace{0.4cm}
+    {\large \today\par}
+\end{titlepage}
+
+\begin{abstract}
+This paper presents a targeted structured narrative review of supplied sources on COVID-19 and antibodies. It explains the role of antibodies in SARS-CoV-2 infection, immunity, vaccination, diagnosis, treatment, and reinfection risk, with emphasis on what is well established, what remains uncertain, and how interpretation changed across Alpha, Delta, Omicron, and major Omicron-era sublineages. Across the supplied evidence base, several findings are consistently supported. Antibodies are an important but incomplete component of protection; neutralizing antibodies are more informative than ordinary binding antibodies for population-level short-term protection against symptomatic infection, but they do not fully explain protection against severe disease, hospitalization, or death \cite{ref3,ref4,ref5}. Infection, vaccination, hybrid immunity, and booster doses all generate antibody responses, but these responses differ in breadth, timing, and durability \cite{ref3,ref5}. Antibody levels generally rise over days to weeks and then wane over months, while protection from infection tends to decline faster than protection from severe outcomes \cite{ref3,ref5}. CDC guidance updated August 29, 2024 states that antibody testing is not recommended to assess a person's protection against SARS-CoV-2 infection or severe COVID-19 after vaccination or prior infection, or to determine the need for vaccination in an unvaccinated person \cite{ref1}. WHO policy materials from December 2024 and the 2025 WHO fact sheet support risk-prioritized revaccination, commonly at 6--12 month intervals for high-priority groups, including older adults, persons with immunocompromising conditions, and pregnant people \cite{ref9,ref10,ref11,ref12}. The supplied treatment evidence also shows that monoclonal antibody usefulness can change rapidly when variants evolve, as illustrated by the 2021 FDA revocation of bamlanivimab monotherapy \cite{ref6}. No participant-level dataset was provided, and simulated outputs supplied in project materials are not treated as empirical evidence in this review. The strongest overall conclusion is that antibodies are highly relevant to COVID-19, but antibody levels alone should not be interpreted as definitive measures of personal protection.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Executive Summary}
+COVID-19 antibody science changed markedly between the early pandemic and the Omicron era. Early questions focused on whether infection or vaccination produced detectable antibodies at all. Later work asked more refined questions: which antibodies matter most, how long they last, how much they predict protection, how variant escape changes their meaning, and how antibody tests and antibody-based treatments should be interpreted.
+
+Across the supplied sources, five conclusions are especially well supported. First, antibodies are only one part of immunity. Reviews of germinal-centre biology, B-cell memory, and antibody function show that circulating antibodies, memory B cells, and other immune compartments work together rather than independently \cite{ref3,ref4,ref5}. Second, neutralizing antibodies are generally more informative than ordinary binding antibodies for population-level short-term protection against symptomatic infection, but they do not fully explain protection against hospitalization or death \cite{ref3,ref5}. Third, infection, vaccination, hybrid immunity, and booster doses all produce antibody responses, but hybrid immunity often shows broader and more durable patterns than infection-only or vaccination-only exposure in the supplied review literature \cite{ref5}. Fourth, Omicron and later Omicron sublineages changed the practical meaning of antibody findings because they showed greater immune escape than Alpha or Delta in the supplied review summaries \cite{ref3,ref5}. Fifth, current CDC guidance clearly states that antibody testing should not be used to assess a person's protection after vaccination or prior infection \cite{ref1,ref8}.
+
+Current public-health implications are more risk-prioritized than in earlier phases of the pandemic. WHO policy materials published in December 2024 and the WHO fact sheet current in 2025 emphasize continued COVID-19 vaccination with periodic revaccination for high-priority groups, often at 6--12 month intervals depending on subgroup and setting \cite{ref9,ref10,ref11,ref12}. The same WHO materials identify older adults, persons with immunocompromising conditions, pregnant people, and health and care workers with direct patient contact among key groups for continued protection efforts \cite{ref11,ref12}.
+
+The treatment landscape also changed over time. Monoclonal antibodies were useful in earlier stages of the pandemic but proved highly vulnerable to variant-specific loss of effectiveness. The supplied FDA revocation of bamlanivimab monotherapy documents this broader principle \cite{ref6}. However, the supplied citable source set does not include a complete, up-to-date product-by-product FDA or EMA inventory for all antibody therapeutics; accordingly, this review discusses current monoclonal and convalescent-plasma status cautiously and notes where direct support is incomplete.
+
+A final point is methodological. No participant-level dataset was provided. The broader project materials included hypotheses, a proposed cohort design, and simulated outputs, but those simulated materials are excluded from the substantive evidence review and are not used as scientific support.
+
+\subsection*{Bottom line}
+\begin{itemize}[leftmargin=1.5em]
+    \item Antibodies are important but incomplete components of SARS-CoV-2 immunity.
+    \item Neutralizing antibodies are more informative than ordinary binding antibodies for short-term symptomatic protection at the population level.
+    \item Omicron-lineage variants substantially changed antibody interpretation over time.
+    \item CDC guidance does not support using antibody tests as stand-alone measures of personal protection.
+    \item Policy and treatment interpretation remain time-sensitive and jurisdiction-sensitive.
+\end{itemize}
+
+\section{Methods and Source Selection}
+\subsection*{What is well established}
+This manuscript is a \emph{targeted structured narrative review of supplied sources}, not a formal systematic review. The final synthesis uses only the citable source set supplied with the prompt. Those sources consist mainly of current or archived CDC guidance, WHO policy and fact-sheet material, one FDA regulatory notice, and peer-reviewed immunology reviews \cite{ref1,ref2,ref3,ref4,ref5,ref6,ref7,ref8,ref9,ref10,ref11,ref12}. That source set is sufficient for a cautious review of major concepts, but it is not broad enough to claim a reproducible comprehensive search across all requested databases and journals.
+
+The supplied project materials also included search summaries, hypotheses, an experimental design, and simulated outputs. Following the technical review, these simulated materials are not used as evidence for substantive conclusions. They informed the framing of unanswered questions and limitations only.
+
+\subsection*{What is uncertain or debated}
+Because the citable source set is limited, some areas requested by the prompt are better supported than others. Testing interpretation and WHO vaccination policy are well documented in the supplied sources \cite{ref1,ref8,ref9,ref10,ref11,ref12}. By contrast, product-specific current status for all monoclonal antibodies and quantitative pooled estimates from systematic reviews or randomized trials are not fully represented in the supplied citable set. Where support is incomplete, this review states that explicitly rather than filling gaps with uncited claims.
+
+\subsection*{How this changed over time / across variants}
+Variant-era differences were tracked by grouping findings into early-pandemic/pre-Alpha, Alpha/Delta, and Omicron-era interpretation. Because no dedicated variant-neutralization primary-study dataset was provided in the citable source set, these distinctions are drawn cautiously from the supplied review literature and summaries rather than from a formal pooled meta-analysis \cite{ref3,ref5}.
+
+\subsection*{Practical interpretation}
+The review prioritizes: (1) public health guidance for current testing and vaccination interpretation, (2) mechanistic immunology reviews for antibody biology, and (3) regulatory materials for treatment history. Preprints were not cited because no preprint source was included in the supplied citable set. Conflicting evidence is handled by acknowledging uncertainty and source limitations rather than forcing consensus.
+
+\begin{table}[H]
+\centering
+\caption{Evidence classification and use in this review (synthesized from Refs.~\cite{ref1,ref2,ref3,ref4,ref5,ref6,ref8,ref9,ref12})}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.2cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{3.2cm}}
+\toprule
+Evidence type & Main use in this review & Main limitation \\
+\midrule
+Public health guidance & Testing interpretation, booster and revaccination framing, special-population policy & Time-sensitive and jurisdiction-specific \\
+Mechanistic immunology review & Antibody classes, memory B cells, mucosal immunity, antibody quality vs quantity & Often indirect for clinical decision-making \\
+Laboratory neutralization review & Variant escape and functional antibody interpretation & Does not translate one-to-one into clinical effect sizes \\
+Regulatory evidence & Historical treatment effectiveness and therapeutic status shifts & Product-specific current status may change rapidly \\
+Archived guidance & Historical interpretation context & May not reflect the latest live recommendations \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection*{Bottom line}
+\begin{itemize}[leftmargin=1.5em]
+    \item This is a targeted narrative review of supplied sources, not a formal systematic review.
+    \item The strongest supported areas are antibody biology, testing guidance, and WHO revaccination policy.
+    \item Simulated outputs from the broader project were excluded from substantive evidence claims.
+    \item Where the supplied source set is thin, conclusions are deliberately conservative.
+\end{itemize}
+
+\section{Antibody Basics in SARS-CoV-2 Immunity}
+\subsection*{What is well established}
+In plain language, antibodies are proteins made by the immune system that recognize specific parts of a virus. In SARS-CoV-2, many of the most discussed antibodies target the spike protein because spike is essential for viral entry into cells \cite{ref3,ref5}.
+
+\textbf{IgM} is usually the early wave of antibody response. It appears relatively soon after exposure and can provide broad initial recognition, but it is often transient \cite{ref5}.  
+\textbf{IgG} is the main longer-lived systemic antibody measured in blood after infection or vaccination. It is the most common antibody class used in routine serology \cite{ref5}.  
+\textbf{IgA} is important at mucosal surfaces such as the nose, mouth, and airway, where SARS-CoV-2 first encounters the host \cite{ref3,ref5}.  
+\textbf{Binding antibodies} are antibodies that attach to viral proteins, but they do not necessarily block infection.  
+\textbf{Neutralizing antibodies} are the subset that functionally block viral entry or infection in laboratory assays \cite{ref3}.  
+\textbf{Mucosal antibodies} refer mainly to antibodies present at respiratory surfaces, where they may contribute to protection at the portal of entry \cite{ref5}.  
+\textbf{Memory B cells} are not antibodies themselves; they are long-lived immune cells that can rapidly generate new antibodies after re-exposure. Germinal-centre biology is central to their development and maturation \cite{ref4,ref5}.
+
+One of the most important established points is that antibody \emph{quantity} is not the same as antibody \emph{quality}. A person can have detectable binding antibodies yet relatively weak neutralization against a newer variant. Antibody quality also includes breadth across variants and Fc-dependent functions beyond direct neutralization \cite{ref3}.
+
+\subsection*{What is uncertain or debated}
+The exact protective role of mucosal antibodies in preventing infection or onward transmission is biologically plausible but less standardized than serum IgG or serum neutralization. In routine clinical practice, mucosal immunity is much harder to measure than blood-based antibody responses \cite{ref5}.
+
+\subsection*{How this changed over time / across variants}
+Early in the pandemic, much discussion treated ``antibodies'' as a single category. Later work emphasized that binding antibodies, neutralizing antibodies, mucosal antibodies, and memory B-cell responses are related but distinct. Variant evolution made this distinction more important because antibody breadth and function became more relevant than simple positivity.
+
+\subsection*{Practical interpretation}
+A positive antibody test may show that exposure or vaccination occurred, but it does not summarize the full immune state. In particular, it does not automatically indicate strong neutralization against currently circulating variants or complete protection against severe disease.
+
+\begin{table}[H]
+\centering
+\caption{Table 1. Antibody types and functions (synthesized from Refs.~\cite{ref3,ref4,ref5})}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.3cm}}
+\toprule
+Antibody type/component & What it targets or does & Where it is found & Typical timing & Main relevance to COVID-19 & Important limitations \\
+\midrule
+IgM & Early, broad initial humoral response & Blood & Early after exposure & Marker of recent response in some settings & Often transient; limited value alone \\
+IgG & Main longer-lived systemic antibody & Blood and tissues & Later than IgM; may persist & Main blood-based vaccine/infection readout & Quantity does not equal neutralizing quality \\
+IgA & Major mucosal isotype & Airway mucosa, saliva, blood & Early to intermediate & Relevant to respiratory entry sites & Harder to standardize routinely \\
+Neutralizing antibodies & Functionally block viral entry/infection in vitro & Mainly measured in serum/plasma & Peaks after exposure or boosting & Strongest antibody correlate of short-term symptomatic protection & Assay-dependent; incomplete as sole immune measure \\
+Binding antibodies & Bind viral proteins without necessarily blocking infection & Serum/plasma & Commonly detectable with commercial assays & Useful for exposure and vaccine-response measurement & Not interchangeable with neutralization \\
+Mucosal antibodies & Local antibodies at portals of entry & Upper airway and respiratory mucosa & Variable & May help block infection at entry sites & Limited routine testing and standardization \\
+Memory B cells & Long-lived B cells that rapidly produce antibodies after re-exposure & Lymphoid tissues and blood subsets & Develop after immune maturation & Help explain durable recall despite waning serum antibodies & Not measured by ordinary commercial serology \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection*{Bottom line}
+\begin{itemize}[leftmargin=1.5em]
+    \item Binding antibodies and neutralizing antibodies are not the same.
+    \item Systemic blood antibodies and mucosal antibodies are also not the same.
+    \item Memory B cells help explain why immune protection can outlast high circulating antibody levels.
+    \item Antibody quality and breadth matter as much as antibody quantity.
+\end{itemize}
+
+\section{Antibody Responses After Infection, Vaccination, Hybrid Immunity, and Boosters}
+\subsection*{What is well established}
+After either natural infection or vaccination, antibody levels usually rise over days to weeks, reach a peak, and then decline over months \cite{ref3,ref5}. The exact trajectory varies by exposure type, timing, variant, and host factors.
+
+\textbf{Natural infection} induces antibodies to multiple viral proteins, not just spike. In the supplied review literature, infection-derived immunity may provide meaningful protection, especially against severe outcomes, but breadth depends strongly on the infecting variant \cite{ref5}.  
+\textbf{Primary vaccination} induces strong systemic spike-focused responses and was particularly effective against earlier and better-matched strains \cite{ref3,ref5}.  
+\textbf{Hybrid immunity}---infection plus vaccination---is generally described in the supplied review literature as broader and often more durable than either infection alone or vaccination alone \cite{ref5}.  
+\textbf{Booster doses} rapidly raise antibody titers and can broaden neutralization, especially in the short term \cite{ref3}.
+
+\subsection*{What is uncertain or debated}
+The exact ranking of these exposure types is not fixed across all studies. It depends on exposure order, time since the last immune event, infecting variant, vaccine platform, and immune status. Because the supplied citable source set does not include a broad comparative meta-analysis across all products and variants, the conclusion that hybrid immunity often looks strongest should be interpreted as a well-supported tendency, not a universal rule.
+
+\subsection*{How this changed over time / across variants}
+Before Omicron, prior infection and primary vaccination often appeared to give relatively strong protection against reinfection with related strains. Omicron's antigenic distance reduced that predictability. In the Omicron era, recency of boosting and hybrid exposure history became more important to antibody breadth and short-term protection \cite{ref3,ref5}.
+
+\subsection*{Practical interpretation}
+It is reasonable to say that all four exposure categories generate antibodies, but not equivalent ones. Hybrid immunity and recent boosting often improve breadth, yet reinfection can still occur, especially when the circulating variant is antigenically drifted.
+
+\begin{table}[H]
+\centering
+\caption{Table 2. Immune response by exposure type (synthesized from Refs.~\cite{ref3,ref5})}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{2.2cm}}
+\toprule
+Exposure type & Peak antibody response & Neutralizing breadth & Durability & Protection pattern & Variant sensitivity & Key caveats \\
+\midrule
+Natural infection & Variable; depends on severity and infecting variant & Broader antigen exposure than spike-only vaccination, but inconsistent & Antibodies wane; memory may persist & Better retention for severe outcomes than for reinfection & Strongly variant-dependent & Not a safe strategy \\
+Primary vaccination & Strong systemic spike-focused response & Good against matched or near-matched strains & Waning over months & More durable for severe outcomes than infection prevention & Reduced by antigenically distant variants & Product and schedule matter \\
+Hybrid immunity & Often highest in supplied review literature & Broadest overall in many contexts & Often most durable pattern & Strong overall protection, especially for severe Omicron outcomes & Still affected by new sublineages & Depends on sequence and timing \\
+Booster doses & Rapid rise after boosting & Improves short-term breadth & Waning still occurs & Restores some infection protection; stronger effect on severe outcomes & Depends on variant match & Effect declines over time \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection*{Bottom line}
+\begin{itemize}[leftmargin=1.5em]
+    \item Infection, vaccination, hybrid immunity, and boosters all generate antibody responses.
+    \item Hybrid immunity often shows the broadest and most durable pattern in the supplied review literature.
+    \item Boosters raise titers rapidly but do not permanently prevent waning.
+    \item Variant context strongly affects how informative any exposure history is.
+\end{itemize}
+
+\section{Durability, Waning, and What Antibody Levels Do and Do Not Predict}
+\subsection*{What is well established}
+Antibody levels decline over time after infection or vaccination. This waning is normal and does not mean that all immunity has disappeared \cite{ref3,ref5}. The supplied immunology reviews support a clearer and more important distinction: protection from \emph{infection} tends to wane faster than protection from \emph{severe disease}.
+
+The evidence in the supplied set also supports that neutralizing antibodies are useful population-level correlates of short-term symptomatic protection. However, they do not fully explain protection against hospitalization or death because immune memory, memory B-cell recall, and other host factors contribute substantially \cite{ref3,ref4,ref5}.
+
+\subsection*{What is uncertain or debated}
+A central unresolved question is whether any universally actionable antibody threshold exists for individuals. The supplied CDC guidance indicates that antibody testing is not recommended to assess a person's protection after vaccination or prior infection \cite{ref1}. Archived CDC guidance further notes that serologic correlates of protection have not been established for routine individual decision-making \cite{ref8}.
+
+\subsection*{How this changed over time / across variants}
+As variants became more immune evasive, a given antibody level became less informative unless assay context and variant matching were considered. A high response to an ancestral spike assay may say less about current infection prevention if circulating viruses are antigenically distant.
+
+\subsection*{Practical interpretation}
+Antibody levels are most useful for population-level inference, surveillance, and research on correlates of protection. They should not be treated as stand-alone clinical certificates of immunity.
+
+\begin{table}[H]
+\centering
+\caption{Table 3. Protection and waning (synthesized from Refs.~\cite{ref1,ref3,ref5,ref8})}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}X}
+\toprule
+Outcome & How strongly antibodies correlate & Approximate durability pattern & Strongest evidence type in supplied set & Important caveats \\
+\midrule
+Infection & Moderate & Declines fastest & Mechanistic review plus guidance-based interpretation & Strongly variant-dependent \\
+Symptomatic disease & Moderate to strong & Declines over months & Mechanistic review plus correlates discussion & Neutralization informative but incomplete \\
+Severe disease & Indirect but still relevant & More durable than infection protection & Immunology review and broad policy interpretation & Host factors and immune memory matter more \\
+Hospitalization & Meaningful at population level, less direct than infection & More durable than infection protection & Broad review interpretation & Sparse direct quantitative evidence in supplied set \\
+Death & Relevant at population level & Most durable pattern among outcomes & Broad review and policy interpretation & Confounded by age, frailty, and care access \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection*{Bottom line}
+\begin{itemize}[leftmargin=1.5em]
+    \item Antibodies wane over time after infection and vaccination.
+    \item Protection from infection wanes faster than protection from severe outcomes.
+    \item Neutralizing antibodies are useful correlates, especially for symptomatic infection.
+    \item Antibody levels alone do not define whether an individual is protected.
+\end{itemize}
+
+\section{Variants and Antibody Escape Over Time}
+\subsection*{What is well established}
+The supplied review literature supports a clear pattern: Alpha and Delta were associated with more modest reductions in neutralization than Omicron and later Omicron sublineages \cite{ref3,ref5}. Omicron marked a major antigenic shift, and later sublineages continued to challenge pre-existing antibody responses.
+
+\subsection*{What is uncertain or debated}
+Exact fold reductions vary across assay platforms, serum sources, exposure histories, and sublineages. The supplied citable source set does not provide a harmonized pooled quantitative estimate across all variants, so this review uses cautious qualitative comparisons rather than over-precise fold claims.
+
+\subsection*{How this changed over time / across variants}
+\textbf{Alpha} is best understood as showing limited antibody escape relative to ancestral strains.  
+\textbf{Delta} showed somewhat greater escape but remained far less disruptive to antibody interpretation than Omicron.  
+\textbf{Omicron} changed the landscape by producing much larger reductions in neutralization, especially after infection-only immunity with earlier variants or primary-series-only vaccination.  
+\textbf{Major Omicron sublineages} continued this pattern and contributed to repeated reinterpretation of prior immunity and repeated consideration of vaccine composition updates \cite{ref9,ref10}.
+
+\subsection*{Practical interpretation}
+Laboratory neutralization data are essential for understanding immune escape. However, the user specifically requested that laboratory fold-drops not be treated as direct clinical outcome reductions; that caution is strongly supported here.
+
+\begin{table}[H]
+\centering
+\caption{Table 4. Variant impact on antibody escape (synthesized from Refs.~\cite{ref3,ref5,ref9,ref10})}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{2.1cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{1.7cm}}
+\toprule
+Variant & Relative antibody escape & Neutralization impact & Clinical relevance & Evidence type in supplied set & Confidence level \\
+\midrule
+Alpha & Low & Modest reduction & Limited change relative to ancestral strains & Review synthesis & Moderate \\
+Delta & Low to moderate & Modest reduction & More escape than Alpha, but much less than Omicron & Review synthesis & Moderate \\
+Omicron & High & Large reductions in many prior-immune settings & Major drop in infection protection; severe-disease protection more preserved & Review synthesis plus policy context & High \\
+Major Omicron sublineages & High to very high & Continued immune escape with sublineage variation & Recurrent need to reinterpret prior immunity and vaccine match & Review synthesis plus WHO vaccine-composition context & Moderate \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection*{Bottom line}
+\begin{itemize}[leftmargin=1.5em]
+    \item Alpha and Delta changed antibody interpretation less than Omicron did.
+    \item Omicron was a major immune-escape turning point.
+    \item Later Omicron sublineages extended, rather than erased, that challenge.
+    \item Laboratory immune escape and real-world clinical protection are related but not numerically identical.
+\end{itemize}
+
+\section{Testing: PCR vs Antigen vs Serology}
+\subsection*{What is well established}
+CDC's \emph{Overview of Testing for SARS-CoV-2}, updated August 29, 2024, distinguishes viral tests from serology very clearly \cite{ref1}. PCR/NAAT and antigen tests are used to detect \emph{current infection}. Serology detects antibodies from previous infection, vaccination, or both.
+
+CDC further states that antibody testing is not currently recommended to assess a person's protection against SARS-CoV-2 infection or severe COVID-19 after vaccination or prior infection, or to assess the need for vaccination in an unvaccinated person \cite{ref1}. Archived CDC guidance reinforces the same point and notes that currently authorized antibody tests were not specifically authorized to assess immunity or protection, including in immunocompromised persons \cite{ref8}.
+
+Another important established distinction is assay target. Because mRNA vaccines use the spike protein, a positive spike antibody test can reflect vaccination or prior infection. To evaluate prior infection in a vaccinated person, CDC guidance says to use an assay directed at nucleocapsid antibodies \cite{ref1,ref7}.
+
+\subsection*{What is uncertain or debated}
+Commercial antibody assays differ by antigen target, analytic platform, sensitivity, specificity, and relationship to neutralization. The supplied source set does not support a universal actionable threshold for any commercial test.
+
+\subsection*{How this changed over time / across variants}
+As vaccination became widespread, spike-based serology became harder to interpret because positivity could reflect vaccination, infection, or both. Nucleocapsid assays remained more useful for identifying prior infection in vaccinated populations, but reduced anti-nucleocapsid seroconversion after some breakthrough infections complicated interpretation \cite{ref1,ref8}.
+
+\subsection*{Practical interpretation}
+PCR/NAAT and antigen testing answer questions about current infection. Serology answers different questions---mainly prior exposure or surveillance---and should not be used as a personal immunity passport.
+
+\begin{table}[H]
+\centering
+\caption{Table 5. Diagnostic testing comparison (synthesized from Refs.~\cite{ref1,ref2,ref7,ref8})}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.8cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{1.7cm} >{\raggedright\arraybackslash}p{2.1cm} >{\raggedright\arraybackslash}p{2.1cm} >{\raggedright\arraybackslash}X}
+\toprule
+Test type & Detects & Best use case & Timing & Strengths & Limitations & What it cannot tell an individual \\
+\midrule
+PCR / NAAT & Viral RNA & Diagnosis of current infection & Acute infection; viral RNA may remain detectable up to 90 days after a positive result \cite{ref1} & High sensitivity and specificity & Positive results may outlast infectiousness & Whether a person has protective antibodies \\
+Antigen & Viral proteins & Rapid current-infection testing & Best near symptom onset / higher viral load & Fast and accessible & Lower sensitivity than NAAT & Past infection or overall immune protection \\
+Serology & Antibodies from infection and/or vaccination & Prior exposure, surveillance, MIS-C/MIS-A support & Days to weeks after exposure & Useful for retrospective questions & Target and timing matter greatly & Current infection or definitive personal immunity \\
+Neutralization assay & Functional viral-blocking activity in vitro & Research-grade immune assessment & Usually post-exposure or post-vaccination & More informative than ordinary binding assays for correlates research & Complex, less standardized, not routine clinical care & A universal personal threshold of protection \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection*{Bottom line}
+\begin{itemize}[leftmargin=1.5em]
+    \item PCR/NAAT and antigen tests are for current infection; serology is not.
+    \item Spike and nucleocapsid assays answer different questions.
+    \item Commercial antibody tests are limited and context-dependent.
+    \item CDC guidance does not support using antibody tests to decide whether an individual is protected.
+\end{itemize}
+
+\section{Antibody-Based Treatments}
+\subsection*{What is well established}
+The supplied treatment evidence strongly supports one broad conclusion: antibody-based treatments are highly variant-sensitive. The FDA revocation of bamlanivimab monotherapy in 2021 demonstrates that a monoclonal antibody can lose clinical utility when resistant variants become common \cite{ref6}. This historical example illustrates the broader problem of using highly specific passive antibody therapies against a rapidly evolving virus.
+
+The supplied project summaries also described current FDA materials on high-titer convalescent plasma and pemivibart, but those current product-specific pages were not part of the final citable source set used in this paper. Accordingly, this review does \emph{not} make detailed product-by-product current-use claims beyond what is directly supported by the citable references.
+
+\subsection*{What is uncertain or debated}
+Because the supplied citable source set lacks a full current FDA or EMA therapeutic inventory, the exact current status of all monoclonal antibodies and convalescent-plasma indications cannot be fully adjudicated here. That gap itself is important: current monoclonal utility is highly time-sensitive and should always be verified against live regulatory guidance.
+
+\subsection*{How this changed over time / across variants}
+In the early pandemic, monoclonal antibodies and convalescent plasma were explored aggressively. As variants evolved, monoclonal antibodies often became less reliable because of spike escape. The broader literature summarized in the project materials suggests that convalescent plasma has had mixed evidence overall, with narrower potential niches than once hoped. However, the supplied citable reference set supports this only indirectly and not at full current-resolution.
+
+\subsection*{Practical interpretation}
+Historically, monoclonal antibodies were genuinely useful in the right variant era. Their later loss of effectiveness is not evidence that antibodies never mattered; it is evidence that product-virus matching matters.
+
+\begin{table}[H]
+\centering
+\caption{Table 6. Antibody-based treatments (synthesized conservatively from Refs.~\cite{ref6}; current product-by-product status incompletely represented in supplied citable set)}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}p{2.1cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.3cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{2.1cm}}
+\toprule
+Therapy & Mechanism & Best-supported use case in supplied evidence & Key evidence type & Variant sensitivity & Current status in this review & Safety notes \\
+\midrule
+Historical anti-spike monoclonal antibodies (example: bamlanivimab monotherapy) & Passive neutralizing antibodies & Earlier outpatient treatment/prevention in susceptible variant eras & FDA regulatory evidence \cite{ref6} & Very high & Historical use documented; current product-by-product status not fully documented in supplied citable set & Product-specific infusion and hypersensitivity risks \\
+Convalescent plasma & Polyclonal donor antibodies & Mixed evidence historically; narrow current role cannot be fully detailed from final citable set alone & Not fully represented in final citable set & Likely less single-epitope vulnerable than a single mAb, but still variant-sensitive & Current indication not fully adjudicated here due source-set limits & Standard transfusion risks; product standardization matters \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection*{Bottom line}
+\begin{itemize}[leftmargin=1.5em]
+    \item Antibody-based treatments were historically useful but highly variant-sensitive.
+    \item Monoclonal antibody failure against newer variants is well documented in principle.
+    \item Current product-specific therapeutic status should be checked against live regulatory sources.
+    \item The supplied citable source set does not support a complete current treatment inventory.
+\end{itemize}
+
+\section{Special Populations}
+\subsection*{What is well established}
+WHO's current fact sheet states that revaccination may be needed 6--12 months after the most recent dose for high-priority groups such as older adults, persons with immunocompromising conditions, pregnant women, and health and care workers with direct patient contact \cite{ref12}. WHO policy materials from December 2024 and the 2024 global risk assessment reinforce a risk-prioritized framework, not a universal one-size-fits-all approach \cite{ref9,ref10,ref11}.
+
+For \textbf{older adults}, the main issue is both higher severe-disease risk and, in many studies summarized by the broader project materials, lower average peak or more rapidly waning antibody responses.  
+For \textbf{immunocompromised people}, heterogeneity is central: responses may be reduced or delayed, and general antibody interpretation is especially unreliable \cite{ref8,ref12}.  
+For \textbf{pregnant people}, WHO identifies pregnancy as a high-priority state for continued vaccination protection, and project materials emphasized that revaccination may be recommended during each pregnancy in some WHO frameworks \cite{ref11,ref12}.  
+For \textbf{children}, policy tends to be more selective and risk-sensitive.  
+For \textbf{people with prior infection}, interpretation is changed by hybrid immunity, which often broadens subsequent responses \cite{ref5}.
+
+\subsection*{What is uncertain or debated}
+The exact correlates of protection in particular immunocompromising conditions, the durability of maternal and infant antibody transfer across variants, and the long-term consequences of repeated Omicron-era exposures remain incompletely resolved in the supplied citable set.
+
+\subsection*{How this changed over time / across variants}
+As population exposure became widespread through both infection and vaccination, recommendations shifted away from identical repeated dosing for all groups and toward more risk-targeted strategies.
+
+\subsection*{Practical interpretation}
+Special populations should not be interpreted through a generic ``antibodies are high/low'' lens. Age, pregnancy, immune compromise, and prior infection materially change what antibody results can mean.
+
+\begin{table}[H]
+\centering
+\caption{Table 7. Special populations (synthesized from Refs.~\cite{ref5,ref8,ref9,ref10,ref11,ref12})}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.1cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}p{1.8cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{1.8cm}}
+\toprule
+Population & Antibody response pattern & Main concerns & Evidence strength in supplied set & Practical implications & Evidence gaps \\
+\midrule
+Older adults & Often lower peaks or faster waning in broader literature; high-risk policy priority clear & Severe disease risk & Moderate to strong & Higher revaccination priority in WHO policy & Exact durability by product/variant \\
+Immunocompromised people & Often heterogeneous and sometimes blunted & Lower vaccine response; harder interpretation of antibody tests & Strong for policy caution & Separate policy attention; antibody tests especially limited for protection assessment & Best correlates for specific conditions/treatments \\
+Pregnant people & Generally responsive; policy priority clear & Maternal severe disease risk; maternal-infant transfer questions & Moderate & Priority group in WHO policy; timing matters & Durability and infant-transfer detail \\
+Children & Responses may be robust, but policy depends more on age and risk & Lower baseline severe risk; age-specific schedules & Moderate & Age-specific vaccination and interpretation needed & Long-term correlate thresholds \\
+People with prior infection & Prior infection changes subsequent vaccine-response pattern & Reinfection remains possible, especially with variant escape & Moderate to strong & Prior infection changes how booster responses are interpreted & Effect of repeated infections over time \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection*{Bottom line}
+\begin{itemize}[leftmargin=1.5em]
+    \item Older adults and immunocompromised people remain the clearest high-priority groups.
+    \item Pregnancy is a policy-relevant special population, not a minor subgroup.
+    \item Children require age- and risk-specific interpretation.
+    \item Prior infection materially changes antibody-response patterns after vaccination.
+\end{itemize}
+
+\section{Current Clinical and Public Health Implications}
+\subsection*{What is well established}
+WHO's December 2024 policy brief and related materials recommend continued COVID-19 vaccination with a simplified regimen for many high- and medium-priority groups, alongside periodic revaccination of most high-priority groups and some special subpopulations at roughly 6--12 month intervals depending on subgroup \cite{ref9,ref10,ref11}. WHO's 2025 fact sheet similarly states that revaccination may be needed 6--12 months after the most recent dose for high-priority groups \cite{ref12}.
+
+CDC's August 29, 2024 testing guidance is equally clear that antibody testing is not recommended to assess a person's protection after vaccination or prior infection \cite{ref1}. That means public communication should avoid implying that a positive antibody result is equivalent to being ``safe'' or ``immune.''
+
+\subsection*{What is uncertain or debated}
+Optimal revaccination intervals, ideal antigen composition, and subgroup prioritization may continue to evolve with circulating variants and product availability. The supplied source set does not include a comprehensive EMA-specific treatment or booster archive, so European regulatory variation can only be noted as a limitation, not fully analyzed.
+
+\subsection*{How this changed over time / across variants}
+Policy has shifted from broad emergency mass vaccination framing toward more risk-prioritized, variant-aware, and health-system-integrated approaches. WHO materials explicitly encourage integration of COVID-19 vaccination into broader health services rather than treating it purely as an emergency-only intervention \cite{ref9,ref10}.
+
+\subsection*{Practical interpretation}
+Clinical and public-health communication should emphasize that:
+\begin{enumerate}[leftmargin=1.5em]
+    \item antibodies matter, but are not the whole story;
+    \item antibody tests are not stand-alone measures of protection;
+    \item vaccination strategy may vary by country, time period, circulating variant, and subgroup.
+\end{enumerate}
+
+\subsection*{Bottom line}
+\begin{itemize}[leftmargin=1.5em]
+    \item Current policy is more risk-prioritized than early-pandemic policy.
+    \item WHO supports periodic revaccination mainly for higher-risk groups.
+    \item CDC does not support using antibody tests as protection certificates.
+    \item Guidance may vary across jurisdictions and over time.
+\end{itemize}
+
+\section{What Is Well Established vs What Remains Uncertain}
+\subsection*{What is well established}
+The supplied evidence supports several findings with relatively high confidence:
+\begin{itemize}[leftmargin=1.5em]
+    \item Antibodies are important but incomplete components of SARS-CoV-2 immunity.
+    \item Neutralizing antibodies are more informative than ordinary binding antibodies for population-level short-term symptomatic protection.
+    \item Antibody levels wane over time.
+    \item Protection from severe outcomes is more durable than protection from infection.
+    \item Omicron-lineage variants produce more antibody escape than Alpha or Delta.
+    \item Antibody testing should not be used as a stand-alone measure of personal protection.
+\end{itemize}
+
+\subsection*{What is uncertain or debated}
+The most important unresolved areas in the supplied evidence set are:
+\begin{itemize}[leftmargin=1.5em]
+    \item exact individual-level protective antibody thresholds;
+    \item optimal revaccination timing by subgroup;
+    \item the long-term effect of repeated Omicron-era exposures on breadth and immune imprinting;
+    \item the durable clinical value of commercial serology in routine care;
+    \item the full current product-by-product status of antibody-based therapeutics.
+\end{itemize}
+
+\subsection*{How this changed over time / across variants}
+Many earlier conclusions remained broadly true but became less transferable without qualification. Omicron especially forced a shift from simple antibody positivity questions to more complex questions about quality, breadth, variant match, and outcome specificity.
+
+\subsection*{Practical interpretation}
+A good rule for readers is that ``well established'' applies more readily to general principles than to individual-level predictions.
+
+\begin{table}[H]
+\centering
+\caption{Table 8. Established findings vs open questions (synthesized from Refs.~\cite{ref1,ref3,ref5,ref8,ref9,ref12})}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.5cm}}
+\toprule
+Topic & Well established & Uncertain/evolving & Why uncertainty remains \\
+\midrule
+Neutralizing antibodies & Useful population-level correlate of symptomatic protection & Exact protective threshold for an individual & Variant change and assay heterogeneity \\
+Binding vs neutralizing assays & Not interchangeable & How well newer commercial assays track real-world risk & Platform variability and antigen mismatch \\
+Hybrid immunity & Often broadest overall in supplied review literature & Magnitude of added benefit after repeated exposures & Exposure sequence and imprinting \\
+Waning & Antibodies decline over months & Best timing for subgroup-specific revaccination & Product, prior infection, and variant differences \\
+Omicron escape & Greater than Alpha/Delta & Escape of each new sublineage & Continuous antigenic evolution \\
+Serology for individuals & Useful for some prior-exposure questions & Routine role in individual decision-making & No actionable universal threshold \\
+Therapeutic antibodies & Variant-sensitive historically & Current product-by-product utility & Rapidly changing susceptibility and regulation \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection*{Bottom line}
+\begin{itemize}[leftmargin=1.5em]
+    \item General principles are much better established than individual thresholds.
+    \item Omicron increased uncertainty around simple antibody-based interpretation.
+    \item Hybrid immunity appears broadly advantageous, but not in a one-size-fits-all way.
+    \item Current therapeutic and policy details remain moving targets.
+\end{itemize}
+
+\section{Key Quantitative Findings}
+\subsection*{What is well established}
+The supplied source set contains fewer hard pooled clinical estimates than the original prompt ideally requested, but several quantitative findings are directly supported.
+
+CDC's August 29, 2024 testing overview states that viral RNA may remain detectable for \emph{up to 90 days} after a positive test, which is relevant to the interpretation of NAAT/PCR rather than immunity \cite{ref1}. WHO materials from December 2024 and 2025 support considering periodic revaccination at \emph{6--12 month} intervals for high-priority groups, depending on subgroup and setting \cite{ref9,ref10,ref11,ref12}. WHO's December 2024 policy brief also states that SAGE recommends a \emph{simplified single-dose regimen} for most COVID-19 vaccines in high- and medium-priority groups in the context of widespread prior infection \cite{ref9,ref10}.
+
+\subsection*{What is uncertain or debated}
+The supplied citable source set does not provide harmonized cross-study pooled estimates for Alpha, Delta, Omicron, and major Omicron-sublineage fold reductions. The broader project materials summarized the pattern qualitatively---more modest reductions for Alpha and Delta, greater reductions for Omicron-lineage variants---and that cautious qualitative pattern is retained here \cite{ref3,ref5}.
+
+\subsection*{How this changed over time / across variants}
+Quantitative interpretation became harder as antigenic distance increased. Numbers from ancestral-strain or early-variant assays became less informative for newer Omicron-lineage viruses.
+
+\subsection*{Practical interpretation}
+Quantitative values should always be read with four pieces of context:
+\begin{enumerate}[leftmargin=1.5em]
+    \item what population was studied,
+    \item which variant period was involved,
+    \item which assay or outcome was measured,
+    \item whether the number describes laboratory function or clinical protection.
+\end{enumerate}
+
+\begin{table}[H]
+\centering
+\caption{Selected quantitative findings directly supported in the supplied citable source set}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}X}
+\toprule
+Finding & Value & Source context & Practical meaning \\
+\midrule
+Persistence of detectable viral RNA after a positive test & Up to 90 days & CDC testing overview, Aug.\ 29, 2024 \cite{ref1} & Relevant to PCR/NAAT interpretation, not to immunity \\
+WHO revaccination interval for most high-priority groups & 6--12 months & WHO policy/fact-sheet materials, Dec.\ 2024--2025 \cite{ref9,ref10,ref11,ref12} & Policy interval for higher-risk groups, not a direct antibody threshold \\
+WHO simplified regimen for most vaccines in high-/medium-priority groups & Single dose & WHO policy brief, Dec.\ 2024 \cite{ref9,ref10} & Reflects policy simplification in a population with widespread prior exposure \\
+Pregnancy in WHO revaccination framework & Revaccination during each pregnancy in some WHO materials & WHO global risk assessment, 2024 \cite{ref11} & Indicates special-population prioritization rather than a universal schedule \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection*{Bottom line}
+\begin{itemize}[leftmargin=1.5em]
+    \item The strongest direct numbers in the supplied set concern testing interpretation and WHO revaccination policy.
+    \item The supplied set supports qualitative variant comparisons more strongly than pooled fold estimates.
+    \item Quantitative statements must be tied to population, assay, variant period, and outcome.
+    \item Simulated numbers from the broader project are excluded from substantive evidence claims.
+\end{itemize}
+
+\section{Limitations of the Evidence Base}
+\subsection*{What is well established}
+Several limitations are clear from the project materials themselves. Most importantly, no participant-level dataset was provided. Therefore, no real outcome analysis could be performed. The project also included simulated cohort outputs, but those are not evidence and are excluded from the substantive synthesis.
+
+\subsection*{What is uncertain or debated}
+The biggest methodological limitation is that the source set is narrower than the prompt's ideal evidence hierarchy. The final citable set contains guidance documents and several strong reviews, but it does not contain the full mix of systematic reviews, randomized trials, large observational effectiveness studies, and product-specific current regulatory pages that a truly comprehensive review would ideally include.
+
+\subsection*{How this changed over time / across variants}
+Variant turnover is itself a limitation because findings from ancestral, Alpha, or Delta periods cannot simply be generalized forward to Omicron and later sublineages. Assay heterogeneity compounds this: spike-binding assays, nucleocapsid assays, surrogate neutralization, and live-virus neutralization are not interchangeable.
+
+\subsection*{Practical interpretation}
+The safest conclusion is not that the evidence is weak overall, but that interpretation must remain calibrated. In particular:
+\begin{itemize}[leftmargin=1.5em]
+    \item laboratory neutralization studies are mechanistically informative but not directly equal to clinical protection changes;
+    \item archived guidance is useful for historical context but not necessarily current policy;
+    \item current product-by-product therapeutic status should be verified from live regulatory sources.
+\end{itemize}
+
+\subsection*{Bottom line}
+\begin{itemize}[leftmargin=1.5em]
+    \item No real dataset was available for empirical analysis.
+    \item The review is evidence-based but source-limited.
+    \item Assay heterogeneity and variant turnover remain major interpretive constraints.
+    \item Antibody levels alone should not be treated as definitive measures of protection.
+\end{itemize}
+
+\section{References}
+\begin{thebibliography}{99}
+
+\bibitem{ref1}
+Centers for Disease Control and Prevention.
+\newblock \emph{Overview of Testing for SARS-CoV-2 | COVID-19 | CDC}.
+\newblock Updated August 29, 2024.
+\newblock \url{https://www.cdc.gov/covid/hcp/clinical-care/overview-testing-sars-cov-2.html}
+
+\bibitem{ref2}
+World Health Organization.
+\newblock \emph{Testing for SARS-CoV-2}.
+\newblock 2025.
+\newblock \url{https://www.who.int/docs/default-source/coronaviruse/1_diagnostic-testing_a40858ba4cdeb844218acf06d5cffffa8b.pdf?sfvrsn=8b8894bf_1}
+
+\bibitem{ref3}
+Zhang, A., et al.
+\newblock Beyond neutralization: Fc-dependent antibody effector functions in SARS-CoV-2 infection.
+\newblock \emph{Nature Reviews Immunology}, 2022/2023.
+\newblock \url{https://www.nature.com/articles/s41577-022-00813-1}
+
+\bibitem{ref4}
+\emph{The germinal centre B cell response to SARS-CoV-2}.
+\newblock \emph{Nature Reviews Immunology}, 2021.
+\newblock \url{https://www.nature.com/articles/s41577-021-00657-1}
+
+\bibitem{ref5}
+\emph{Humoral immunity and B-cell memory in response to SARS-CoV-2 infection and vaccination}.
+\newblock \emph{Frontiers in Immunology / PMC}, 2022.
+\newblock \url{https://pmc.ncbi.nlm.nih.gov/articles/PMC9788580/}
+
+\bibitem{ref6}
+U.S. Food and Drug Administration.
+\newblock \emph{Coronavirus Disease 2019 (COVID-19) Update: FDA Revokes Emergency Use Authorization for Monoclonal Antibody Bamlanivimab}.
+\newblock 2021.
+\newblock \url{https://www.fda.gov/news-events/press-announcements/coronavirus-covid-19-update-fda-revokes-emergency-use-authorization-monoclonal-antibody-bamlanivimab}
+
+\bibitem{ref7}
+Centers for Disease Control and Prevention.
+\newblock \emph{Overview of Testing for SARS-CoV-2, the virus that causes COVID-19}.
+\newblock Archived CDC guidance.
+\newblock \url{https://archive.cdc.gov/www_cdc_gov/coronavirus/2019-ncov/hcp/testing-overview.html}
+
+\bibitem{ref8}
+Centers for Disease Control and Prevention.
+\newblock \emph{Interim Guidelines for COVID-19 Antibody Testing}.
+\newblock Archived CDC guidance.
+\newblock \url{https://archive.cdc.gov/www_cdc_gov/coronavirus/2019-ncov/hcp/testing/antibody-tests-guidelines.html}
+
+\bibitem{ref9}
+World Health Organization.
+\newblock \emph{WHO policy brief: COVID-19 vaccination}.
+\newblock December 2024.
+\newblock \url{https://www.who.int/publications/m/item/who-policy-brief-covid-19-vaccination}
+
+\bibitem{ref10}
+World Health Organization.
+\newblock \emph{COVID-19 vaccination policy brief (PDF)}.
+\newblock December 2024.
+\newblock \url{https://www.who.int/docs/default-source/coronaviruse/policy-briefs/policy-brief_covid-19_vaccination.pdf?sfvrsn=8a899cd3_2}
+
+\bibitem{ref11}
+World Health Organization.
+\newblock \emph{COVID-19 Global Risk Assessment}.
+\newblock 2024.
+\newblock \url{https://www.who.int/docs/default-source/coronaviruse/situation-reports/covid-19_global-risk-assessment_final.pdf}
+
+\bibitem{ref12}
+World Health Organization.
+\newblock \emph{Coronavirus disease (COVID-19) fact sheet}.
+\newblock 2025.
+\newblock \url{https://www.who.int/news-room/fact-sheets/detail/coronavirus-disease-%28covid-19%29}
+
+\end{thebibliography}
+
+\end{document}

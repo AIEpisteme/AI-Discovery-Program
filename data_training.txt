@@ -1,0 +1,109 @@
+All quantitative results below are from the **synthetic simulation**, not real FineWeb runs.
+
+### H1: Feasibility by parameter bucket
+Tested whether `≤25M` stored-parameter candidates passed the 16 MB cap more often than `>25M` candidates.
+
+| Group | Artifact pass | Artifact fail | Pass rate |
+|---|---:|---:|---:|
+| ≤25M params | 22 | 0 | 100.0% |
+| >25M params | 0 | 6 | 0.0% |
+
+| Test | Statistic | P-value | Direction |
+|---|---|---:|---|
+| Fisher exact test | Perfect separation in 2×2 table | 2.65e-06 | Favors `≤25M` feasibility |
+
+**Validation note:** The effect is extremely strong in the synthetic data, but it is partly built into the simulation assumptions. Further action: confirm with real
+ packaged artifacts and actual tokenizer/code sizes.
+
+### H2: Tiny native FT/selective FT vs larger-base adapter methods
+Planned comparison of valid-run held-out loss between tiny native models and larger-base adapter methods.
+
+| Group | Valid runs | Mean held-out loss |
+|---|---:|---:|
+| Tiny native (tiny_full + compact_opt) | 16 | 3.6195 |
+| Larger-base adapter | 0 | NA |
+
+| Test | Result |
+|---|---|
+| Welch t-test | Not estimable; no valid larger-base adapter runs |
+
+**Validation note:** This is not a failed hypothesis test; it is a structural feasibility outcome in the synthetic benchmark. Further action: include at least some
+real larger-base adapter candidates only if they can genuinely satisfy the byte rule.
+
+### H3: Compact-optimized vs conventional tiny models
+Matched-pair comparison between `compact_opt` and `tiny_full`.
+
+| Metric | Value |
+|---|---:|
+| Matched pairs | 8 |
+| Mean loss difference (compact - tiny_full) | -0.0951 |
+| Paired t-test p-value | 0.1125 |
+
+**Validation note:** Directionally consistent with the hypothesis, but not conventionally significant at this synthetic sample size. Further action: increase matche
+d real runs and use real repeated seeds.
+
+### H4: Full FT vs LoRA on tiny bases
+Matched-pair comparison between `tiny_full` and `tiny_lora`.
+
+| Metric | Value |
+|---|---:|
+| Matched pairs | 6 |
+| Mean loss difference (full - LoRA) | -0.0416 |
+| Mean time difference of full vs LoRA | +4.44% |
+| Paired loss p-value | 0.0639 |
+| Paired time p-value | 0.0653 |
+
+**Validation note:** The synthetic result supports the expected direction: full FT appears slightly better in loss with modest time cost. Further action: real withi
+n-base paired runs are needed before claiming this effect.
+
+### Model/result interpretation table
+| Hypothesis | Synthetic support level | Interpretation |
+|---|---|---|
+| H1: `>25M` candidates fail artifact cap more often | Strong | Supported in simulation |
+| H2: tiny native beats larger adapter among valid runs | Indeterminate | Could not test because no valid larger-adapter runs existed |
+| H3: compact architectures beat conventional tiny models | Directional | Supported in sign, not confirmatory |
+| H4: full/selective FT beats LoRA on tiny bases | Directional | Supported in sign, not confirmatory |
+
+## Visualizations
+Two visualizations were already reported as generated in the prior synthetic run.
+
+### Available plots
+| Plot | Status | What it shows | Interpretation |
+|---|---|---|---|
+| Synthetic artifact size vs held-out loss | Generated | Scatter of artifact MB vs synthetic held-out loss, with 16 MB cap line | Large-adapter family sits outside
+feasible size region; compact/tiny families dominate valid space |
+| Synthetic time vs held-out loss | Generated | Scatter of time min vs synthetic held-out loss, with 10 min cap line | Most tiny/compact runs fit time; time is less
+ binding than artifact size in the simulation |
+
+### Descriptive alternative
+If the actual images are not being displayed here, the intended graph types are:
+
+1. **Scatter plot:** `x = artifact size (MB)`, `y = held-out loss`, colored by family, with a vertical line at `16 MB`.
+2. **Scatter plot:** `x = wall-clock time (min)`, `y = held-out loss`, colored by family, with a vertical line at `10 min`.
+
+These are the correct plots for this benchmark because they show the constrained-feasibility frontier directly.
+
+## Results
+### Main conclusion from available evidence
+Using the **synthetic prototype only**, the best-performing valid setup was a **compact-optimized tiny pretrained model**, not a larger-base adapter model.
+
+### Winner summary
+| Field | Value |
+|---|---|
+| Winner exp ID | E22 |
+| Winner family | compact_opt |
+| Params (M) | 22.878 |
+| Serialization bits | 3 |
+| Sequence length | 512 |
+| Artifact size (MB) | 10.638 |
+| Training time (min) | 7.312 |
+| Held-out loss | 3.5028 |
+
+### Winner artifact breakdown
+| Component | Size MB |
+|---|---:|
+| Weights | 8.579 |
+| Adapter | 0.000 |
+| Tokenizer | 1.271 |
+| Code | 0.724 |
+| Config | 0.063 |

@@ -1,0 +1,4 @@
+## Data Artifacts
+Synthetic datasets generated and analyzed here:
+- [Download synthetic_adaptability_multidomain.csv](sandbox:/mnt/data/synthetic_adaptability_multidomain.csv)
+- [Download synthetic_results_summary.csv](sandbox:/mnt/data/synthetic_results_summary.csv)

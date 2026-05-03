@@ -1,0 +1,6 @@
+ref1 | Shane Legg; Marcus Hutter | "Universal Intelligence: A Definition of Machine Intelligence" | arXiv | 2007 | https://arxiv.org/abs/0712.3329
+ref2 | Shane Legg; Marcus Hutter | "A Formal Measure of Machine Intelligence" | arXiv | 2006 | https://arxiv.org/abs/cs/0605024
+ref3 | Unknown | "Measuring universal intelligence: Towards an anytime intelligence test" | ScienceDirect (Artificial Intelligence journal) | 2011 | https://www.sciencedirect.com/science/article/pii/S0004370210001554
+ref4 | José Hernández-Orallo | "Heasuring (machine) intelligence universally: An interdisciplinary challenge" | Acta Europeana Systemica | 2020 | https://ojs.uclouvain.be/index.php/AES/article/view/57073
+ref5 | Karl Friston | "The free-energy principle: a unified brain theory?" | Nature Reviews Neuroscience | 2009 | https://www.nature.com/articles/nrn2787
+ref6 | Unknown | "Cattell–Horn–Carroll theory" | Wikipedia | n.d. | https://en.wikipedia.org/wiki/Cattell%E2%80%93Horn%E2%80%93Carroll_theory

@@ -1,0 +1,565 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage{enumitem}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\renewcommand{\arraystretch}{1.15}
+
+\newcommand{\placeholderfigure}[2]{
+\begin{figure}[htbp]
+\centering
+\fbox{\parbox{0.88\textwidth}{\centering\vspace{0.4cm}\textbf{Figure description.}\\#1\vspace{0.4cm}}}
+\caption{#2}
+\end{figure}
+}
+
+\title{\textbf{Global Warming: Scientific Basis, Observed Impacts, Future Risks, and Evidence-Based Responses}}
+\author{Evidence Synthesis Report}
+\date{\today}
+
+\begin{document}
+\onehalfspacing
+\maketitle
+
+\begin{abstract}
+Global warming is the long-term heating of Earth's surface, while climate change includes global warming plus broader changes in sea level, ice, precipitation, oceans, ecosystems, extremes, and human systems \cite{ref2}. The assessed literature, especially the Intergovernmental Panel on Climate Change (IPCC) Sixth Assessment Report (AR6), supports the conclusion that human activities, principally greenhouse-gas emissions, have unequivocally caused global warming, with global surface temperature reaching about 1.1$^\circ$C above 1850--1900 in 2011--2020 \cite{ref1}. The main mechanism is the enhanced greenhouse effect: human-emitted greenhouse gases alter Earth's radiative balance by absorbing and re-emitting outgoing infrared radiation \cite{ref3,ref4,ref5}. This report synthesizes evidence on definitions, physical mechanisms, human drivers, observed impacts, future risks, mitigation, adaptation, climate justice, uncertainty, and misinformation. No independent empirical statistical test was performed because no empirical quantitative dataset was provided; a synthetic workflow demonstration is quarantined in an appendix and is not used as climate evidence.
+\end{abstract}
+
+\section*{Executive Summary}
+
+\begin{itemize}[leftmargin=1.5em]
+    \item \textbf{Definition.} Global warming is the long-term increase in Earth's average surface temperature. Climate change is broader and includes warming plus shifts in precipitation, sea level, ice, oceans, extreme events, ecosystems, and human systems \cite{ref2}.
+    \item \textbf{Main cause.} The assessed authoritative literature concludes that human activities, principally greenhouse-gas emissions, have unequivocally caused recent global warming \cite{ref1,ref7}.
+    \item \textbf{Physical mechanism.} Greenhouse gases absorb and re-emit outgoing infrared radiation, strengthening the natural greenhouse effect. Carbon dioxide (CO$_2$), methane (CH$_4$), nitrous oxide (N$_2$O), and fluorinated gases are major anthropogenic greenhouse gases \cite{ref3,ref4,ref5}.
+    \item \textbf{Human drivers.} The major drivers include fossil fuel combustion, deforestation and land-use change, agriculture, industrial processes, and consumption patterns. EPA identifies fossil fuel use, deforestation, agriculture, waste, energy production, fertilizer use, refrigeration, and industrial processes as important sources of greenhouse gases \cite{ref4}.
+    \item \textbf{Observed impacts.} Observed consequences include global temperature rise, greater warming over land than ocean, sea level rise, ocean heat uptake, ice loss, Arctic sea ice decline, changing extremes, ecosystem disruption, and rising risks to food, water, infrastructure, health, and economies \cite{ref1,ref6}.
+    \item \textbf{Future risks.} Risks increase with every additional increment of warming. Low-emissions pathways reduce projected warming and risk compared with high-emissions pathways, while adaptation options become more constrained as warming increases \cite{ref1,ref7}.
+    \item \textbf{Mitigation.} Evidence-supported mitigation portfolios include clean electricity, renewable energy, energy efficiency, electrification, methane reduction, avoided deforestation, sustainable agriculture, selected carbon capture for hard-to-abate sectors, and demand-side changes \cite{ref1,ref6}.
+    \item \textbf{Adaptation.} Adaptation options include heat action plans, flood defenses, resilient agriculture, water management, urban planning, disaster preparedness, ecosystem-based adaptation, and managed retreat where protection is not viable \cite{ref1}.
+    \item \textbf{Equity.} Responsibility, vulnerability, and adaptive capacity are unevenly distributed. IPCC AR6 notes unequal historical and ongoing contributions from energy use, land use, lifestyles, and patterns of consumption and production \cite{ref1}.
+    \item \textbf{Uncertainty and misinformation.} Uncertainty remains in areas such as regional precipitation, aerosol effects, cloud feedbacks, ice-sheet dynamics, tipping thresholds, technology deployment, and policy implementation. These uncertainties do not undermine the high-confidence conclusion that human activities are the dominant cause of recent global warming \cite{ref1,ref5}.
+\end{itemize}
+
+\tableofcontents
+\newpage
+
+\section{Introduction}
+
+Global warming is scientifically important because it reflects a persistent imbalance in Earth's energy budget. It is socially, economically, and politically important because warming alters water availability, coastal risk, extreme heat, ecosystems, food production, infrastructure planning, public health, and development choices. The purpose of this report is to provide a comprehensive evidence synthesis explaining what global warming is, why it is occurring, how confident scientists are about its causes and consequences, and what practical mitigation and adaptation actions are most supported by the supplied evidence.
+
+This report distinguishes among four categories of evidence. First, physical science findings explain the mechanisms and attribution of warming. Second, impact and risk assessments evaluate observed and projected consequences. Third, mitigation evidence evaluates options to reduce greenhouse-gas emissions or enhance removals. Fourth, adaptation evidence evaluates options to reduce harm from climate hazards. Ethical, economic, and justice considerations cut across all four categories.
+
+The report also distinguishes assessed literature from independent empirical testing. The research hypothesis supplied for this project states that cumulative anthropogenic greenhouse-gas emissions have been the dominant causal driver of observed global mean surface warming since 1850 and that low-emissions pathways produce lower future warming and climate-risk indicators than medium- or high-emissions pathways. The assessed authoritative literature supports this conclusion, especially IPCC AR6 \cite{ref1,ref6,ref7}. However, no independent empirical hypothesis test was performed in this report because no empirical quantitative dataset was provided.
+
+\section{Definitions: Global Warming vs. Climate Change}
+
+\subsection{Global warming}
+
+Global warming refers specifically to the long-term increase in Earth's average surface temperature. NASA describes global warming as the long-term warming of the planet and notes that global temperature has shown a well-documented rise, especially since the late twentieth century \cite{ref2}. In contemporary scientific and policy usage, global warming usually refers to warming driven primarily by human activities, especially fossil fuel combustion and associated greenhouse-gas emissions \cite{ref1,ref2}.
+
+\subsection{Climate change}
+
+Climate change is broader than global warming. It includes changes in temperature, precipitation, sea level, ice cover, ocean conditions, extreme weather patterns, ecosystems, and regional or seasonal climate behavior. NASA states that climate change encompasses global warming but also includes rising sea levels, shrinking mountain glaciers, accelerating ice melt, and biological timing shifts \cite{ref2}. Thus, global warming is one major component of climate change, but climate change includes the wider physical, ecological, and human-system consequences of warming.
+
+\section{Scientific Basis of Global Warming}
+
+\subsection{The greenhouse effect}
+
+The greenhouse effect is a natural process that helps keep Earth habitable. Solar radiation enters the climate system; some is reflected, and some is absorbed by Earth's surface. The warmed surface emits infrared radiation. Greenhouse gases absorb and re-emit part of that outgoing infrared radiation, including back toward the surface. This natural greenhouse effect is necessary for a habitable climate.
+
+Global warming is caused by an enhanced greenhouse effect. Human activities add long-lived greenhouse gases to the atmosphere, increasing the amount of outgoing infrared energy retained in the climate system. NOAA describes CO$_2$ as Earth's most important long-lived greenhouse gas and states that adding more CO$_2$ amplifies the natural greenhouse effect, causing global temperature to rise \cite{ref3}. The Royal Society and U.S. National Academy of Sciences likewise explain the evidence and causes of climate change in terms of greenhouse-gas physics and converging observational evidence \cite{ref5}.
+
+\subsection{Radiative forcing}
+
+Radiative forcing is a change in Earth's energy balance caused by a forcing agent. Positive forcing tends to warm the climate system; negative forcing tends to cool it. Greenhouse gases exert positive forcing. Some aerosols cool by reflecting sunlight, while others, such as black carbon, can warm regionally. Land-use changes can affect albedo and carbon storage. Solar and volcanic influences affect climate, especially on shorter timescales, but IPCC AR6 attributes recent long-term global warming primarily to human influence \cite{ref1}.
+
+\begin{table}[htbp]
+\centering
+\caption{Major forcing agents and expected climate effects}
+\begin{tabularx}{\textwidth}{p{2.8cm}Yp{2.4cm}p{2.1cm}Y}
+\toprule
+Forcing agent & Main source & Direction of effect & Confidence & Notes \\
+\midrule
+Carbon dioxide & Fossil fuels, cement production, deforestation, land-use change & Warming & Very high & Dominant long-lived anthropogenic greenhouse gas \\
+Methane & Agriculture, fossil fuel systems, waste & Warming & High & Strong near-term warming influence \\
+Nitrous oxide & Fertilizer, manure, industry, combustion & Warming & High & Long-lived greenhouse gas \\
+Fluorinated gases & Refrigeration, air conditioning, industrial uses & Warming & High & Often high warming effect per molecule \\
+Aerosols & Combustion, industry, biomass burning & Mixed, often cooling & Medium to high & Effects vary by composition and region \\
+Solar and volcanic factors & Natural processes & Variable & High for short-term effects & Do not explain the observed long-term recent warming trend in IPCC assessment \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Major greenhouse gases}
+
+\textbf{Carbon dioxide.} CO$_2$ enters the atmosphere through burning fossil fuels, cement production, deforestation, land clearing, and other land-use changes. NOAA reports that natural sinks, including plant growth and ocean absorption, remove about half of human-emitted CO$_2$, while the rest remains in the atmosphere, so atmospheric CO$_2$ rises when emissions exceed sink uptake \cite{ref3}. IPCC AR6 reports that atmospheric CO$_2$ concentration in 2019 was higher than at any time in at least 2 million years \cite{ref1}.
+
+\textbf{Methane.} Methane is emitted from agriculture, waste, and energy systems. EPA identifies agricultural activities, waste management, energy production and use, and biomass burning as contributors to CH$_4$ emissions \cite{ref4}. Because methane is potent over shorter timescales, methane reduction can help slow near-term warming, although CO$_2$ remains central to cumulative long-term warming.
+
+\textbf{Nitrous oxide.} Nitrous oxide emissions are linked strongly to agriculture, especially fertilizer use, and also to chemical production and fossil fuel combustion \cite{ref4}. IPCC AR6 reports that methane and nitrous oxide concentrations in 2019 were higher than at any time in at least 800,000 years \cite{ref1}.
+
+\textbf{Fluorinated gases.} Fluorinated gases are synthetic gases used in refrigeration, air conditioning, and industrial processes. They are emitted in smaller total quantities than CO$_2$ but can have high warming effects per molecule \cite{ref4}.
+
+\subsection{Carbon cycle feedbacks}
+
+The carbon cycle includes natural sinks and sources in oceans, forests, soils, vegetation, and geological systems. Oceans and terrestrial ecosystems currently remove a substantial fraction of human-emitted CO$_2$ \cite{ref3}. However, warming can weaken some sinks or create additional emissions through wildfire, forest stress, soil carbon loss, and permafrost thaw. The magnitude and timing of these feedbacks remain uncertain, but their direction matters because weakened sinks or additional carbon release would make stabilization more difficult.
+
+Ocean uptake of CO$_2$ also causes ocean acidification. NOAA explains that CO$_2$ dissolves into ocean water, reacts to form carbonic acid, and lowers ocean pH, affecting marine organisms that build shells and skeletons \cite{ref3}. Thus, CO$_2$ emissions produce both warming and chemical changes in the ocean.
+
+\section{Main Human Drivers of Global Warming}
+
+\subsection{Fossil fuel combustion}
+
+Fossil fuel combustion is the central driver of anthropogenic CO$_2$ emissions. Coal, oil, and natural gas are used in electricity generation, transport, industry, heating, and buildings. EPA identifies fossil fuel use as the primary source of CO$_2$ and notes that CO$_2$ can also be emitted from landscapes through deforestation, land clearance, and soil degradation \cite{ref4}. Because CO$_2$ accumulates, cumulative emissions are especially important for long-term warming.
+
+\subsection{Deforestation and land-use change}
+
+Deforestation and land-use change contribute to global warming by releasing stored carbon and reducing future carbon uptake. Forest clearing for agriculture, urbanization, or resource extraction removes carbon sinks and can also alter biodiversity, hydrology, and local climate. Restoration and improved land management can remove CO$_2$, but such approaches require attention to permanence, biodiversity, land tenure, and social rights \cite{ref1,ref4}.
+
+\subsection{Agriculture}
+
+Agriculture emits methane from livestock and rice production, nitrous oxide from fertilizers and manure, and CO$_2$ from land clearing and soil carbon loss. EPA identifies agriculture as a contributor to methane and the primary source of nitrous oxide emissions \cite{ref4}. Mitigation options include improving fertilizer efficiency, reducing food waste, changing livestock management, protecting soils, and reducing land clearing.
+
+\subsection{Industrial processes}
+
+Industrial processes emit greenhouse gases through fossil energy use and chemical reactions. Cement production releases CO$_2$ chemically as well as through fuel use. Steel, chemicals, and heavy industry are energy-intensive and can be difficult to decarbonize. Fluorinated gases arise from refrigeration, air conditioning, and industrial applications \cite{ref4}. Hard-to-abate industrial emissions are one area where carbon capture may have a role, but it cannot substitute for broad emissions reductions.
+
+\subsection{Consumption patterns}
+
+Consumption patterns shape emissions through energy demand, material use, diets, transport choices, urban design, housing, and supply chains. Production-based emissions accounting attributes emissions to where goods are produced; consumption-based accounting attributes emissions to where goods are consumed. These approaches produce different responsibility profiles and are relevant to climate justice. IPCC AR6 notes unequal historical and ongoing contributions from energy use, land use, lifestyles, and patterns of consumption and production \cite{ref1}.
+
+\begin{table}[htbp]
+\centering
+\caption{Human drivers and mitigation levers}
+\begin{tabularx}{\textwidth}{p{2.8cm}p{2.7cm}Yp{2.5cm}Y}
+\toprule
+Human driver & Main gases & Main sectors & Evidence strength & Mitigation levers \\
+\midrule
+Fossil fuels & CO$_2$, CH$_4$ & Power, transport, buildings, industry & Very high & Clean electricity, efficiency, electrification, demand reduction \\
+Deforestation and land-use change & CO$_2$ & Land use, agriculture, urban expansion & High & Avoided deforestation, restoration, soil and forest protection \\
+Agriculture & CH$_4$, N$_2$O, CO$_2$ & Livestock, rice, fertilizer, soils & High & Methane reduction, fertilizer efficiency, food waste reduction \\
+Industry & CO$_2$, F-gases, N$_2$O & Cement, steel, chemicals, refrigeration & High & Process innovation, electrification, selected carbon capture \\
+Consumption patterns & Multiple & Transport, food, housing, materials & High & Low-carbon choices, circular economy, urban redesign \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Observed Global and Regional Trends}
+
+\subsection{Global temperature trends}
+
+IPCC AR6 reports that global surface temperature was 1.09$^\circ$C higher in 2011--2020 than in 1850--1900, with larger increases over land than over the ocean \cite{ref1}. NASA similarly states that global warming is a long-term warming of the planet and that global temperatures have risen markedly since the late twentieth century \cite{ref2}. Regional warming differs: land warms faster than ocean, high-latitude regions are especially sensitive, and local exposure depends on geography, infrastructure, and vulnerability.
+
+\subsection{Sea level rise}
+
+Sea level rise results from thermal expansion of warming seawater and added water from melting glaciers and ice sheets. The IPCC synthesis reports that deep, rapid, and sustained emissions reductions would limit further acceleration of sea level rise, while higher-emissions pathways produce larger sea level commitments \cite{ref1}. Sea level rise varies regionally because of ocean circulation, land motion, gravitational effects of ice loss, and local coastal processes.
+
+\subsection{Ocean heat content}
+
+Ocean heat content has increased as the ocean absorbs heat from the planetary energy imbalance. Increasing ocean heat contributes to thermal expansion, sea level rise, marine heatwaves, and stress on marine ecosystems. IPCC AR6 synthesizes evidence of widespread changes in the ocean and broader climate system \cite{ref1,ref6}. NOAA's discussion of atmospheric CO$_2$ also emphasizes the importance of ocean uptake for both carbon storage and ocean acidification \cite{ref3}.
+
+\subsection{Glacier and ice sheet loss}
+
+Mountain glaciers and the Greenland and Antarctic ice sheets contribute to sea level rise when they lose mass. NASA's definition page identifies shrinking mountain glaciers and accelerating ice melt in Greenland, Antarctica, and the Arctic as part of the broader climate-change evidence associated with warming \cite{ref2}. IPCC AR6 also identifies cryosphere change as part of the observed climate-system response \cite{ref1,ref6}.
+
+\subsection{Arctic sea ice decline}
+
+Arctic sea ice decline affects albedo, ecosystems, Indigenous and local communities, marine access, and regional feedbacks. Reduced sea ice exposes darker ocean water, which absorbs more solar energy than ice, amplifying regional warming. NASA includes Arctic ice melt among the broader changes associated with climate change \cite{ref2}. The exact timing of future summer ice-free conditions depends on future emissions and internal variability.
+
+\subsection{Extreme weather patterns}
+
+Evidence has strengthened for human influence on some extremes, particularly heat extremes and heavy precipitation \cite{ref1}. Changes in drought, wildfire weather, tropical cyclones, floods, and compound events vary by region and event type. It is important to distinguish the physical trend in a type of hazard from the total disaster impact, which also depends on exposure, vulnerability, infrastructure, land management, and preparedness.
+
+\subsection{Ecosystem changes}
+
+Ecosystems respond to warming through species range shifts, phenological changes, coral bleaching, forest stress, and altered biodiversity risk. Ocean acidification caused by CO$_2$ uptake affects marine organisms that depend on carbonate chemistry \cite{ref3}. IPCC AR6 warns that risks of species extinction and irreversible biodiversity loss increase with additional warming \cite{ref1}.
+
+\subsection{Human health impacts}
+
+The supplied source set does not include a dedicated WHO health reference, so health impacts are discussed only at the level supported by the IPCC synthesis. IPCC AR6 identifies widespread impacts and risks to human systems, including risks that interact with food, water, livelihoods, infrastructure, and health \cite{ref1,ref6}. Heat exposure is one of the clearest health-relevant pathways. Vulnerability is higher among older people, children, outdoor workers, low-income groups, and communities with limited adaptive capacity.
+
+\subsection{Food, water, infrastructure, and economic impacts}
+
+Climate risks affect agriculture, fisheries, water availability, flood and drought exposure, infrastructure reliability, labor productivity, disaster losses, and economic stability. These impacts are shaped by both hazards and vulnerability. IPCC AR6 emphasizes that climate risks are widespread and that adaptation and mitigation choices affect the scale of future impacts \cite{ref1,ref6}.
+
+\begin{table}[htbp]
+\centering
+\caption{Observed trend synthesis}
+\begin{tabularx}{\textwidth}{p{2.8cm}Yp{2.8cm}p{3cm}p{2.2cm}}
+\toprule
+Impact area & Observed trend & Main supplied sources & Regional differences & Confidence \\
+\midrule
+Temperature & Increasing globally; land warming exceeds ocean warming & IPCC, NASA & Strong regional variation & Very high \\
+Sea level & Rising from warming oceans and land ice loss & IPCC, NASA & Varies by coast and land motion & Very high \\
+Ocean heat & Increasing as part of planetary energy imbalance & IPCC, NOAA & Ocean-basin differences & Very high \\
+Ice and snow & Glacier retreat and ice-sheet mass loss contribute to sea level & IPCC, NASA & Strong cryosphere regionality & High \\
+Arctic sea ice & Declining as part of Arctic climate change & IPCC, NASA & Arctic amplification important & High \\
+Extremes & Heat and heavy precipitation evidence strongest; other extremes more regional & IPCC & Event-type dependent & Medium to high \\
+Human systems & Rising food, water, health, infrastructure, and livelihood risks & IPCC & Exposure and vulnerability dominate outcomes & Medium to high \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\placeholderfigure{A final empirical version would show observed global mean surface temperature anomalies relative to 1850--1900 or another stated baseline, using authoritative observational datasets. No empirical plot is generated here because no dataset was supplied.}{Planned figure: global temperature trend.}
+
+\placeholderfigure{A final empirical version would show atmospheric CO$_2$, CH$_4$, N$_2$O, and selected fluorinated-gas concentration trends, using NOAA or comparable monitoring data. No empirical plot is generated here because no dataset was supplied.}{Planned figure: greenhouse-gas concentration trends.}
+
+\section{Scientific Confidence and Attribution}
+
+IPCC AR6 states that human activities, principally greenhouse-gas emissions, have unequivocally caused global warming \cite{ref1}. This high confidence does not mean absolute certainty in every regional projection or every impact estimate. Rather, it reflects converging evidence from observations, physical understanding, radiative forcing calculations, paleoclimate evidence, and model-based attribution.
+
+Key attribution evidence includes observed increases in well-mixed greenhouse-gas concentrations, the radiative properties of greenhouse gases, surface and ocean warming, cryosphere changes, and comparisons of natural and human forcing. IPCC AR6 estimates that total human-caused warming from 1850--1900 to 2010--2019 was likely 0.8$^\circ$C to 1.3$^\circ$C, with greenhouse gases contributing warming and other human drivers, mainly aerosols, offsetting part of that warming \cite{ref1}. Natural drivers and internal variability are not sufficient to explain the long-term warming trend assessed by IPCC \cite{ref1,ref5}.
+
+Scientific confidence is strongest at the global scale for the human cause of warming, the basic greenhouse mechanism, the warming trend, ocean heat uptake, and sea level rise. Confidence is lower for some regional projections, especially local precipitation changes, specific drought trends, future ice-sheet dynamics, and tipping thresholds.
+
+\section{Future Warming Scenarios and Risk Thresholds}
+
+\subsection{Emissions pathways}
+
+Future warming depends on future greenhouse-gas emissions. Low-emissions pathways involve rapid reductions and eventual net zero CO$_2$, accompanied by strong reductions in methane and other greenhouse gases. Medium-emissions pathways involve slower or incomplete reductions. High-emissions pathways involve continued high fossil fuel use and greater cumulative emissions. IPCC AR6 emphasizes that future risks depend strongly on choices made now and in the near term \cite{ref1,ref7}.
+
+\begin{table}[htbp]
+\centering
+\caption{Emissions pathway categories}
+\begin{tabularx}{\textwidth}{p{2.8cm}Y Y Y p{2.2cm}}
+\toprule
+Pathway type & Approximate emissions trend & Expected climate outcome & Key assumptions & Risk level \\
+\midrule
+Low emissions & Rapid decline toward net zero CO$_2$ & Lower warming and reduced risks & Strong mitigation and sustained policy implementation & Lower but not zero \\
+Medium emissions & Slow decline, plateau, or partial mitigation & Continued warming and rising risks & Partial policy success and uneven transition & Moderate to high \\
+High emissions & Continued growth or fossil-heavy development & Severe warming and larger impacts & Weak mitigation and high cumulative emissions & Very high \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{The 1.5$^\circ$C and 2$^\circ$C thresholds}
+
+The 1.5$^\circ$C and 2$^\circ$C thresholds refer to global warming relative to pre-industrial levels. They are policy-relevant because international climate goals use them as benchmarks, and they are scientifically important because risks increase with additional warming. IPCC AR6 reports that adaptation options feasible today become more constrained and less effective with increasing warming \cite{ref1}. Overshoot pathways, in which warming temporarily exceeds a threshold and later declines, can still create additional and sometimes irreversible risks.
+
+\subsection{Long-term risks}
+
+Long-term risks include ice-sheet instability, long-term sea level rise, ecosystem transformation, coral reef loss, biodiversity loss, and limits to adaptation. IPCC AR6 states that the likelihood and impacts of abrupt or irreversible changes increase with further warming \cite{ref1}. Some risks are high confidence in direction but uncertain in timing and magnitude. This is especially true for low-probability, high-impact outcomes such as rapid ice-sheet responses or tipping-element changes.
+
+\placeholderfigure{A final empirical version would show low-, medium-, and high-emissions projected warming pathways, clearly labeled as conditional projections rather than forecasts. No empirical scenario plot is generated here because no scenario dataset was supplied.}{Planned figure: projected warming pathways.}
+
+\section{Mitigation Options}
+
+Mitigation reduces greenhouse-gas emissions or enhances removals. IPCC AR6 synthesizes mitigation evidence across energy, land, industry, buildings, transport, demand-side measures, and carbon dioxide removal \cite{ref6}. Because the supplied source set does not include detailed IPCC Working Group III tables, option ratings below are qualitative synthesis judgments and should not be read as quantitative cost or potential estimates.
+
+\subsection{Renewable energy}
+
+Solar, wind, hydropower, geothermal, and sustainable bioenergy can reduce fossil fuel combustion when deployed with appropriate grid, storage, transmission, and land-use planning. Solar and wind are especially important for clean electricity expansion. Hydropower can provide low-carbon electricity but has ecological and social tradeoffs. Bioenergy requires careful sustainability constraints.
+
+\subsection{Energy efficiency}
+
+Energy efficiency reduces the amount of energy needed to provide services in buildings, appliances, industry, and transport. Efficiency can reduce emissions, lower bills, and reduce infrastructure requirements. Rebound effects, upfront costs, and split incentives can limit effectiveness.
+
+\subsection{Electrification}
+
+Electrification shifts end uses such as vehicles, heating, and some industrial processes from direct fossil fuel combustion to electricity. It reduces emissions most effectively when electricity generation is increasingly low-carbon. Electrification requires grid expansion, charging infrastructure, supply-chain planning, and affordability policies.
+
+\subsection{Nuclear power}
+
+Nuclear power can provide low-carbon firm electricity in some national contexts. Its role depends on cost, construction timelines, safety governance, waste management, public acceptance, and compatibility with electricity-system planning. It should not be treated as either universally required or universally irrelevant.
+
+\subsection{Carbon pricing}
+
+Carbon taxes, cap-and-trade systems, and related pricing instruments can encourage emissions reductions by making greenhouse-gas emissions more costly. Effectiveness depends on price level, sectoral coverage, enforcement, complementary policies, and distributional design. Revenue recycling can reduce inequity.
+
+\subsection{Methane reduction}
+
+Methane reduction can slow near-term warming. Options include oil and gas leak detection and repair, coal mine methane controls, landfill gas capture, livestock management, manure management, and rice cultivation changes. EPA identifies agriculture, waste, energy production and use, and biomass burning as methane sources \cite{ref4}.
+
+\subsection{Reforestation and avoided deforestation}
+
+Avoided deforestation protects existing carbon stocks and biodiversity. Reforestation and ecosystem restoration can sequester carbon, improve water regulation, and support biodiversity. Key risks include impermanence, wildfire, drought stress, monoculture plantations, land conflict, and violations of Indigenous or local land rights.
+
+\subsection{Sustainable agriculture}
+
+Sustainable agriculture includes fertilizer efficiency, soil carbon protection, agroforestry, livestock management, food waste reduction, and dietary shifts where culturally appropriate and nutritionally adequate. These actions can reduce methane, nitrous oxide, and land-use pressure.
+
+\subsection{Carbon capture}
+
+Carbon capture and storage can be relevant for hard-to-abate industrial processes and possibly for some carbon dioxide removal pathways. Direct air capture and bioenergy with carbon capture require substantial energy, infrastructure, monitoring, and storage governance. Carbon capture should not be used as a rationale for delaying emissions cuts.
+
+\subsection{Behavioral and demand-side changes}
+
+Demand-side mitigation includes reduced food waste, lower-emissions transport, efficient housing, material efficiency, circular economy approaches, and reduced high-emitting consumption. These options depend on infrastructure, affordability, social norms, policy design, and equity.
+
+\begin{table}[htbp]
+\centering
+\caption{Mitigation options: qualitative synthesis}
+\begin{tabularx}{\textwidth}{p{3cm}p{3cm}p{2.6cm}Y Y}
+\toprule
+Option & Emissions-reduction role & Readiness & Co-benefits & Key limits or risks \\
+\midrule
+Solar and wind & High in power systems & High & Air quality, energy security & Grid integration, storage, permitting \\
+Efficiency & High across sectors & High & Lower bills, reduced demand & Rebound effects, upfront costs \\
+Electrification & High if powered by clean electricity & Medium to high & Air quality, reduced fossil use & Grid expansion and infrastructure \\
+Methane reduction & High near-term relevance & High in many sources & Safety and air-quality benefits & Monitoring and enforcement \\
+Forest protection & Carbon and biodiversity benefits & Medium to high & Water and ecosystem benefits & Permanence and land rights \\
+Nuclear power & Context-dependent low-carbon electricity & Medium & Firm low-carbon power & Cost, time, waste, acceptance \\
+Carbon capture & Sector-specific role & Medium to low & Hard-to-abate sectors & Cost, scale, storage governance \\
+Demand-side changes & High in aggregate if enabled & Medium & Health and cost benefits & Equity and behavioral constraints \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Adaptation Options}
+
+Adaptation reduces harm from climate impacts that are already occurring or unavoidable. IPCC AR6 states that feasible and effective adaptation options exist today but become constrained and less effective as warming increases \cite{ref1}. Adaptation cannot substitute for mitigation, because higher warming increases residual risks and losses.
+
+\subsection{Heat action plans}
+
+Heat action plans include heat early warning systems, cooling centers, occupational protections, public health communication, urban shade, cool roofs, and targeted support for older people, children, outdoor workers, and medically vulnerable groups. Equity is central because heat exposure and access to cooling differ sharply within cities and regions.
+
+\subsection{Flood defenses}
+
+Flood defenses include seawalls, levees, drainage improvements, floodplain management, and nature-based buffers. They can reduce risk but may also create residual risk, high maintenance costs, or risk transfer to neighboring communities.
+
+\subsection{Resilient agriculture}
+
+Resilient agriculture includes drought-tolerant crops, crop diversification, shifting planting dates, soil moisture conservation, irrigation efficiency, and climate information services. Smallholder access, affordability, and local knowledge are crucial.
+
+\subsection{Water management}
+
+Water adaptation includes demand management, water reuse, groundwater protection, watershed restoration, drought planning, and cooperation over shared basins. Maladaptation risks include overreliance on groundwater or inequitable allocation during drought.
+
+\subsection{Urban planning}
+
+Urban planning can reduce heat and flood exposure through green infrastructure, cool roofs, zoning, transit-oriented development, floodplain management, building codes, and resilient design. Cities are important because they concentrate people, infrastructure, and heat exposure.
+
+\subsection{Disaster preparedness}
+
+Preparedness includes early warning systems, evacuation planning, emergency response, risk mapping, insurance and financial protection, and community-based disaster planning. Effectiveness depends on governance capacity and whether warnings reach vulnerable groups.
+
+\subsection{Ecosystem-based adaptation}
+
+Ecosystem-based adaptation uses mangroves, wetlands, forests, reefs, and watersheds to buffer hazards and support biodiversity. It must account for ecosystem limits under warming and protect local and Indigenous rights.
+
+\subsection{Managed retreat}
+
+Managed retreat may be necessary where chronic flooding, erosion, sea level rise, or repeated disasters make protection impractical. It raises difficult questions of consent, compensation, cultural loss, legal rights, and community continuity.
+
+\begin{table}[htbp]
+\centering
+\caption{Adaptation options: qualitative synthesis}
+\begin{tabularx}{\textwidth}{p{3cm}p{3cm}p{3cm}Y Y}
+\toprule
+Option & Main risk addressed & Evidence of usefulness & Equity considerations & Limits or risks \\
+\midrule
+Heat action plans & Extreme heat & Strong in principle & Protect vulnerable groups & Outreach and funding \\
+Flood defenses & Coastal and river flooding & Context-specific & Can shift risk & Cost, overtopping, maintenance \\
+Resilient agriculture & Food insecurity & Medium to strong & Smallholder access & Limits under severe warming \\
+Water management & Drought and scarcity & Strong in principle & Allocation conflicts & Groundwater depletion \\
+Urban planning & Heat and flooding & Strong when integrated & Housing affordability & Governance capacity \\
+Disaster preparedness & Extremes and compound hazards & Strong in principle & Inclusive warnings & Institutional capacity \\
+Ecosystem-based adaptation & Floods, heat, coastal hazards & Context-specific & Land rights and consent & Ecosystem degradation \\
+Managed retreat & Chronic exposure & Context-dependent & Consent and compensation & Cultural and social disruption \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Climate Justice and Equity}
+
+Climate justice addresses unequal responsibility, unequal vulnerability, and unequal capacity to respond. IPCC AR6 reports unequal historical and ongoing contributions to greenhouse-gas emissions across regions, countries, and individuals \cite{ref1}. Historical cumulative emissions, current annual emissions, per-capita emissions, and consumption-based emissions each illuminate different dimensions of responsibility.
+
+Vulnerability differs by income, geography, governance, infrastructure, health systems, historical marginalization, and dependence on climate-sensitive livelihoods. Low-income countries, small island states, Indigenous communities, children, outdoor workers, elderly people, and future generations often face heightened risks or reduced adaptive capacity.
+
+Finance, technology transfer, capacity building, and loss-and-damage arrangements are important because many vulnerable communities have contributed least to historical emissions but face significant adaptation needs. Procedural justice requires participation in decision-making, respect for land rights, and free, prior, and informed consent for Indigenous peoples where climate actions affect their territories or resources.
+
+\begin{table}[htbp]
+\centering
+\caption{Climate justice dimensions}
+\begin{tabularx}{\textwidth}{p{3.2cm}Yp{3cm}Y}
+\toprule
+Group or region & Main climate risks & Relative emissions responsibility & Key justice issues \\
+\midrule
+Small island states & Sea level rise, storms, coastal loss & Low & Survival, relocation, loss and damage \\
+Low-income countries & Heat, food, water, disasters & Low historical emissions & Finance, capacity, development rights \\
+Indigenous communities & Ecosystem disruption, land loss & Generally low & Land rights, sovereignty, consent \\
+Future generations & Long-term warming and sea level rise & None & Intergenerational responsibility \\
+Outdoor workers and elderly people & Heat exposure and health risk & Varies & Health protection and labor safeguards \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Major Uncertainties and Contested Areas}
+
+The central scientific consensus is strong: human activities are the dominant cause of recent global warming \cite{ref1,ref5}. Remaining uncertainties concern magnitudes, regional details, thresholds, and implementation feasibility. Uncertainty does not imply safety; it can include the possibility of worse outcomes.
+
+\begin{table}[htbp]
+\centering
+\caption{Uncertainty categories}
+\begin{tabularx}{\textwidth}{p{3cm}Y Y Y}
+\toprule
+Topic & Well established & What remains uncertain & Why it matters \\
+\midrule
+Human cause of warming & Human influence is dominant & Exact partitioning among forcing agents & Attribution and policy design \\
+Climate sensitivity & Warming response is constrained by evidence & Remaining range of response & Carbon budgets and long-term risk \\
+Aerosols and clouds & Affect radiative balance & Regional and feedback details & Near-term warming and air-quality tradeoffs \\
+Regional rainfall & Hydrological patterns are changing & Local magnitude and timing & Water and agriculture planning \\
+Sea level rise & Sea level is rising & Long-term ice-sheet response & Coastal planning and retreat \\
+Tipping elements & Risks increase with warming & Thresholds and timing & Low-probability, high-impact risk \\
+Technology deployment & Many mitigation options exist & Scale, speed, cost, governance & Feasibility of pathways \\
+Adaptation limits & Adaptation becomes constrained at higher warming & Local thresholds and capacity & Residual losses and damages \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Scientific uncertainty is different from political disagreement. For example, uncertainty about the exact magnitude of future regional rainfall change does not undermine the high-confidence conclusion that greenhouse-gas emissions are warming the planet. Policy disagreements often concern values, costs, equity, feasibility, and responsibility rather than the basic physics.
+
+\section{Common Misinformation Claims}
+
+\begin{longtable}{p{0.33\textwidth}p{0.61\textwidth}}
+\caption{Common misinformation claims and evidence-based responses}\\
+\toprule
+Claim & Evidence-based response \\
+\midrule
+\endfirsthead
+\toprule
+Claim & Evidence-based response \\
+\midrule
+\endhead
+``Climate has always changed, so humans are not responsible.'' & Natural climate variability exists, but IPCC AR6 concludes that human activities, principally greenhouse-gas emissions, have unequivocally caused recent global warming \cite{ref1}. \\
+``Scientists are not confident about global warming.'' & Multiple independent lines of evidence support high confidence in human-caused warming, including observations, radiative physics, attribution studies, and paleoclimate evidence \cite{ref1,ref5}. \\
+``Cold weather disproves global warming.'' & Weather is short-term; climate describes long-term statistical patterns. Global warming does not eliminate cold events \cite{ref2}. \\
+``CO$_2$ is too small a fraction of the atmosphere to matter.'' & Trace gases can strongly affect radiative balance because they absorb infrared radiation. NOAA identifies CO$_2$ as Earth's most important long-lived greenhouse gas \cite{ref3}. \\
+``Warming is caused by the Sun.'' & IPCC attribution separates natural drivers from anthropogenic drivers and finds human influence dominant for recent global warming \cite{ref1}. \\
+``Climate models are unreliable.'' & Models have limitations, but IPCC assessments integrate model evidence with observations, physical understanding, and paleoclimate evidence rather than relying on any single model \cite{ref6}. \\
+``Adaptation alone is enough.'' & Adaptation is necessary, but IPCC states adaptation options become constrained and less effective with increasing warming \cite{ref1}. \\
+``Carbon capture means emissions cuts are unnecessary.'' & Carbon capture may help in selected hard-to-abate sectors, but assessed mitigation portfolios still require deep emissions reductions \cite{ref1,ref6}. \\
+\bottomrule
+\end{longtable}
+
+\section{Practical Policy and Action Synthesis}
+
+Evidence-supported climate action requires both mitigation and adaptation. Mitigation reduces future warming; adaptation reduces current and near-term harm. Equity and governance determine whether actions are effective and fair.
+
+At the individual and household level, useful actions include energy efficiency, electrification where feasible, lower-carbon transport, reduced food waste, lower-emissions diets where appropriate, and civic engagement. These actions are most effective when supported by infrastructure and policy.
+
+At the local and city level, priorities include urban heat planning, public transit, building codes, green infrastructure, flood management, and emergency preparedness. Cities can reduce both emissions and vulnerability through compact design, transit access, cooling, and flood risk reduction.
+
+At the national level, priorities include clean electricity, industrial decarbonization, methane regulation, land-use policy, research and development, infrastructure planning, and carbon pricing or equivalent regulation. National policy is crucial because many mitigation and adaptation decisions depend on standards, finance, grids, markets, and institutions.
+
+At the global level, priorities include coordinated emissions reductions, finance for mitigation and adaptation, technology transfer, methane and deforestation initiatives, and mechanisms for loss and damage. These are especially important for climate justice because vulnerability and historical responsibility are unevenly distributed \cite{ref1}.
+
+\begin{table}[htbp]
+\centering
+\caption{Practical action synthesis}
+\begin{tabularx}{\textwidth}{p{2.6cm}Y Y Y}
+\toprule
+Action area & Best-supported actions & Primary benefits & Key barriers \\
+\midrule
+Energy & Renewables, efficiency, electrification & Emissions cuts, air quality, energy security & Grid, permitting, finance \\
+Land & Avoid deforestation, restore ecosystems, protect soils & Carbon, biodiversity, water regulation & Land rights, permanence \\
+Food & Reduce methane, improve fertilizer efficiency, reduce food waste & Emissions reduction and resilience & Incentives, access, behavior \\
+Cities & Transit, cooling, flood planning, building codes & Health and resilience & Funding, governance, housing affordability \\
+Industry & Efficiency, electrification, process innovation, selected carbon capture & Emissions reductions in hard-to-abate sectors & Cost, infrastructure, technology readiness \\
+Finance and governance & Adaptation finance, mitigation finance, capacity building & Equity and implementation & Political will, institutional capacity \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Limitations and Data Provenance}
+
+This report is an evidence synthesis, not a new empirical climate attribution study. No empirical quantitative dataset was provided. Therefore, no independent statistical test of the hypothesis was performed. The conclusions are based on the supplied authoritative literature, especially IPCC AR6, NASA, NOAA, EPA, and the Royal Society/U.S. National Academy of Sciences.
+
+The source set is also limited. The assignment requested use of sources such as WHO, WMO, UNEP, IEA, and World Bank where relevant, but those sources were not included in the final Sources block supplied for the paper. As a result, this report avoids citing claims that would require those sources, or discusses such topics only at the broad synthesis level supported by IPCC AR6. A fuller report should add the relevant Working Group II, Working Group III, WHO, WMO, UNEP, IEA, and World Bank sources.
+
+\section{Conclusion}
+
+Global warming is the long-term increase in Earth's average surface temperature and is one major component of broader climate change. The assessed authoritative literature supports the conclusion that human activities, principally greenhouse-gas emissions, have caused observed global warming \cite{ref1}. The physical mechanism is the enhanced greenhouse effect, in which added greenhouse gases alter Earth's radiative balance by trapping more outgoing infrared energy \cite{ref3,ref4,ref5}.
+
+Observed consequences extend beyond temperature to sea level, ocean heat, land ice, Arctic sea ice, extremes, ecosystems, and human systems \cite{ref1,ref6}. Future risks increase with additional warming, and lower-emissions pathways reduce projected warming and associated risks relative to high-emissions pathways \cite{ref1,ref7}. The most defensible response is an integrated strategy of deep emissions reductions, methane abatement, clean energy, efficiency, electrification, sustainable land use, selected carbon capture for hard-to-abate sectors, demand-side change, and robust adaptation.
+
+No independent empirical hypothesis test was performed in this report because no empirical dataset was provided. The assessed literature, especially IPCC AR6, supports the primary conclusion that anthropogenic greenhouse-gas emissions are the dominant cause of recent global warming and that lower-emissions pathways reduce future climate risks.
+
+\appendix
+\section{Synthetic Workflow Demonstration}
+
+\textbf{Warning: The values in this appendix are simulated and provide no empirical evidence about the real climate system.} They are included only because a prior prototype workflow was supplied. The simulated data-generating process built in an anthropogenic forcing signal, so the regression results simply demonstrate that the workflow can recover an encoded relationship. These outputs are not used to support the scientific conclusions of this report.
+
+\begin{table}[htbp]
+\centering
+\caption{Synthetic workflow outputs; simulated values only}
+\begin{tabularx}{\textwidth}{p{4.2cm}p{3cm}Y}
+\toprule
+Quantity & Synthetic value & Interpretation \\
+\midrule
+Anthropogenic attributable fraction & 0.997 & Simulated workflow result; not an empirical attribution estimate \\
+Synthetic warming, 1850--2025 & 2.482$^\circ$C & Simulated value; not an observed temperature estimate \\
+Sea level slope & 136.69 mm per 1$^\circ$C & Simulated relationship; not a real-world estimate \\
+Arctic sea ice slope & -1.64 million km$^2$ per 1$^\circ$C & Simulated relationship; not a real-world estimate \\
+Low-emissions 2100 warming & 1.526$^\circ$C & Simulated scenario; not an IPCC projection \\
+Medium-emissions 2100 warming & 2.703$^\circ$C & Simulated scenario; not an IPCC projection \\
+High-emissions 2100 warming & 4.174$^\circ$C & Simulated scenario; not an IPCC projection \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{References}
+
+\begin{thebibliography}{12}
+
+\bibitem{ref1}
+Intergovernmental Panel on Climate Change (IPCC).
+``Summary for Policymakers: Climate Change 2023.''
+2023.
+\url{https://www.ipcc.ch/report/ar6/syr/summary-for-policymakers/}
+
+\bibitem{ref2}
+NASA Science.
+``What's the Difference Between Climate Change and Global Warming?''
+n.d.
+\url{https://science.nasa.gov/climate-change/faq/whats-the-difference-between-climate-change-and-global-warming/}
+
+\bibitem{ref3}
+Lindsey, Rebecca.
+``Climate Change: Atmospheric Carbon Dioxide.''
+NOAA Climate.gov, May 21, 2025.
+\url{https://www.climate.gov/news-features/understanding-climate/climate-change-atmospheric-carbon-dioxide}
+
+\bibitem{ref4}
+U.S. Environmental Protection Agency (EPA).
+``Global Greenhouse Gas Overview.''
+December 30, 2025.
+\url{https://www.epa.gov/ghgemissions/global-greenhouse-gas-overview}
+
+\bibitem{ref5}
+The Royal Society and the U.S. National Academy of Sciences.
+``Climate Change: Evidence \& Causes 2020.''
+2020.
+\url{https://royalsociety.org/-/media/policy/projects/climate-evidence-causes/climate-change-evidence-causes.pdf}
+
+\bibitem{ref6}
+Intergovernmental Panel on Climate Change (IPCC).
+``AR6 Synthesis Report: Climate Change 2023.''
+2023.
+\url{https://www.ipcc.ch/report/sixth-assessment-report-cycle/2023/}
+
+\bibitem{ref7}
+Intergovernmental Panel on Climate Change (IPCC).
+``Climate Change 2023: Synthesis Report---Summary for Policymakers.''
+2023.
+\url{https://report.ipcc.ch/ar6syr/headline.html}
+
+\end{thebibliography}
+
+\end{document}

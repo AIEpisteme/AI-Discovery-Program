@@ -1,0 +1,38 @@
+
+Key printed output:
+- Synthetic run rows: **2160**
+- Contexts evaluated: **8192, 16384, 32768, 65536**
+- Arms evaluated: **vanilla_transformer, optimized_transformer, mamba2**
+
+Synthetic summary table:
+
+| context_length | arm | energy_per_token_j | ms_per_token | peak_vram_gb | throughput_tps |
+|---:|---|---:|---:|---:|---:|
+| 8192 | mamba2 | 0.663 | 5.529 | 8.123 | 181.258 |
+| 8192 | optimized_transformer | 0.763 | 5.420 | 9.519 | 184.880 |
+| 8192 | vanilla_transformer | 0.857 | 5.998 | 14.004 | 167.012 |
+| 16384 | mamba2 | 0.820 | 6.889 | 11.034 | 145.490 |
+| 16384 | optimized_transformer | 0.932 | 6.747 | 12.874 | 148.594 |
+| 16384 | vanilla_transformer | 1.053 | 7.523 | 18.937 | 133.184 |
+| 32768 | mamba2 | 0.949 | 7.771 | 13.031 | 128.983 |
+| 32768 | optimized_transformer | 1.220 | 8.963 | 21.095 | 111.830 |
+| 32768 | vanilla_transformer | 1.438 | 10.464 | 30.967 | 95.743 |
+| 65536 | mamba2 | 1.389 | 11.159 | 21.779 | 89.809 |
+| 65536 | optimized_transformer | 1.759 | 12.857 | 35.279 | 77.986 |
+| 65536 | vanilla_transformer | 2.093 | 15.110 | 51.826 | 66.345 |
+
+Synthetic relative comparison table:
+
+| context_length | mamba_vs_vanilla_energy_ratio | mamba_vs_opt_energy_ratio | mamba_vs_vanilla_vram_ratio | opt_vs_vanilla_energy_ratio |
+|---:|---:|---:|---:|---:|
+| 8192 | 0.773 | 0.869 | 0.580 | 0.890 |
+| 16384 | 0.778 | 0.880 | 0.583 | 0.884 |
+| 32768 | 0.660 | 0.778 | 0.421 | 0.849 |
+| 65536 | 0.664 | 0.789 | 0.420 | 0.841 |
+
+Synthetic quality outputs:
+- Vanilla Transformer: perplexity **10.0**, accuracy **0.742**
+- Optimized Transformer: perplexity **10.1**, accuracy **0.736**
+- Mamba-2: perplexity **10.3**, accuracy **0.731**
+- Perplexity ratio, Mamba-2 / best Transformer: **1.030**
+- Accuracy difference, Mamba-2 - best Transformer: **-0.011**

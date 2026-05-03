@@ -1,0 +1,6 @@
+ref1 | Linda S. Gottfredson | "Mainstream Science on Intelligence: An Editorial with 52 Signatories, History, and Bibliography (PDF)" | University of Delaware / Reprints (originally in *Intelligence*) | 1997 | https://www1.udel.edu/educ/gottfredson/reprints/1997mainstream.pdf
+ref2 | Neisser et al. (APA Task Force) (as commonly cited) | "Intelligence: Knowns and Unknowns (PDF)" | American Psychological Association (APA) | 1996 | https://www.mun.ca/biology/scarr/APA%201985%20Intelligence%20-%20Knowns%20and%20Unknowns.pdf
+ref3 | Stuart Russell and Peter Norvig | "Introduction to AI: A Modern Approach (online companion)" | UC Berkeley (AIMA site) | Unknown | https://aima.cs.berkeley.edu/~russell/intro.html
+ref4 | Shane Legg; Marcus Hutter | "Universal Intelligence: A Definition of Machine Intelligence" | arXiv | 2007 | https://arxiv.org/abs/0712.3329
+ref5 | Unknown | "Measuring universal intelligence: Towards an anytime intelligence test" | ScienceDirect (Artificial Intelligence journal page) | 2010 | https://www.sciencedirect.com/science/article/pii/S0004370210001554
+ref6 | A. M. Turing | "Computing machinery and intelligence (Turing 1950)" | Michigan State University (hosted copy) | 1950 | https://www.cse.msu.edu/~cse841/papers/Turing.html

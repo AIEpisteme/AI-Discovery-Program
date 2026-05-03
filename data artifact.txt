@@ -1,0 +1,115 @@
+## Data Artifacts
+Synthetic CSV artifacts created for this prototype:
+
+- [synthetic_training_summary.csv](sandbox:/mnt/data/synthetic_training_summary.csv)
+- [synthetic_inference_summary.csv](sandbox:/mnt/data/synthetic_inference_summary.csv)
+- [synthetic_experiment_key_results.csv](sandbox:/mnt/data/synthetic_experiment_key_results.csv)
+
+#### Incremental gains table
+| Training comparison | Mean step ms change | Main interpretation |
+|---|---:|---|
+| T0 → T1 | 81.389 → 74.289 | Bucketing/scheduling gives a moderate gain |
+| T1 → T2 | 74.289 → 63.940 | Graph replay likely contributes the largest increment |
+| T2 → T3 | 63.940 → 58.705 | State/layout adds a smaller but meaningful extra gain |
+
+| Inference comparison | Mean VRAM GB | Mean acc | Main interpretation |
+|---|---:|---:|---|
+| I1 uniform INT4 | 4.902 | 0.792 | Strong baseline memory saver |
+| I4 adaptive | 4.558 | 0.804 | Better memory-quality frontier in simulation |
+| I2/I3 vs I4 | 5.517/5.782 vs 4.558 | 0.800/0.802 vs 0.804 | Combined policy appears stronger than single-component var
+iants |
+
+**Validation:** The incremental patterns are plausible and useful for hypothesis refinement. But because the data are si
+mulated, these should be treated as scenario-testing outputs, not evidence of causal decomposition.
+
+## Visualizations
+
+**Note:** No real plotting canvas or raw real benchmark files were provided. Below are **text-based graphs** using the r
+eported synthetic summary values.
+
+### Graph 1: Training mean step time by arm
+**Intended graph type:** Bar chart
+**Data shown:** Mean step time (ms) for T0–T3
+
+```text
+T0_baseline    | ████████████████████████████████ 81.4
+T1_bucketing   | █████████████████████████████ 74.3
+T2_graph       | ████████████████████████ 63.9
+T3_stateaware  | ██████████████████████ 58.7
+```
+
+### Graph 2: Training mean tokens/s by arm
+**Intended graph type:** Bar chart
+**Data shown:** Mean training throughput for T0–T3
+
+```text
+T0_baseline    | ████████████████████ 24.8k
+T1_bucketing   | ██████████████████████ 27.1k
+T2_graph       | █████████████████████████ 31.3k
+T3_stateaware  | ███████████████████████████ 34.0k
+```
+
+### Graph 3: Inference peak VRAM by arm
+**Intended graph type:** Bar chart
+**Data shown:** Mean peak VRAM for I0–I4
+
+```text
+I0_fp16            | ████████████████████████████████ 8.74
+I1_uniform_int4    | █████████████████ 4.90
+I2_recent_window   | ███████████████████ 5.52
+I3_heavy_hitter    | ████████████████████ 5.78
+I4_adaptive        | ████████████████ 4.56
+```
+
+### Graph 4: Inference quality-memory tradeoff
+**Intended graph type:** Scatter plot [PLACEHOLDER]
+**X-axis:** Mean peak VRAM GB
+**Y-axis:** Mean long-context accuracy
+**Expected pattern from reported synthetic summaries:**
+- I0 at highest VRAM / highest accuracy
+- I1 at low VRAM / lowest accuracy
+- I4 near I1 on memory but closer to I0 on accuracy, suggesting the best frontier point
+
+## Results
+
+### Main conclusion from the provided output
+Using the **synthetic prototype output only**, the proposed approach appears to satisfy the main targets:
+
+| Objective | Pre-registered target | Reported synthetic result | Synthetic conclusion |
+|---|---|---:|---|
+| Training speed | ≥20% lower step time | 27.92% lower | Supported in simulation |
+| Inference memory | ≥40% lower peak VRAM | 47.9% lower | Supported in simulation |
+| Quality retention | <1% PPL degradation | +0.22% mean PPL | Plausibly supported, not definitive |
+
+### Interpretation for the research question
+For the question *“new research ideas to make NanoGPT faster, especially for small-batch training and low-memory inferen
+ce”*, the synthetic output suggests:
+
+1. **Small-batch training**
+   - The biggest simulated gain likely comes from **shape stabilization + graph replay**, not just bucketing alone.
+   - This supports the idea that NanoGPT inefficiency at small batch may be dominated by **launch overhead and under-occ
+upancy**.
+
+2. **Low-memory inference**
+   - A simple low-bit KV baseline is already strong.
+   - The adaptive policy is only truly interesting if it consistently beats **uniform INT4** on the **memory-quality fro
+ntier**, not merely on memory alone.
+
+3. **Research novelty implication**
+   - If real results mirror the simulation, the publishable story is not “use `torch.compile` or quantization.”
+   - It is more narrowly:
+     - **training:** state-aware, shape-stable execution specialized for tiny batches;
+     - **inference:** adaptive KV precision/retention that outperforms generic low-bit cache schemes.
+
+### What is established vs speculative
+
+| Claim type | Current status |
+|---|---|
+| The synthetic pipeline is internally coherent | Established from provided output |
+| The hypothesis is feasible to test with the planned design | Supported |
+| The intervention truly speeds up real NanoGPT | **Speculative** until real runs exist |
+| The adaptive cache is publishably novel vs uniform INT4/KIVI/H2O-style baselines | **Speculative** until real ablation
+s exist |
+
+**Validation:** The reported synthetic results support the experimental logic and help prioritize ablations. Further act
+ion is definitely needed: run real NanoGPT benchmarks before drawing scientific conclusions.

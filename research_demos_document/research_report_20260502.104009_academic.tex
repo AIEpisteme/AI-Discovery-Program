@@ -1,0 +1,545 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{setspace}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{0pt}
+\sloppy
+
+\title{AI-Driven Scientific Discovery, 2026--2046: An Evidence-Based Foresight Report on Scientific Productivity, Research Quality, Institutional Change, and Governance}
+\author{Author information not provided}
+\date{\today}
+
+\begin{document}
+\onehalfspacing
+
+\begin{titlepage}
+\centering
+\vspace*{1.5cm}
+{\LARGE\bfseries AI-Driven Scientific Discovery, 2026--2046\par}
+\vspace{0.4cm}
+{\Large\bfseries An Evidence-Based Foresight Report on Scientific Productivity, Research Quality, Institutional Change, and Governance\par}
+\vspace{1.5cm}
+{\large Author information not provided\par}
+\vspace{0.5cm}
+{\large Affiliation information not provided\par}
+\vfill
+{\large \today\par}
+\end{titlepage}
+
+\begin{abstract}
+This report assesses how artificial intelligence (AI) may affect scientific discovery over the next 5, 10, and 20 years, with attention to biology, medicine, materials science, chemistry, physics, climate science, neuroscience, and engineering. ``AI discovery research'' is defined as the use of machine learning, scientific foundation models, large language models, autonomous agents, simulations, digital twins, laboratory automation, robotic laboratories, AI-assisted data analysis, and AI-designed experiments to assist or partially automate scientific workflows. The current evidence supports a measured conclusion: AI is already an important scientific instrument and workflow layer in selected data-rich or formally structured domains, but it is not yet a general replacement for human scientists \cite{ref1,ref2,ref3,ref4}. 
+
+The strongest supplied case evidence concerns AI across the scientific workflow \cite{ref1}, deep-learning-enabled materials discovery \cite{ref6}, policy and governance challenges \cite{ref2,ref12}, self-driving laboratories \cite{ref5}, and risks of opacity and overconfidence \cite{ref4,ref8}. The report concludes that AI is likely to increase the speed and volume of scientific work, especially in well-resourced and data-intensive settings. Whether this becomes better science depends on validation, reproducibility, auditability, safety, open or shared infrastructure, and institutional design. A proposed modeling framework, the AI Discovery Impact Observatory and Simulation Study (AIDIOS), is included to estimate AI's effects on output, discovery speed, research quality, reproducibility, collaboration, inequality, funding, and institutional structure. No real empirical dataset was provided; any numerical AIDIOS results discussed here are explicitly illustrative synthetic outputs, not empirical evidence.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Executive Summary}
+
+AI-driven scientific discovery is best understood as an emerging socio-technical research system rather than a single technology. It includes AI-assisted literature synthesis, hypothesis generation, data analysis, simulation, robotic experimentation, self-driving laboratories, digital twins, and autonomous or semi-autonomous research agents. The strongest current evidence supports AI as a tool that can accelerate parts of science: prediction, search, optimization, summarization, coding, modeling, simulation, and experiment planning \cite{ref1,ref2}. 
+
+The most defensible forecast is conditional. By approximately 2031, AI assistants and domain-specific models are likely to be routine in well-resourced research environments. By approximately 2036, some fields may see more mature integration of AI systems with robotic laboratories, cloud laboratories, scientific databases, and simulations. By approximately 2046, semi-autonomous discovery pipelines are possible in selected domains, but this remains speculative and depends on validation, safety governance, and infrastructure access.
+
+The report's central conclusion is that AI will probably increase scientific speed and output, but will not automatically increase scientific understanding, novelty, reproducibility, or equity. Those outcomes depend on institutional choices. Without governance, AI may increase low-quality output, amplify opacity, narrow scientific agendas, concentrate power among wealthy institutions and firms, and create safety or dual-use risks. With strong validation, transparency, audit trails, shared infrastructure, and human accountability, AI could improve the efficiency and reliability of scientific discovery.
+
+A proposed research design, AIDIOS, is included to estimate AI's impact through longitudinal laboratory panels, randomized encouragement designs, embedded replication studies, bibliometric and network analysis, and agent-based simulation. The proposed primary outcome is quality-adjusted independently validated discoveries per researcher-year (QAVD-RY). This metric is conceptual and unvalidated; it should be piloted and calibrated before policy use.
+
+\begin{table}[H]
+\centering
+\caption{Executive summary of major findings and confidence.}
+\small
+\begin{tabularx}{\textwidth}{p{3.7cm}X p{2.3cm}}
+\toprule
+\textbf{Finding} & \textbf{Interpretation} & \textbf{Confidence} \\
+\midrule
+AI is already useful in selected scientific workflows. & Review and institutional evidence supports use in hypothesis generation, experiment design, data interpretation, simulation, and scientific communication. & High \\
+AI can accelerate candidate search in formally structured domains. & Materials discovery evidence shows large-scale computational search gains, though synthesis and validation remain bottlenecks. & High for supplied materials case \\
+AI will not automatically improve reproducibility. & Reproducibility depends on documentation, open data/code, independent validation, and audit trails. & High \\
+Autonomous AI scientists across all fields within 5 years are unlikely. & Current evidence supports early prototypes and constrained workflows, not general autonomous discovery. & Medium-high \\
+AI may widen scientific inequality. & Compute, data, skills, robotics, and proprietary platforms are unevenly distributed. & Medium \\
+Long-term forecasts remain uncertain. & Twenty-year outcomes depend on governance, compute, data access, institutional incentives, and safety constraints. & High \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Definition and Scope of AI Discovery Research}
+
+For this report, \textit{AI discovery research} means the use of AI systems to assist, accelerate, automate, or partially autonomize the scientific process. It covers tools and infrastructures used to read literature, generate hypotheses, design experiments, analyze data, simulate systems, optimize designs, operate instruments, execute robotic experiments, interpret results, detect errors, support replication, and communicate findings.
+
+This definition includes:
+\begin{itemize}[leftmargin=*]
+    \item automated hypothesis generation;
+    \item AI-assisted literature synthesis;
+    \item AI-assisted and AI-driven data analysis;
+    \item foundation models for science;
+    \item scientific large language models and domain-specific AI systems;
+    \item AI-designed experiments;
+    \item laboratory automation;
+    \item robotic laboratories and self-driving laboratories;
+    \item autonomous research agents;
+    \item simulations and digital twins;
+    \item AI for experimental planning and optimization;
+    \item AI-enabled scientific instrumentation;
+    \item AI-assisted theory development and modeling;
+    \item AI-supported replication, validation, and error detection.
+\end{itemize}
+
+AI discovery research is not the same as all statistical modeling, conventional computational science, generic automation, or non-scientific AI use. Its distinctive feature is the integration of AI into scientific reasoning, search, experimentation, simulation, validation, or research workflow control.
+
+\begin{table}[H]
+\centering
+\caption{Definition table for types of AI discovery research.}
+\small
+\begin{tabularx}{\textwidth}{p{3.1cm}X p{3.3cm}p{2.5cm}}
+\toprule
+\textbf{Type} & \textbf{Definition} & \textbf{Examples} & \textbf{Evidence status} \\
+\midrule
+AI-assisted literature synthesis & AI tools that search, summarize, map, and connect scientific literature. & Retrieval-augmented review, biomedical literature mining, claim extraction. & Established/emerging \\
+Automated hypothesis generation & Systems that propose relationships, mechanisms, experiments, or research questions. & Knowledge-graph systems, LLM-based hypothesis tools. & Emerging \\
+AI-assisted data analysis & AI for coding, statistics, feature extraction, anomaly detection, and pattern recognition. & Omics analysis, image analysis, code assistants. & Established in many workflows \\
+Foundation models for science & Large models trained on scientific data modalities. & Protein, molecule, materials, climate, language, and multimodal models. & Established in selected domains; emerging broadly \\
+AI-designed experiments & AI systems that select experimental conditions or optimize protocols. & Active learning, Bayesian optimization, design-of-experiments tools. & Established in bounded settings \\
+Robotic and self-driving laboratories & Automated systems that run design--build--test--learn cycles. & Cloud labs, automated chemistry, materials, and biology workflows. & Emerging \\
+Autonomous research agents & Systems that plan, execute, evaluate, and iterate research tasks. & AI scientist prototypes and multi-agent workflows. & Early prototype/speculative \\
+Simulation and digital twins & AI-accelerated models of physical, biological, climate, medical, or engineering systems. & Weather models, climate emulators, digital patient or engineering models. & Established in selected areas; emerging elsewhere \\
+AI-supported validation & Tools for reproducibility, claim checking, and data/code audits. & Automated statistical checks, paper screening, metadata auditing. & Emerging \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Roles of AI systems in scientific discovery.}
+\small
+\begin{tabularx}{\textwidth}{p{3.1cm}X p{3.0cm}}
+\toprule
+\textbf{Category} & \textbf{Description} & \textbf{Near-term plausibility} \\
+\midrule
+AI as assistant & Tools that help scientists read, code, analyze, summarize, visualize, or document workflows. & High \\
+AI as collaborator & Systems that contribute to hypotheses, models, experiment design, or interpretation. & Medium \\
+AI as autonomous agent & Systems that can plan, execute, evaluate, and iterate research tasks with limited human intervention. & Low-to-medium, field-dependent \\
+AI-enabled infrastructure & Robotic labs, cloud labs, automated instruments, scientific databases, simulations, and digital twins. & Medium-to-high in well-funded fields \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Current State of the Field}
+
+The current state of AI-driven discovery is uneven but rapidly expanding. A broad \textit{Nature} review describes AI as increasingly integrated into hypothesis generation, experiment design, data collection, data interpretation, and simulation \cite{ref1}. OECD describes AI as relevant to scientific productivity and public policy, including laboratory robotics, machine reading, literature-based discovery, claim verification, and robot scientists \cite{ref2,ref12}. The Royal Society emphasizes that AI technologies, including deep learning and large language models, are changing the nature and method of scientific inquiry, while raising issues of research integrity, skills, ethics, reproducibility, private-sector influence, and public trust \cite{ref4}. The National Academies proceedings foreground the possibility of autonomous AI researchers but also stress unresolved questions about trustworthy and reliable discovery, human oversight, ethics, and disparities \cite{ref3}.
+
+The strongest supplied case-specific evidence concerns materials discovery. Merchant et al. report that graph networks trained at scale and used with active learning enabled a large expansion of computationally stable crystal candidates, including 2.2 million structures stable relative to prior work and 381,000 new convex-hull entries \cite{ref6}. The same case illustrates a general lesson: AI can greatly expand candidate search, but predicted stability is not the same as synthesizability, functional performance, or deployment.
+
+For biology and medicine, the supplied source set supports discussion of protein structure prediction and AI for therapeutic science through review evidence \cite{ref1}. The original AlphaFold primary papers were not provided in the source block, so this report avoids detailed primary-study claims about AlphaFold performance and treats protein structure prediction at the level supported by supplied review sources. Similarly, AI weather forecasting is discussed as an application area in review-level sources; no primary GraphCast or equivalent source was supplied, so the report does not make specific benchmark claims about weather models.
+
+\begin{longtable}{p{3.0cm}p{2.1cm}p{2.9cm}p{3.2cm}p{3.0cm}p{2.4cm}}
+\caption{Case study table summarizing current examples. Claims are limited to the supplied sources.}\\
+\toprule
+\textbf{Case study} & \textbf{Field} & \textbf{AI capability} & \textbf{Evidence of impact} & \textbf{Limitations} & \textbf{Source quality} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Case study} & \textbf{Field} & \textbf{AI capability} & \textbf{Evidence of impact} & \textbf{Limitations} & \textbf{Source quality} \\
+\midrule
+\endhead
+AI-enabled protein structure prediction & Biology and medicine & Predicts protein structures from sequence; supports structural hypotheses. & Identified in review evidence as a major AI-for-science application. & Supplied sources do not include primary AlphaFold papers; experimental validation and biological interpretation remain necessary. & Peer-reviewed review \cite{ref1} \\
+GNoME materials discovery & Materials science & Graph neural networks and active learning for crystal stability search. & Reported large expansion of computationally stable materials candidates. & Stability is not equivalent to synthesizability, dynamic stability, performance, or manufacturability. & Peer-reviewed primary article \cite{ref6} \\
+Self-driving laboratories & Chemistry, materials, biology & Closed-loop AI plus automation for experiment selection, execution, analysis, and iteration. & Review evidence indicates capacity to automate substantial parts of the scientific method in selected settings. & Costs, safety, cybersecurity, standardization, labor effects, and IP remain unresolved. & Review article \cite{ref5} \\
+Machine reading and literature-based discovery & Cross-field & Search, summarization, hypothesis linkage, and claim extraction. & OECD identifies machine reading and literature-based discovery as important AI-for-science applications. & Hallucination, omission, bias, and lack of contextual understanding remain risks. & Institutional report \cite{ref2} \\
+Autonomous AI researcher concept & Cross-field & AI systems acting as autonomous or semi-autonomous researchers. & National Academies workshop explored this as a research frontier. & Trustworthiness, oversight, validation, standards, and resource allocation remain unresolved. & Institutional proceedings \cite{ref3} \\
+AI across scientific workflows & Cross-field & Hypothesis generation, experiment design, data interpretation, simulation, and design. & Review evidence documents broad workflow integration. & Poor data stewardship, model opacity, and uncertain generality remain central issues. & Peer-reviewed review \cite{ref1} \\
+\bottomrule
+\end{longtable}
+
+\begin{table}[H]
+\centering
+\caption{Evidence-strength table distinguishing established evidence from speculation.}
+\small
+\begin{tabularx}{\textwidth}{X p{3cm}p{2cm}X}
+\toprule
+\textbf{Claim} & \textbf{Evidence status} & \textbf{Confidence} & \textbf{Key sources and notes} \\
+\midrule
+AI can assist literature review, data analysis, and workflow automation. & Established/emerging & High & Supported by broad AI-for-science review and OECD analysis \cite{ref1,ref2}. \\
+AI can accelerate candidate search in selected domains such as materials discovery. & Established for supplied materials case & High & GNoME provides direct evidence for computational candidate expansion \cite{ref6}. \\
+Self-driving laboratories can automate parts of closed-loop experimentation. & Emerging & Medium & Supported by review evidence; not yet universal across experimental science \cite{ref5}. \\
+AI will increase raw scientific output among high-adoption laboratories. & Reasonable extrapolation & Medium & Plausible, but not causally established by supplied data. \\
+AI will automatically improve reproducibility. & Unsupported & Low & Reproducibility depends on audit trails, transparency, and validation \cite{ref4,ref8}. \\
+Fully autonomous AI scientists will transform all fields within 5 years. & Speculative & Low & National Academies treats autonomy as an open frontier requiring oversight \cite{ref3}. \\
+AI adoption may create monocultures or illusions of understanding. & Emerging concern & Medium & Messeri and Crockett warn that AI tools may obscure narrowing of methods, questions, and viewpoints \cite{ref8}. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Drivers and Enablers of Future Change}
+
+Several interacting drivers will shape AI discovery research.
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Data availability and data stewardship.} AI systems are most effective where large, high-quality, well-documented datasets exist. Poor data stewardship remains a major barrier \cite{ref1,ref4}.
+    \item \textbf{Compute and infrastructure.} Frontier models, simulations, and robotic laboratories require compute, instrumentation, and technical support. Unequal access may widen scientific inequality \cite{ref2,ref4}.
+    \item \textbf{Algorithmic advances.} Self-supervised learning, geometric deep learning, generative models, active learning, and neural operators are highlighted as important AI-for-science methods \cite{ref1}.
+    \item \textbf{Laboratory automation.} Robotic laboratories and cloud laboratories can close the loop between experimental design, execution, and learning, but remain costly and unevenly distributed \cite{ref5}.
+    \item \textbf{Scientific incentives.} Funding, publication norms, and prestige may push researchers toward AI-enabled topics, including data-rich or benchmark-friendly problems \cite{ref2,ref8}.
+    \item \textbf{Governance and trust.} Disclosure, auditability, model documentation, reproducibility standards, safety review, and human accountability will determine whether AI-enabled research remains trustworthy \cite{ref3,ref4,ref8}.
+\end{enumerate}
+
+\begin{table}[H]
+\centering
+\caption{Drivers and constraints for future AI discovery research.}
+\small
+\begin{tabularx}{\textwidth}{p{3.2cm}X X}
+\toprule
+\textbf{Driver} & \textbf{Opportunity} & \textbf{Constraint or risk} \\
+\midrule
+Scientific data & Enables model training, discovery, and reuse. & Bias, poor documentation, proprietary access, and missing metadata. \\
+Compute & Enables foundation models, simulation, and large-scale search. & Concentration among wealthy institutions and firms. \\
+Laboratory automation & Enables high-throughput and closed-loop experimentation. & Cost, safety, cybersecurity, and uneven access. \\
+Foundation models & Enable transfer across tasks and modalities. & Opacity, hallucination, benchmark overfitting, and validation gaps. \\
+Policy and funding & Can build public infrastructure and standards. & May favor fashionable tools over scientific importance. \\
+Open science & Can democratize access and reproducibility. & Tension with commercial models, dual-use safeguards, and IP. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Time-Horizon Forecasts: 5, 10, and 20 Years}
+
+The forecasts below are conditional foresight judgments, not predictions with quantified probabilities. They distinguish near-term extrapolation from long-term speculation.
+
+\begin{table}[H]
+\centering
+\caption{Time-horizon forecasts for AI-driven scientific discovery.}
+\small
+\begin{tabularx}{\textwidth}{p{2.2cm}X X X X p{2.0cm}}
+\toprule
+\textbf{Time horizon} & \textbf{Likely capabilities} & \textbf{Scientific impacts} & \textbf{Institutional impacts} & \textbf{Risks} & \textbf{Confidence} \\
+\midrule
+5 years, to approximately 2031 & Wider use of AI assistants, literature synthesis, coding/data tools, domain models, early research agents, and some cloud/robotic labs. & Faster analysis, more outputs, shorter cycles in data-rich fields; uneven effects by discipline. & Advantage for well-resourced institutions; new research software, data, and automation roles. & Low-quality output, hallucinations, weak disclosure, unequal access. & Medium-high \\
+10 years, to approximately 2036 & More mature self-driving labs, integrated AI-agent/simulation/robotic workflows, and stronger digital twins in selected fields. & Faster design--test--learn cycles; more AI-assisted validation where governance is strong. & New platform-based research institutions; stronger public-private dependencies. & Proprietary concentration, dual-use risks, reproducibility gaps. & Medium \\
+20 years, to approximately 2046 & Conditional possibility of semi-autonomous discovery pipelines in selected domains; AI-assisted theory or design in constrained settings. & Possible reorganization of research workflows and scientific labor; uncertain impact on discovery quality. & Universities, journals, funders, and laboratories may reorganize around AI infrastructure. & Accountability gaps, safety risks, scientific monocultures, global inequality. & Low-to-medium \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Cross-Cutting Impacts on Science}
+
+\subsection{Scientific Productivity and Speed of Discovery}
+
+AI may increase scientific productivity by reducing time spent on reading, coding, data cleaning, search, simulation, experiment planning, and candidate screening. In well-structured domains, AI can reduce the cost of exploring large hypothesis or design spaces \cite{ref1,ref6}. However, faster workflows do not necessarily mean better science. More manuscripts, preprints, patents, or model outputs can increase noise if not paired with validation and quality control.
+
+Expected near-term effects include faster literature review, higher data-analysis throughput, more rapid experiment planning, and increased output for well-resourced teams. Translation from basic research to applications will remain constrained by field-specific bottlenecks such as clinical validation, synthesis, safety certification, and regulatory approval.
+
+\subsection{Quality, Novelty, and Reproducibility}
+
+AI could improve research quality by standardizing workflows, recording metadata, detecting errors, supporting statistical checks, and identifying replication targets. It could also harm quality through hallucinated claims, opaque model outputs, benchmark gaming, fragile pipelines, and overproduction of weak findings. The Royal Society emphasizes risks to trust and accuracy from opaque AI systems \cite{ref4}. Messeri and Crockett warn that AI can foster illusions of understanding and scientific monocultures \cite{ref8}.
+
+Novelty is uncertain. AI may help discover unexpected relationships, but it may also concentrate attention on data-rich and easily modeled questions. Reproducibility will depend less on AI adoption itself than on open data, code, versioned models, audit logs, prompt and workflow documentation, independent validation, and human accountability.
+
+\subsection{Human Scientist Roles, Skills, Careers, and Training}
+
+Human scientists are likely to remain central, especially in question selection, interpretation, validation, ethics, and accountability. Roles may shift toward:
+\begin{itemize}[leftmargin=*]
+    \item curating scientific questions and datasets;
+    \item supervising AI-enabled workflows;
+    \item validating AI-generated hypotheses and outputs;
+    \item designing experiments and replication strategies;
+    \item interpreting findings in domain context;
+    \item managing safety, ethics, and uncertainty.
+\end{itemize}
+
+Training will need to include AI literacy, statistics, data stewardship, computational thinking, reproducibility, experimental design, and model evaluation. OECD and the Royal Society both emphasize changes in scientific work, training, skills, and research culture \cite{ref2,ref4}.
+
+\subsection{Collaboration Between Humans, AI Systems, Institutions, and Industry}
+
+AI discovery research may increase collaboration among domain scientists, AI researchers, software engineers, data stewards, automation specialists, safety officers, and platform operators. It may also increase dependence on firms that control models, compute, data, or laboratory platforms. This can accelerate research but may also concentrate agenda-setting power.
+
+The distributional outcome depends on infrastructure. Open models, public compute, shared datasets, and cloud-lab access could broaden participation. Proprietary infrastructure could centralize scientific capacity among wealthy institutions and firms \cite{ref2,ref4}.
+
+\subsection{Peer Review, Publishing, Research Integrity, and Scientific Norms}
+
+AI may both help and stress peer review. It can assist with statistical checks, claim verification, plagiarism detection, and reproducibility screening. It can also increase manuscript volume, citation inflation, fake references, paper mills, and superficial literature reviews. Scientific norms will need to address:
+\begin{itemize}[leftmargin=*]
+    \item AI-use disclosure;
+    \item model, data, prompt, and workflow documentation;
+    \item authorship and contribution standards;
+    \item audit trails;
+    \item data and code sharing;
+    \item accountability for AI-assisted claims;
+    \item independent validation for high-stakes outputs.
+\end{itemize}
+
+\subsection{Funding, Intellectual Property, Access, and Global Inequality}
+
+AI may shift funding toward compute-intensive, data-intensive, and automation-intensive science. This may benefit elite universities, national laboratories, large firms, and well-funded research hospitals. OECD warns that expensive frontier tools and changing definitions of leading-edge research may intensify structural inequalities \cite{ref2}. Self-driving laboratories also raise questions about AI-assisted invention, patentability, labor, and ownership \cite{ref5}.
+
+\subsection{Safety, Dual-Use Risks, Bias, Opacity, and Governance}
+
+Key risks include biosecurity, chemical misuse, unsafe autonomous experimentation, cyber-physical failures, hallucinated scientific claims, dataset bias, opacity, inadequate validation, and unclear accountability. The National Academies emphasizes that autonomous AI discovery raises unresolved questions about trustworthy and reliable discovery, oversight, ethics, and resource allocation \cite{ref3}. The governance challenge is to make AI-enabled science auditable, reproducible, safe, and broadly accessible.
+
+\section{Field-Specific Transformations}
+
+Because supplied sources are strongest for general AI-for-science workflows, materials discovery, self-driving laboratories, and governance, the field-specific forecasts below are intentionally cautious. Several field entries are reasonable extrapolations from broad review evidence rather than field-specific primary studies.
+
+\begin{longtable}{p{2.5cm}p{4.0cm}p{4.0cm}p{4.0cm}}
+\caption{Field-specific current uses and possible trajectories.}\\
+\toprule
+\textbf{Field} & \textbf{Current AI uses} & \textbf{5-year outlook} & \textbf{10- to 20-year possibility} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Field} & \textbf{Current AI uses} & \textbf{5-year outlook} & \textbf{10- to 20-year possibility} \\
+\midrule
+\endhead
+Biology & Protein structure prediction, genomics, protein design, biological image analysis, and lab automation discussed in AI-for-science reviews \cite{ref1}. & More AI-assisted protein, genome, and cell-system analysis; stronger use of automated workflows. & Conditional possibility of AI-guided biological design--test cycles; high need for wet-lab validation and biosecurity governance. \\
+Medicine & AI-assisted diagnostics, biomarker analysis, drug discovery, and clinical data modeling are common areas in broad review and policy discussions \cite{ref1,ref4}. & Faster target discovery and clinical-data analysis in well-governed settings. & Digital-twin and personalized-medicine workflows are possible but depend on clinical validation, privacy, regulation, and bias control. \\
+Materials science & Computational crystal search, property prediction, and candidate screening; GNoME provides strong evidence for scaled computational search \cite{ref6}. & Expanded candidate discovery and prioritization for synthesis. & More closed-loop synthesis and characterization; synthesizability and functional validation remain central bottlenecks. \\
+Chemistry & Molecular generation, reaction prediction, retrosynthesis, and automated synthesis are discussed in AI-for-science and self-driving laboratory literature \cite{ref1,ref5}. & Better design of reaction conditions and molecular candidates. & Semi-autonomous chemical discovery is possible in bounded domains; safety and misuse risks require controls. \\
+Physics & Simulation acceleration, symbolic regression, particle data analysis, and scientific modeling appear in broad AI-for-science review evidence \cite{ref1}. & More AI-assisted simulation, anomaly detection, and model fitting. & AI-assisted theory or experiment design may emerge in constrained domains, but interpretability remains critical. \\
+Climate science & Weather, climate, remote-sensing, and Earth-system applications are discussed in review-level AI-for-science evidence \cite{ref1}. & Faster forecasting support, downscaling, and remote-sensing analysis where data are strong. & Digital twins of Earth systems may improve scenario exploration, but uncertainty, causal interpretation, and policy misuse remain risks. \\
+Neuroscience & Neural data analysis, connectomics, brain mapping, and AI models as cognitive tools are plausible applications in broad review evidence \cite{ref1}. & Improved large-scale neural data analysis and decoding. & Integrated models of circuits, behavior, and cognition are possible but highly uncertain due to biological complexity. \\
+Engineering & Generative design, simulation-driven engineering, robotics, control, and manufacturing optimization are consistent with AI-for-science and automation trends \cite{ref1,ref4}. & Faster design iteration and simulation support. & Semi-autonomous engineering workflows may emerge, constrained by safety certification and cyber-physical reliability. \\
+\bottomrule
+\end{longtable}
+
+\begin{table}[H]
+\centering
+\caption{Field-specific bottlenecks, risks, and evidence strength.}
+\small
+\begin{tabularx}{\textwidth}{p{2.5cm}X X p{2.6cm}}
+\toprule
+\textbf{Field} & \textbf{Main bottlenecks} & \textbf{Key risks} & \textbf{Evidence strength in supplied sources} \\
+\midrule
+Biology & Wet-lab validation, biological complexity, data bias. & Biosecurity, dual use, overinterpretation. & Medium; review-based \\
+Medicine & Clinical validation, regulation, privacy, subgroup performance. & Bias, unsafe recommendations, liability. & Medium; review and policy-based \\
+Materials science & Synthesis, characterization, dynamic stability, functional performance. & IP concentration and validation gaps. & High for GNoME computational search \cite{ref6} \\
+Chemistry & Generality of models, synthesis feasibility, safety. & Chemical misuse and unsafe automation. & Medium; review-based \cite{ref5} \\
+Physics & Interpretability, causality, theory integration. & Spurious patterns and benchmark artifacts. & Medium; review-based \\
+Climate science & Uncertainty, causal structure, policy interpretation. & Overconfidence and misuse in decisions. & Medium; review-based \\
+Neuroscience & Measurement limitations, biological complexity, cross-dataset validation. & Privacy and overinterpretation. & Low-to-medium; review-based \\
+Engineering & Safety certification, reliability, standards. & Cyber-physical failures. & Medium; review and policy-based \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Optimistic, Pessimistic, and Most-Likely Scenarios}
+
+\begin{table}[H]
+\centering
+\caption{Scenario comparison.}
+\small
+\begin{tabularx}{\textwidth}{p{2.2cm}X X X X X}
+\toprule
+\textbf{Scenario} & \textbf{Core assumptions} & \textbf{Scientific output} & \textbf{Research quality} & \textbf{Inequality} & \textbf{Overall assessment} \\
+\midrule
+Optimistic & Open infrastructure, strong audits, public compute, validated models, broad training, and effective safety governance. & Large increase in output and validated discoveries. & Improves through reproducibility, independent validation, and documentation. & Reduced or managed through shared access. & AI accelerates reliable and broadly accessible science. \\
+Most likely & Uneven adoption, mixed governance, strong gains in data-rich fields, partial disclosure, and continued proprietary influence. & Moderate-to-large raw output increase. & Mixed; improves where audit and validation are strong. & Increases unless mitigated by public infrastructure. & Faster science, unevenly distributed and variably reliable. \\
+Pessimistic & Proprietary concentration, weak disclosure, publication inflation, unsafe automation, and inadequate validation. & Large increase in raw output but weak signal-to-noise ratio. & Declines or stagnates due to opacity and poor reproducibility. & Worsens sharply. & More output but less trustworthy and less equitable science. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Opportunities and Risks}
+
+\begin{table}[H]
+\centering
+\caption{Balanced opportunities and risks.}
+\small
+\begin{tabularx}{\textwidth}{p{2.4cm}X X p{2.1cm}X}
+\toprule
+\textbf{Area} & \textbf{Opportunity} & \textbf{Risk} & \textbf{Evidence strength} & \textbf{Possible mitigation} \\
+\midrule
+Productivity & Faster hypothesis testing, analysis, simulation, and experiment planning. & Low-quality output explosion. & Medium & Validation pipelines and quality-adjusted metrics. \\
+Biology & Better protein and cellular-system analysis. & Biosecurity and dual-use risk. & Medium & Screening, access controls, biosafety review. \\
+Medicine & Faster biomarker and drug-target discovery. & Unsafe or biased clinical recommendations. & Medium & Clinical governance and external validation. \\
+Materials & Vastly expanded computational candidate search. & Predicted stability mistaken for synthesizable material. & High for supplied GNoME case & Synthesis validation and uncertainty reporting. \\
+Publishing & AI-assisted review and fraud detection. & AI-generated paper mills and citation inflation. & Medium & Disclosure, audit tools, reviewer guidelines. \\
+Global science & Shared AI tools could broaden participation. & Frontier systems may concentrate power among wealthy institutions. & Medium & Public compute, open models, subsidized cloud labs. \\
+Safety & Automated monitoring and risk screening. & Dangerous autonomous experiments. & Medium & Human approval gates and safety interlocks. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Simulation-Style Thought Experiment or Modeling Framework}
+
+\subsection{Purpose}
+
+The proposed AIDIOS framework is designed to estimate how AI discovery adoption affects scientific output, discovery speed, research quality, reproducibility, collaboration networks, institutional inequality, funding priorities, and institutional structures.
+
+\subsection{Units of Analysis}
+
+Units include individual scientists, research groups, AI systems, laboratories, universities, companies, funding agencies, journals, scientific fields, and countries or regions.
+
+\subsection{Assumptions}
+
+AIDIOS assumes:
+\begin{itemize}[leftmargin=*]
+    \item AI capabilities improve but unevenly across tasks and fields.
+    \item Adoption depends on compute, data, training, funding, incentives, and institutional resources.
+    \item Laboratory automation is unevenly distributed.
+    \item Human skill adaptation affects realized benefits.
+    \item Open versus proprietary infrastructure strongly shapes inequality.
+    \item AI-generated errors may increase false positives unless validation improves.
+    \item Review and publication systems can either mitigate or amplify low-quality output.
+\end{itemize}
+
+\subsection{Variables, Mechanisms, Inputs, and Outputs}
+
+\begin{table}[H]
+\centering
+\caption{AIDIOS model variables.}
+\small
+\begin{tabularx}{\textwidth}{p{3.0cm}X X}
+\toprule
+\textbf{Variable} & \textbf{Description} & \textbf{Possible measurement} \\
+\midrule
+AI adoption rate & Share of researchers using AI discovery tools. & Surveys, platform usage, grants. \\
+Productivity & Research outputs per unit time. & Papers, patents, datasets, experiments. \\
+Quality & Scientific value or rigor. & Expert review, replication success, field-normalized indicators. \\
+Novelty & Conceptual or methodological originality. & Text embeddings, citation distance, expert review. \\
+Reproducibility & Ability to replicate or reproduce results. & Replication studies, code/data availability. \\
+Inequality & Concentration of output, funding, compute, or AI access. & Gini coefficient, institutional share. \\
+Collaboration & Human-human and human-AI research networks. & Coauthorship, data-sharing, tool logs. \\
+Funding shifts & Changes in funding allocation. & Grant databases. \\
+Error rate & False discoveries or irreproducible claims. & Retractions, corrections, replication failures. \\
+Automation level & Degree of AI/lab automation in workflow. & Workflow audits, robotic-lab logs. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Mechanisms include productivity acceleration, reduced hypothesis-search costs, faster experimental design, increased throughput through automation, increased inequality through proprietary access, false-positive amplification without validation, and collaboration centralization or decentralization depending on infrastructure.
+
+Inputs include publication databases, citation networks, grant databases, patent databases, clinical trial databases, survey data, platform adoption metrics, lab automation records, compute access data, retraction and replication datasets, open science repositories, and peer-review records.
+
+Outputs include changes in papers, high-impact discoveries, replication success, false discovery rates, collaboration network structure, institutional inequality, field-level funding, time from hypothesis to validated result, credit distribution, and public versus private control of scientific infrastructure.
+
+\subsection{Illustrative Synthetic Prototype}
+
+The supplied synthetic prototype simulated 1,000 laboratories across eight fields from 2026 to 2031. It is not empirical evidence. It only demonstrates how AIDIOS could represent hypothesized mechanisms and produce measurable outputs.
+
+\begin{table}[H]
+\centering
+\caption{Illustrative synthetic AIDIOS outputs. These values are not empirical evidence.}
+\small
+\begin{tabularx}{\textwidth}{X r X}
+\toprule
+\textbf{Outcome} & \textbf{Synthetic value} & \textbf{Interpretation} \\
+\midrule
+2031 output-per-FTE rate ratio, high AI versus low AI & 1.183 & Below the hypothesized 1.20 threshold; illustrative only. \\
+Median time-to-result reduction & 25.75\% & Generated under assumptions that gave high-AI projects faster cycles. \\
+High-AI/audit replication odds ratio & 1.089 & Did not meet the hypothesized OR $\geq 1.30$ even in the synthetic run. \\
+Topic entropy change under high AI & $-4.34\%$ & Illustrates how topic narrowing could be represented. \\
+Institutional output Gini, 2031 & 0.299 & Descriptive synthetic inequality measure; no causal inference. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The placeholder statistical tests used in the synthetic run, including a Welch test for output per FTE, should not be interpreted inferentially. A real study should use pre-specified negative binomial or Poisson mixed models with FTE offsets, clustered standard errors, field effects, and institution effects for count outcomes; Cox or accelerated failure-time models for time-to-result; logistic or hierarchical models for replication; and difference-in-differences or event-study models for inequality and funding shifts. Confidence intervals, overdispersion, intraclass correlation, attrition, compliance, and spillovers would need to be estimated from real pilot data.
+
+\subsection{Validation Methods and Limitations}
+
+Validation would include back-testing, expert elicitation, sensitivity analysis, robustness checks, comparison with observed AI adoption trends, external validation using grant/publication/patent/replication datasets, and natural experiments where institutions adopt AI tools at different times.
+
+Limitations include difficulty measuring scientific quality, citation bias, long lags between discovery and impact, proprietary data gaps, field heterogeneity, publication bias, uncertainty in AI capability development, difficulty modeling institutions, and difficulty separating AI effects from other scientific trends. QAVD-RY is a proposed metric, not a validated measure; its weights should be piloted and field-calibrated before use.
+
+\section{Governance, Institutional, and Policy Implications}
+
+\begin{table}[H]
+\centering
+\caption{Governance recommendations.}
+\small
+\begin{tabularx}{\textwidth}{p{3.0cm}X X}
+\toprule
+\textbf{Institution} & \textbf{Recommendation} & \textbf{Rationale} \\
+\midrule
+Universities & Build AI-for-science training into graduate education. & Scientists need AI literacy, reproducibility skills, and validation judgment. \\
+Funding agencies & Fund shared compute, open scientific models, replication, and under-resourced institutions. & Prevent concentration and improve reliability. \\
+Journals & Require AI-use disclosure, data/code availability, and reproducibility artifacts. & Maintain trust and accountability. \\
+National laboratories & Develop public-interest scientific AI infrastructure. & Provide alternatives to proprietary platforms. \\
+Companies & Support auditability, safety testing, responsible access, and documentation. & Reduce opacity and misuse risk. \\
+Governments & Fund public AI infrastructure and safety governance. & Address inequality and dual-use risks. \\
+IRBs and safety bodies & Update review for AI-assisted and autonomous research. & Existing frameworks may be insufficient for autonomous workflows. \\
+Standards organizations & Define model cards, dataset cards, audit logs, and metadata standards. & Enable reproducibility and accountability. \\
+International organizations & Support global access and norms. & Reduce Global North/Global South disparities. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Priority mechanisms include mandatory AI-use disclosure, versioned model and workflow documentation, independent validation for high-stakes claims, access controls for dual-use tools, safety reviews for autonomous laboratories, public compute, open scientific AI infrastructure, funding for under-resourced institutions, audit trails, replication funding, and human accountability for AI-assisted scientific claims.
+
+\section{Uncertainties, Evidence Gaps, and Research Needs}
+
+Major uncertainties include:
+\begin{itemize}[leftmargin=*]
+    \item the rate and direction of AI capability development;
+    \item the cost and availability of compute and laboratory automation;
+    \item whether AI broadens or narrows scientific questions;
+    \item whether AI improves or undermines reproducibility;
+    \item how intellectual property and authorship rules evolve;
+    \item whether open infrastructure can offset proprietary concentration;
+    \item how dual-use and safety risks can be governed without blocking beneficial science.
+\end{itemize}
+
+Important evidence gaps remain. The supplied sources do not include primary studies for every field-specific example, including original AlphaFold and weather-forecasting primary papers. Therefore, field-specific forecasts are calibrated conservatively and are often based on review-level evidence. No real empirical dataset was provided for the AIDIOS prototype, and its numerical results are not evidence of real-world AI effects.
+
+\subsection*{Data, Code, Funding, and Competing Interests}
+
+No real empirical dataset was provided. The synthetic prototype described in the prompt is illustrative and non-empirical. Code was supplied in the prompt, but exact software versions were not provided. Funding information was not provided. Competing-interest information was not provided. Any real AIDIOS pilot involving researchers, laboratory records, personnel data, tool logs, or electronic lab notebooks would require appropriate institutional review, data-use agreements, privacy protections, and safety review.
+
+\section{Conclusion}
+
+AI-driven scientific discovery is likely to become a major force in science over the next 5, 10, and 20 years, but its impact will be uneven, conditional, and institutionally mediated. The strongest near-term effects are likely to be faster literature synthesis, coding, data analysis, simulation, candidate screening, and experiment planning. Over 10 years, more integrated AI-agent, robotic-laboratory, and digital-twin systems are plausible in well-resourced domains. Over 20 years, selected fields may develop semi-autonomous discovery pipelines, but this remains a conditional possibility rather than an established prediction.
+
+The central conclusion is that AI will probably increase scientific speed and output, but it will not automatically increase scientific understanding, novelty, reproducibility, or equity. Those outcomes depend on institutional design. The strongest defensible hypothesis is therefore not simply that AI improves science, but that AI improves quality-adjusted scientific discovery when paired with strong validation, auditability, open data and code, expert oversight, safety governance, and equitable infrastructure.
+
+The next step is to implement a real AIDIOS pilot. Such a pilot should pre-register its AI adoption index and QAVD-RY metric, secure data-use agreements, establish independent expert panels, conduct embedded replication studies, fit the proposed statistical models, calibrate the agent-based simulation, and report null and negative findings alongside positive results.
+
+\section*{References}
+\addcontentsline{toc}{section}{References}
+
+\begin{thebibliography}{8}
+
+\bibitem{ref1}
+Hanchen Wang et al. ``Scientific discovery in the age of artificial intelligence.'' \textit{Nature}, 2023. \url{https://www.nature.com/articles/s41586-023-06221-2}
+
+\bibitem{ref2}
+OECD. ``Artificial Intelligence in Science: Challenges, Opportunities and the Future of Research.'' OECD Publishing, 26 June 2023. \url{https://www.oecd.org/en/publications/artificial-intelligence-in-science_a8d820bd-en.html}
+
+\bibitem{ref3}
+National Academies of Sciences, Engineering, and Medicine. ``AI for Scientific Discovery: Proceedings of a Workshop.'' National Academies Press, 2024. \url{https://nap.nationalacademies.org/catalog/27457/ai-for-scientific-discovery-proceedings-of-a-workshop}
+
+\bibitem{ref4}
+The Royal Society. ``Science in the age of AI.'' The Royal Society, 2024. \url{https://royalsociety.org/news-resources/projects/science-in-the-age-of-ai/}
+
+\bibitem{ref5}
+Alexander V. Tobias and Adam Wahab. ``Autonomous `self-driving' laboratories: a review of technology and policy implications.'' \textit{Royal Society Open Science}, vol. 12, no. 7, publication year not provided in supplied source block. \url{https://doaj.org/article/56499281249f4a349636f5d6af2f615d}
+
+\bibitem{ref6}
+Amil Merchant et al. ``Scaling deep learning for materials discovery.'' \textit{Nature}, 2023. \url{https://www.nature.com/articles/s41586-023-06735-9}
+
+\bibitem{ref8}
+Lisa Messeri and M. J. Crockett. ``Artificial intelligence and illusions of understanding in scientific research.'' \textit{Nature}, 2024. \url{https://www.nature.com/articles/s41586-024-07146-0}
+
+\bibitem{ref12}
+OECD. ``Artificial intelligence in science: Overview and policy proposals.'' OECD Publishing, 26 June 2023. \url{https://www.oecd.org/en/publications/artificial-intelligence-in-science_a8d820bd-en/full-report/artificial-intelligence-in-science-overview-and-policy-proposals_c1489d23.html}
+
+\end{thebibliography}
+
+\end{document}

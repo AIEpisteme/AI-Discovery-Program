@@ -1,0 +1,6 @@
+ref1 | Unknown | "Introduction to AI: A Modern Approach" | UC Berkeley (AIMA site) | Unknown | https://aima.cs.berkeley.edu/~russell/intro.html
+ref2 | Stuart Russell; Peter Norvig | "Artificial Intelligence: A Modern Approach, 4th US ed." | UC Berkeley (AIMA site) | Unknown (site notes ~3.5 years ago) | https://aima.cs.berkeley.edu/
+ref3 | Shane Legg; Marcus Hutter | "A Formal Measure of Machine Intelligence" | arXiv | 2006 | https://arxiv.org/abs/cs/0605024
+ref4 | Unknown | "Measuring universal intelligence: Towards an anytime intelligence test" | ScienceDirect (Artificial Intelligence journal) | 2011 | https://www.sciencedirect.com/science/article/pii/S0004370210001554
+ref5 | Unknown | "Artificial Intelligence (Stanford Encyclopedia of Philosophy entry)" | Stanford Encyclopedia of Philosophy (mirror) | Unknown | https://kryten.mm.rpi.edu/SEP/index8.html
+ref6 | Shane Legg; Joel Veness | "An Approximation of the Universal Intelligence Measure" | arXiv | 2011 | https://arxiv.org/abs/1109.5951
