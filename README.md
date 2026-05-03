@@ -156,19 +156,19 @@ python Vibe_researchv1a.py --save outputs auto \
 Pause after every stage:
 
 ```bash
-python python EinsteinResearch.py interactive auto --question "Your question here" --pause
+python  EinsteinResearch.py interactive auto --question "Your question here" --pause
 ```
 
 Skip PDF generation:
 
 ```bash
-python python EinsteinResearch.py interactive --no-pdf auto --question "Your question here"
+python EinsteinResearch.py interactive --no-pdf auto --question "Your question here"
 ```
 
 ### Convert an existing LaTeX file to PDF
 
 ```bash
-python python EinsteinResearch.py interactive latex2pdf --tex-file ./report.tex
+python EinsteinResearch.py interactive latex2pdf --tex-file ./report.tex
 ```
 
 Write the academic `.tex` and `.pdf` into a specific folder:
@@ -180,13 +180,13 @@ python python EinsteinResearch.py interactive latex2pdf --tex-file ./report.tex 
 ### Run the web chat server
 
 ```bash
-python python EinsteinResearch.py interactive serve
+python EinsteinResearch.py interactive serve
 ```
 
 Custom host, port, and HTML entry file:
 
 ```bash
-python python EinsteinResearch.py interactive serve --host 127.0.0.1 --port 8000 --index index.html
+python EinsteinResearch.py interactive serve --host 127.0.0.1 --port 8000 --index index.html
 ```
 
 Then open the served page in your browser and use the backend chat endpoint:
