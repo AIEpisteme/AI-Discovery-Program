@@ -100,7 +100,8 @@ For PDF compilation, install at least one of these TeX tools:
 If you run the script without a subcommand, it opens the interactive startup menu:
 
 ```bash
-python Vibe_researchv1a.py
+python EinsteinResearch.py interactive  # step by step AI discovery
+python EinsteinResearch.py auto # for end to end AI discovery
 ```
 
 From the menu you can choose:
