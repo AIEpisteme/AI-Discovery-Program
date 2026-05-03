@@ -5,7 +5,7 @@ Einsteinian Labs helps researchers turn ideas into discovery by using end-to-end
 
 ## Overview
 
-`Vibe_researchv1a.py` is a multi-mode AI research assistant built on the OpenAI Agents SDK. It can:
+`EinsteinResearch.py` is a multi-mode AI research assistant built on the OpenAI Agents SDK. It can:
 
 - run a guided research pipeline from question to report
 - search the web for background and supporting sources
