@@ -155,22 +155,24 @@ You can enter your data or file path of the data:
 ```text
 Experiment data or file path: ./researchdata.txt
 ```
+Every step, you can add notes or chat with AI, a=auto, run all steps automatically, /notes: add your own notes for the research:
+```text
+> [Plan] Enter=next | text=/note | /ask | a=auto | q=quit:
 
-
-
+```
 
 
 
 ### Run interactive mode directly
 
 ```bash
-python Vibe_researchv1a.py interactive
+python EinsteinResearch.py interactive
 ```
 
 Save outputs and choose a model:
 
 ```bash
-python python EinsteinResearch.py interactive --save outputs --model gpt-5.2 interactive
+python EinsteinResearch.py interactive --save outputs --model gpt-5.2 interactive
 ```
 
 ### Run automated mode
@@ -310,8 +312,8 @@ If PDF conversion succeeds, the compiled academic PDF is saved next to the TeX f
 
 ## Notes and behavior
 
-- Default model: `gpt-5.2`
-- Recommended models include `gpt-5.2`, `gpt-5.2-pro`, `gpt-5`, `gpt-5-mini`, and `gpt-5-nano`
+- Default model: `gpt-5.5`
+- Recommended models include `gpt-5.5`, `gpt-5.5-pro`, `gpt-5.4`, `gpt-5.4-mini`, and `gpt-5.4-nano`
 - The script retries with fallback models on retryable API or timeout errors
 - If no dataset is provided, the experiment runner can generate synthetic data and still produce a prototype analysis
 - SQLAlchemy-backed session memory is optional and controlled through environment variables
@@ -320,7 +322,7 @@ If PDF conversion succeeds, the compiled academic PDF is saved next to the TeX f
 
 ```bash
 pip install openai openai-agents pydantic sqlalchemy aiosqlite
-python Vibe_researchv1a.py --save outputs interactive
+python EinsteinResearch.py --save outputs interactive
 ```
 
 Enter your research question, optionally provide data, and review each pipeline stage as the system builds a structured report and LaTeX paper.
