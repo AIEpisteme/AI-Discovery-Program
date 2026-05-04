@@ -39,6 +39,7 @@ Outputs can be saved to a timestamped run directory, and the final LaTeX report 
 
 ### 1. Interactive research pipeline
 #### Example of CLI menu:
+```python
 +==========================================================================+
 |  Einstein Research Console                                               |
 |  AI Research + Lab Workflows                                             |
@@ -63,6 +64,8 @@ Outputs can be saved to a timestamped run directory, and the final LaTeX report 
 |  Einstein Research Console                                               |
 |  Core Research Pipeline                                                  |
 +==========================================================================+
+```
+
 Interactive mode prompts you for a research question and optional experiment data or a data-file path. It then walks through the pipeline step by step, pausing between stages so you can review or stop.
 
 Helpful commands in interactive mode:
