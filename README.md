@@ -38,7 +38,31 @@ Outputs can be saved to a timestamped run directory, and the final LaTeX report 
 ## Features
 
 ### 1. Interactive research pipeline
+#### Example of CLI menu:
++==========================================================================+
+|  Einstein Research Console                                               |
+|  AI Research + Lab Workflows                                             |
++==========================================================================+
 
+ ______ _           _       _        _       _
+|  ____(_)         | |     (_)      | |     | |
+| |__   _ _ __  ___| |_ ___ _ _ __  | | __ _| |__  ___
+|  __| | | '_ \/ __| __/ _ \ | '_ \ | |/ _` | '_ \/ __|
+| |____| | | | \__ \ ||  __/ | | | || | (_| | |_) \__ \
+|______|_|_| |_|___/\__\___|_|_| |_||_|\__,_|_.__/|___/
++--------------------------------------------------------------------------+
+|  Active model: gpt-5.5                                                   |
+|                                                                          |
+|  [1] Core Research Pipeline                                              |
+|  [2] Lab Research (Perplexity Search)                                    |
+|  [3] Web Chat Server                                                     |
+|  [0] Exit                                                                |
++--------------------------------------------------------------------------+
+> Choose an option [0-3] (or /model <name>): 1
++==========================================================================+
+|  Einstein Research Console                                               |
+|  Core Research Pipeline                                                  |
++==========================================================================+
 Interactive mode prompts you for a research question and optional experiment data or a data-file path. It then walks through the pipeline step by step, pausing between stages so you can review or stop.
 
 Helpful commands in interactive mode:
@@ -116,6 +140,23 @@ You can also switch models from the menu with:
 ```text
 /model gpt-5.5-pro
 ```
+
+You can ask for AI for suggest for a research topic:
+```text
+/suggest Research on nanotechnology to heal humans
+# after it provide suggestion
+>Press Enter to use this prompt in step mode, or type a replacement question, or /cancel
+```
+
+You can enter your data or file path of the data:
+```text
+Experiment data or file path: ./researchdata.txt
+```
+
+
+
+
+
 
 ### Run interactive mode directly
 
