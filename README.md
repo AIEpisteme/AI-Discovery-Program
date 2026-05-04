@@ -180,13 +180,13 @@ python EinsteinResearch.py interactive --save outputs --model gpt-5.2 interactiv
 With an inline question only:
 
 ```bash
-python python EinsteinResearch.py interactive auto --question "Does retrieval augmentation improve factual accuracy in biotech QA systems?"
+python EinsteinResearch.py interactive auto --question "Does retrieval augmentation improve factual accuracy in biotech QA systems?"
 ```
 
 With inline data:
 
 ```bash
-python Vibe_researchv1a.py auto \
+python EinsteinResearch.py auto \
   --question "Does retrieval augmentation improve factual accuracy in biotech QA systems?" \
   --data "sample_id,condition,score\n1,A,0.82\n2,B,0.76"
 ```
@@ -194,7 +194,7 @@ python Vibe_researchv1a.py auto \
 With a data file and saved outputs:
 
 ```bash
-python Vibe_researchv1a.py --save outputs auto \
+python EinsteinResearch.py --save outputs auto \
   --question "Does retrieval augmentation improve factual accuracy in biotech QA systems?" \
   --data-file ./data/results.csv
 ```
