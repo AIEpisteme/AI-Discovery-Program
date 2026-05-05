@@ -357,7 +357,7 @@ Type /quit at any prompt to exit.
 | /quit) Exit                           |
 +---------------------------------------+
 ```
-### When select "1" (Exaple):
+### When select "1" (Example):
 ```text
 > Choose 1, 2, 3, 4, or /quit: 1
 > Literature review topic/query: AI Discovery Engine for R&D
@@ -365,7 +365,38 @@ Type /quit at any prompt to exit.
 > Output style [concise bullet summary]:
 ```
 
+### When select "2" (Example):
+```text
+> Choose 1, 2, 3, 4, or /quit: 2
+> Path to data file (csv/tsv/json/txt): research_ai.csv
 
+Loaded file preview:
+
+File: C:\Users\Thomas_Yiu\Downloads\V-agent\webpage\research_ai.csv
+Detected format: CSV
+Columns: Table 5.Overview of research methods ., ,
+Rows (excluding header): 11
+Preview rows:
+1. Research method | Approach | Percent
+2. Qualitative | Survey and interviews | 14.20%
+3.  | Case studies and interviews |
+4. Quantitative | Experiment | 49.40%
+5.  | Statistical analysis |
+6.  | Experiment and case study |
+7.  | Survey and experiment |
+8.  | Design science |
+9. Conceptual | No methodology | 24.70%
+10.  | Other | 11.70%
+> Analysis objective [Identify trends, anomalies, and recommendations]: Identify trends
+
+Data Analysis:
+
+### 1) Key findings
+- **Dominant research approach**: Quantitative methods are the most prevalent at 49.40%, indicating a strong emphasis on empirical, data-driven research in the dataset (likely AI-related studies based on file context).
+- **Secondary approaches**: Conceptual methods follow at 24.70%, often with "No methodology" or "Other" labels, suggesting theoretical or non-empirical work. Qualitative methods account for 14.20%, primarily via surveys and interviews.
+- **Remaining share**: An "Other" category captures 11.70%, potentially encompassing unclassified or hybrid methods.
+- **Trend insight**: The data reveals a clear skew toward quantitative rigor (nearly half of studies), with declining reliance on qualitative (14%) and conceptual (25%) approaches. Percentages sum to ~100% (49.40% + 24.70% + 14.20% + 11.70% = 100%), confirming comprehensive coverage of 11 research instances.
+```
 
 
 # Contact
