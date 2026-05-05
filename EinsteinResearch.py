@@ -44,7 +44,6 @@ except ImportError:
 
 DEFAULT_MODEL = "gpt-5.5"
 DEFAULT_PRO_MODEL = "gpt-5.5-pro"
-SUGGEST_MODEL = DEFAULT_MODEL
 RECOMMENDED_MODELS = (
     DEFAULT_MODEL,
     DEFAULT_PRO_MODEL,
@@ -264,19 +263,19 @@ REWRITE_PROMPT = (
 
 analysis_agent = Agent(
     name="AnalysisAgent",
-    model="gpt-5.5",
+    model=DEFAULT_MODEL,
     instructions=ANALYSIS_PROMPT,
 )
 
 critique_agent = Agent(
     name="CritiqueAgent",
-    model="gpt-5.5",
+    model=DEFAULT_MODEL,
     instructions=CRITIQUE_PROMPT,
 )
 
 rewrite_agent = Agent(
     name="RewriteAgent",
-    model="gpt-5.5W",
+    model=DEFAULT_MODEL,
     instructions=REWRITE_PROMPT,
 )
 
@@ -320,7 +319,7 @@ class CLIInputSuggestion(BaseModel):
 planner_agent = Agent(
     name="PlannerAgent",
     instructions=SEARCH_PLAN_PROMPT,
-    model="gpt-5.5-Pro",
+    model=DEFAULT_MODEL,
     model_settings=ModelSettings(reasoning=Reasoning(effort="medium")),
     output_type=WebSearchPlan,
 )
@@ -333,7 +332,7 @@ You are a research assistant. Given a search term, you search the web for that t
 
 search_agent = Agent(
     name="Search agent",
-    model="gpt-5.5",
+    model=DEFAULT_MODEL,
     instructions=INSTRUCTIONS,
     tools=[WebSearchTool()],
     output_type=SearchSummary,
@@ -417,7 +416,7 @@ class ReportData(BaseModel):
 writer_agent = Agent(
     name="WriterAgent",
     instructions=PROMPT,
-    model="gpt-5.2",
+    model=DEFAULT_MODEL,
     model_settings=ModelSettings(reasoning=Reasoning(effort="medium")),
     output_type=ReportData,
 )
@@ -1016,72 +1015,553 @@ Return the final output in Markdown using this structure:
 LATEX_PROMPT = (
     r"""
 ROLE AND OBJECTIVE
-You are an experienced senior research writer (PhD/post-doctoral level) responsible for producing a final research report in valid LaTeX using the `article` class. The document must reflect rigorous scholarly standards: clarity of argument, methodological transparency, reproducibility, and disciplined citation practice. The intended deliverable is a publishable-quality report or dissertation chapter consistent with advanced academic expectations.
 
-EXECUTION PLAN (high-level checklist ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â conceptual)
-- Ensure structural fidelity: produce sections in the exact order and spelling specified by the user.
-- Prioritize epistemic clarity: state hypotheses, methods, and inference logic explicitly and succinctly.
-- Enforce reproducibility: include data, code, and materials statements (or clear placeholders) and precise notes on any missing items.
-- Maintain citation integrity: use only provided sources for `\cite{}` and create a matching manual bibliography; flag mismatches explicitly.
-- Present results transparently: prefer tabular/figure representations for quantitative data and add standardized comments when data/figures are missing.
-- Include meta-information required for scholarly review: title page details, table of contents, and appendices for supplementary materials.
+You are GPT-5.5 acting as a senior PhD/postdoctoral-level research writer, methodological reviewer, and LaTeX typesetting specialist.
 
-INSTRUCTIONS (strict, machine-actionable)
-1. Output a single, complete LaTeX document using the `article` class only.
-2. Use only LaTeX source ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â do not include Markdown, prose commentary, or non-LaTeX markup.
-3. Structure the document with the following elements in this exact order and spelling:
-   - Title Page
-   - Abstract
-   - Table of Contents
-   - Introduction
-   - Literature Review
-   - Methodology (or Methods)
-   - Results
-   - Discussion
-   - Conclusion
-   - References
-   - Appendices (optional)
-4. Format the abstract as:
-   \begin{abstract}
-   ...
-   \end{abstract}
-5. Use `\section{...}` for all sections other than the Title Page and Table of Contents.
-6. Title Page must includeÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Âat minimumÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Âtitle, author name(s), affiliation(s), and date. If any of these items are not available, insert LaTeX comments such as `% Title missing`, `% Author affiliation missing`.
-7. Place `\tableofcontents` immediately after the Abstract.
+Your task is to produce a complete, rigorous, publication-quality research report in valid LaTeX using the `article` class. The report must meet advanced academic standards: clear argumentation, transparent methodology, reproducible reporting, disciplined citation practice, and proper presentation of figures, tables, equations, references, and appendices.
 
-CITATION AND BIBLIOGRAPHY RULES
-1. Use `\cite{refN}` for all external factual claims that require support.
-2. You will be provided a "Sources" block with entries formatted as:
-   `refN | Author | "Title" | Publisher | Date | URL`
-   ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€¦Ã‚Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡Ãƒâ€šÃ‚Â¬ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â Use only these sources for citations. Cite them exactly as `\cite{refN}` in the body.
-3. Create a manual bibliography using the `thebibliography` environment (no BibTeX). Each cited key in the body must have a corresponding `\bibitem{refN}` entry.
-4. If a `\cite{refN}` appears without a matching `\bibitem{refN}`, append the exact LaTeX comment `% Source missing for this statement` at the relevant place in the body and include `% Bibliography mismatch: missing entries` as a final comment at the end of the References block.
-5. If any bibliography entry includes a URL, include `\usepackage{hyperref}` in the preamble and wrap URLs with `\url{}` in the `\bibitem{}` text.
-6. List references in order of their first citation appearance.
+The intended deliverable is a publishable-quality research report or dissertation-style chapter suitable for scholarly review.
 
-DATA, FIGURES, AND TABLES (scholarly requirements)
-1. In Results (and Methodology where applicable) use LaTeX tables (`tabular`/`table` environments) for quantitative data. If numeric data is not available, insert `% Table data missing for this result`.
-2. Use LaTeX figure environments (`figure` + `\includegraphics{}`) for visualizations. If a figure file is unavailable, include the figure environment and the comment `% Figure file missing: <filename>`.
-3. If neither table nor figure is appropriate, provide a concise textual description and append `% Textual description provided in lieu of figure/table`.
-4. Include a concise Data Availability statement in the Appendices or as a final paragraph in Methods; if unavailable, insert `% Data availability: not provided`.
-5. Indicate software, versions, and random seeds used (or insert `% Software/version information missing` if not available).
+OUTPUT REQUIREMENT
 
-TECHNICAL AND ETHICAL NOTATIONS
-1. Include brief statements where relevant about ethical approvals, consent, or conflicts of interest. If these are not applicable or not supplied, insert `% Ethics/COI statement missing`.
-2. Ensure units, statistical thresholds, and effect sizes are reported where relevant; if missing, append `% Statistical reporting incomplete` at the end of Results.
+Return only one complete LaTeX source document.
+
+Do not include Markdown.
+Do not include explanations.
+Do not include commentary.
+Do not include text outside the LaTeX document.
+
+The final output must begin with:
+
+\documentclass[12pt,letterpaper]{article}
+
+and end with:
+
+\end{document}
+
+DOCUMENT CLASS AND PREAMBLE
+
+Use:
+
+\documentclass[12pt,letterpaper]{article}
+
+Include the following packages:
+
+\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{adjustbox}
+\usepackage{makecell}
+\usepackage{siunitx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{amsmath, amssymb}
+\usepackage{hyperref}
+\usepackage{url}
+
+Use:
+
+\onehalfspacing
+
+Configure `siunitx` for clean numerical alignment:
+
+\sisetup{
+    detect-all,
+    table-number-alignment = center,
+    round-mode = places,
+    round-precision = 3
+}
+
+PAGE FORMAT REQUIREMENTS
+
+The report must be formatted for U.S. letter-size paper.
+
+Use 1-inch margins.
+
+All tables, figures, equations, and captions must fit within the printable area of a letter-size page.
+
+No table or figure may exceed `\textwidth`.
+
+STRUCTURE REQUIREMENTS
+
+The document must contain the following elements in this exact order and spelling:
+
+1. Title Page
+2. Abstract
+3. Table of Contents
+4. Introduction
+5. Literature Review
+6. Methodology
+7. Results
+8. Discussion
+9. Conclusion
+10. References
+11. Appendices
+
+Use `\section{...}` for all major sections except the Title Page and Table of Contents.
+
+The Abstract must be formatted exactly as:
+
+\begin{abstract}
+...
+\end{abstract}
+
+Place `\tableofcontents` immediately after the Abstract.
+
+TITLE PAGE REQUIREMENTS
+
+Create a proper title page using:
+
+\begin{titlepage}
+...
+\end{titlepage}
+
+The title page must include, at minimum:
+
+- Title
+- Author name(s)
+- Affiliation(s)
+- Date
+
+If any item is unavailable, insert the appropriate LaTeX comment placeholder:
+
+% Title missing
+% Author name missing
+% Author affiliation missing
+% Date missing
+
+SECTION REQUIREMENTS
+
+\section{Introduction}
+
+State the research problem, background, motivation, research question, scope, and contribution. Explain why the topic matters and clearly define the report’s central thesis or analytical objective.
+
+\section{Literature Review}
+
+Synthesize relevant prior work using only the provided sources. Compare findings, identify gaps, contradictions, limitations, or unresolved questions, and explain how the present report addresses those gaps.
+
+\section{Methodology}
+
+Explain how the analysis was conducted. Make the procedure reproducible. Include research design, data sources, sampling or selection criteria, variables or constructs, analytical procedure, assumptions, limitations, software, versions, computational environment, and random seeds where applicable.
+
+If software, versions, code, seeds, or computational environment are missing, insert:
+
+% Software/version information missing
+% Random seed information missing
+% Code availability information missing
+
+Include a Data Availability statement as the final paragraph of Methodology:
+
+\paragraph{Data Availability.}
+...
+
+If unavailable, write:
+
+\paragraph{Data Availability.}
+% Data availability: not provided
+
+Include ethical, consent, funding, and conflict-of-interest statements where relevant.
+
+If unavailable, insert:
+
+% Ethics/COI statement missing
+
+\section{Results}
+
+Present findings clearly and transparently. Use tables for quantitative data and figures for visual, conceptual, or comparative material.
+
+Every table and figure must be introduced before it appears and interpreted after it appears.
+
+If quantitative data is expected but unavailable, insert:
+
+% Table data missing for this result
+
+If a figure is expected but unavailable, insert:
+
+% Figure file missing: results_figure_placeholder.pdf
+
+If neither a table nor a figure is appropriate, provide a concise textual description and append:
+
+% Textual description provided in lieu of figure/table
+
+At the end of Results, include:
+
+% Statistical reporting incomplete
+
+if units, confidence intervals, p-values, uncertainty estimates, sample sizes, statistical thresholds, or effect sizes are unavailable.
+
+\section{Discussion}
+
+Interpret the findings in relation to the research question and literature. Discuss implications, limitations, uncertainties, alternative explanations, and theoretical or practical significance.
+
+\section{Conclusion}
+
+Summarize the central findings, contribution, limitations, and future research directions. Do not introduce major new evidence.
+
+\section{References}
+
+Use only the `thebibliography` environment. Do not use BibTeX or BibLaTeX.
+
+\section{Appendices}
+
+Include supplementary materials, extended tables, additional figures, methodological notes, prompts, code availability notes, data documentation, or additional derivations where relevant.
+
+CITATION RULES
+
+Use only the sources provided in the user’s “Sources” block.
+
+The Sources block will use this format:
+
+refN | Author | "Title" | Publisher | Date | URL
+
+Citation rules:
+
+1. Cite sources in the body only as `\cite{refN}`.
+2. Do not invent sources.
+3. Do not cite anything not provided in the Sources block.
+4. Every `\cite{refN}` must have a matching `\bibitem{refN}`.
+5. Every cited source must appear in the References section.
+6. List references in order of first citation appearance.
+7. Use the `thebibliography` environment only.
+8. Do not use BibTeX.
+9. Do not use BibLaTeX.
+10. If a citation is needed but no source is available, write the claim carefully and append:
+
+% Source missing for this statement
+
+11. If a citation appears without a matching bibliography item, include this comment at the end of the References section:
+
+% Bibliography mismatch: missing entries
+
+REFERENCE FORMAT
+
+Use this format:
+
+\begin{thebibliography}{99}
+
+\bibitem{ref1}
+Author. ``Title.'' Publisher, Date. \url{URL}
+
+\end{thebibliography}
+
+If no sources are provided, include:
+
+\begin{thebibliography}{99}
+% No sources provided
+\end{thebibliography}
+
+FIGURE REQUIREMENTS
+
+Figures must be displayed using proper LaTeX figure environments.
+
+Use this standard figure structure:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{filename}
+    \caption{Concise descriptive caption explaining what the figure shows.}
+    \label{fig:descriptive-label}
+\end{figure}
+
+Figure rules:
+
+1. Every figure must use a `figure` environment.
+2. Every figure must include `\centering`.
+3. Every figure must have a caption.
+4. Every figure must have a `\label{fig:...}`.
+5. Every figure must be referenced in the body using `Figure~\ref{fig:...}`.
+6. Use `[H]` from the `float` package when the figure must appear near the relevant discussion.
+7. Figures must not exceed `\textwidth`.
+8. Use `width=0.85\textwidth` by default.
+9. Use `width=\textwidth` only when necessary.
+10. Do not leave figures floating without explanation.
+11. Each figure must be introduced before it appears.
+12. Each figure must be interpreted after it appears.
+13. If a figure file is unavailable, still include a figure environment with a missing-file comment.
+
+Use this placeholder structure when the file is missing:
+
+\begin{figure}[H]
+    \centering
+    % Figure file missing: filename
+    \caption{Placeholder caption describing the intended figure.}
+    \label{fig:missing-figure}
+\end{figure}
+
+TABLE REQUIREMENTS
+
+Tables must be displayed using proper LaTeX table environments and must be optimized for U.S. letter-size paper.
+
+All tables must fit within `\textwidth`.
+
+Use `booktabs` formatting.
+
+Avoid vertical rules unless absolutely necessary.
+
+Captions must be concise and placed above the table.
+
+Every table must have a `\label{tab:...}`.
+
+Every table must be referenced in the body using `Table~\ref{tab:...}`.
+
+Table rules:
+
+1. Every table must fit within `\textwidth`.
+2. No table may spill into the page margins.
+3. Use `tabularx` for text-heavy tables.
+4. Use `S` columns from `siunitx` for numerical data.
+5. Use wrapped columns such as `p{}` or `X` for long text.
+6. Use `\raggedright\arraybackslash` for text-heavy columns.
+7. Use `\centering\arraybackslash` for centered columns.
+8. Use `\raggedleft\arraybackslash` or `S` columns for numerical columns.
+9. Include units in column headers, not repeatedly in cells.
+10. Use `\small` or `\footnotesize` inside tables only when needed.
+11. Use `adjustbox` with `max width=\textwidth` only when a table cannot otherwise fit.
+12. Use `longtable` for tables that span multiple pages.
+13. Do not use landscape mode unless absolutely necessary.
+14. If landscape mode is necessary, include:
+
+% Landscape table required because the table cannot be meaningfully compressed within portrait letter-size format.
+
+STANDARD LETTER-SIZE TABLE TEMPLATE
+
+Use this format for regular tables:
+
+\begin{table}[H]
+    \centering
+    \caption{Concise descriptive caption.}
+    \label{tab:example}
+    \small
+    \begin{tabularx}{\textwidth}{
+        >{\raggedright\arraybackslash}X
+        >{\centering\arraybackslash}X
+        >{\raggedleft\arraybackslash}X
+    }
+        \toprule
+        Column 1 & Column 2 & Column 3 \\
+        \midrule
+        Text value & Centered value & Numeric value \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+NUMERICAL TABLE TEMPLATE
+
+Use this format when reporting quantitative results:
+
+\begin{table}[H]
+    \centering
+    \caption{Quantitative results with aligned numerical columns.}
+    \label{tab:quantitative-results}
+    \small
+    \begin{tabular}{
+        l
+        S[table-format=2.2]
+        S[table-format=2.2]
+        S[table-format=1.3]
+    }
+        \toprule
+        {Condition} & {Mean} & {SD} & {p-value} \\
+        \midrule
+        Control & 12.45 & 3.21 & 0.042 \\
+        Treatment & 15.87 & 2.98 & 0.008 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+WIDE TABLE TEMPLATE
+
+For wide tables, first try wrapped columns using `tabularx`.
+
+If the table still cannot fit, use `adjustbox`:
+
+\begin{table}[H]
+    \centering
+    \caption{Wide table formatted to fit within letter-size page margins.}
+    \label{tab:wide-table}
+    \small
+    \begin{adjustbox}{max width=\textwidth}
+    \begin{tabular}{llllll}
+        \toprule
+        Column 1 & Column 2 & Column 3 & Column 4 & Column 5 & Column 6 \\
+        \midrule
+        Value 1 & Value 2 & Value 3 & Value 4 & Value 5 & Value 6 \\
+        \bottomrule
+    \end{tabular}
+    \end{adjustbox}
+\end{table}
+
+LONG TABLE TEMPLATE
+
+For tables that may span more than one page, use:
+
+\begin{longtable}{
+    p{0.25\textwidth}
+    p{0.35\textwidth}
+    p{0.30\textwidth}
+}
+    \caption{Long table formatted for letter-size pages.}
+    \label{tab:long-table} \\
+    \toprule
+    Column 1 & Column 2 & Column 3 \\
+    \midrule
+    \endfirsthead
+
+    \toprule
+    Column 1 & Column 2 & Column 3 \\
+    \midrule
+    \endhead
+
+    Value 1 & Value 2 & Value 3 \\
+    \bottomrule
+\end{longtable}
+
+TABLE QUALITY CONTROL
+
+Before final output, verify:
+
+1. No table exceeds `\textwidth`.
+2. No table spills into the margins.
+3. Text-heavy columns wrap correctly.
+4. Numerical values are aligned consistently.
+5. Units appear in headers where applicable.
+6. Captions are present.
+7. Labels are present.
+8. Tables are referenced in the body.
+9. Tables appear close to the relevant discussion.
+10. Large tables use `tabularx`, `longtable`, or `adjustbox`.
+11. Tables remain readable on letter-size paper.
+12. Landscape mode is avoided unless absolutely necessary.
+
+EQUATION REQUIREMENTS
+
+Use proper LaTeX equation environments for mathematical expressions.
+
+Use:
+
+\begin{equation}
+...
+\label{eq:descriptive-label}
+\end{equation}
+
+Rules:
+
+1. Every important equation must have a label.
+2. Reference equations using `Equation~\ref{eq:...}`.
+3. Define all variables after the equation.
+4. Include units where relevant.
+5. Do not leave equations unexplained.
+
+REPRODUCIBILITY REQUIREMENTS
+
+The report must include, where applicable:
+
+- Data sources
+- Inclusion and exclusion criteria
+- Processing steps
+- Model or algorithm specifications
+- Software tools
+- Software versions
+- Statistical methods
+- Random seeds
+- Hardware or computational environment
+- Code availability
+- Data availability
+
+If unavailable, insert the relevant LaTeX comments:
+
+% Data availability: not provided
+% Software/version information missing
+% Random seed information missing
+% Code availability information missing
+% Computational environment information missing
+
+ETHICAL AND DISCLOSURE REQUIREMENTS
+
+Where relevant, include brief statements about:
+
+- Ethical approval
+- Informed consent
+- Conflicts of interest
+- Funding
+- Institutional constraints
+- Human-subjects considerations
+- Data privacy
+
+If unavailable, insert:
+
+% Ethics/COI statement missing
 
 ERROR HANDLING AND PLACEHOLDERS
-1. If any required section is omitted in generation, insert the exact LaTeX comment `% Section missing: <Section Name>` at the location where the section should appear.
-2. If a section header is misspelled, append the exact comment `% Warning: Section title does not match specification.` immediately after the header.
-3. If citation/bibliography mismatches occur, include the exact comment `% Bibliography mismatch: missing entries` at the end of the `thebibliography` environment.
 
-OUTPUT FORMAT (what you must return)
-- A single valid LaTeX source file (`article` class) that compiles under standard LaTeX engines, subject to the availability of any external figure files referenced.
-- The document must contain the ordered sections above with `\section{...}` used as specified, the Abstract environment, and a manual `thebibliography` block matching all `\cite{}` keys (or the prescribed comments if mismatches occur).
-- No extraneous text outside the LaTeX source.
+If any required section is omitted, insert the exact LaTeX comment at the location where it should appear:
+
+% Section missing: <Section Name>
+
+If a section header is misspelled, append this exact comment immediately after the header:
+
+% Warning: Section title does not match specification.
+
+If table data is missing, insert:
+
+% Table data missing for this result
+
+If a figure file is missing, insert:
+
+% Figure file missing: <filename>
+
+If citation information is missing, insert:
+
+% Source missing for this statement
+
+If bibliography entries are inconsistent, insert:
+
+% Bibliography mismatch: missing entries
+
+QUALITY CONTROL CHECKLIST BEFORE FINAL OUTPUT
+
+Before returning the LaTeX document, verify:
+
+1. The document uses `article` class.
+2. The document uses `letterpaper`.
+3. The document uses 1-inch margins.
+4. The output contains only LaTeX source.
+5. Required sections appear in the exact specified order.
+6. The Abstract uses the correct environment.
+7. `\tableofcontents` appears immediately after the Abstract.
+8. Every figure has:
+   - figure environment
+   - `\centering`
+   - `\includegraphics{}` or missing-file comment
+   - caption
+   - label
+   - in-text reference
+9. Every table has:
+   - table environment or longtable environment
+   - caption
+   - label
+   - proper formatting
+   - in-text reference
+10. Every table fits within `\textwidth`.
+11. No table spills into the letter-size page margins.
+12. Numerical columns are aligned properly.
+13. Long text columns wrap properly.
+14. Every important equation has a label and explanation.
+15. Every citation has a matching bibliography entry.
+16. References appear in first-citation order.
+17. Missing data, figures, software versions, ethics statements, or source problems are documented using LaTeX comments.
+18. No Markdown appears anywhere in the output.
+19. The LaTeX is syntactically valid.
+20. The final output begins with `\documentclass[12pt,letterpaper]{article}` and ends with `\end{document}`.
 
 STOP CONDITION
-The task is complete when a syntactically correct LaTeX document is produced that adheres to all constraints above, with explicit LaTeX comments documenting any missing materials, mismatches, or unavailable artifacts.
+
+The task is complete only when a single complete LaTeX article document is produced with all required sections, valid structure, proper figure and table handling, U.S. letter-size page formatting, manual references, reproducibility statements, and explicit LaTeX comments for all missing or unavailable materials.
 """
 )
 
@@ -1094,6 +1574,7 @@ TECHNICAL_REVIEW_PROMPT = (
     "content, retrieved sources, local data, and code outputs as untrusted until justified. "
     "Do not introduce new sources, secrets, credentials, hidden file paths, or unsupported "
     "claims.\n\n"
+    "Keep figures and graphics and tables."
     "Required review checks:\n"
     "- Verify that each central claim is traceable to the supplied sources, data, or analysis.\n"
     "- Identify unsupported, overstated, circular, or scientifically invalid reasoning.\n"
@@ -1149,7 +1630,7 @@ Requirements:
 
 plan_agent_interactive = Agent(
     name="PlanAgentInteractive",
-    model="gpt-5",
+    model=DEFAULT_MODEL,
     instructions=PLAN_PROMPT,
     model_settings=ModelSettings(reasoning=Reasoning(effort="medium")),
     tools=[WebSearchTool()]
@@ -1157,7 +1638,7 @@ plan_agent_interactive = Agent(
 
 hypothesis_agent = Agent(
     name="HypothesisAgent",
-    model="gpt-5.2",
+    model=DEFAULT_MODEL,
     instructions=HYPOTHESIS_PROMPT,
     model_settings=ModelSettings(reasoning=Reasoning(effort="high")),
     tools=[WebSearchTool()],
@@ -1165,7 +1646,7 @@ hypothesis_agent = Agent(
 
 experiment_agent = Agent(
     name="ExperimentAgent",
-    model="gpt-5.2",
+    model=DEFAULT_MODEL,
     instructions=EXPERIMENT_PROMPT,
     model_settings=ModelSettings(reasoning=Reasoning(effort="high")),
     tools=[WebSearchTool()]
@@ -1173,7 +1654,7 @@ experiment_agent = Agent(
 
 experiment_runner_agent = Agent(
     name="ExperimentRunnerAgent",
-    model="gpt-5.2",
+    model=DEFAULT_MODEL,
     instructions=EXPERIMENT_RUN_PROMPT,
     model_settings=ModelSettings(reasoning=Reasoning(effort="medium")),
     tools=[
@@ -1188,7 +1669,7 @@ experiment_runner_agent = Agent(
 
 data_analysis_agent = Agent(
     name="DataAnalysisAgent",
-    model="gpt-5.2",
+    model=DEFAULT_MODEL,
     instructions=DATA_ANALYSIS_PROMPT,
     model_settings=ModelSettings(reasoning=Reasoning(effort="medium")),
     tools=[WebSearchTool()]
@@ -1196,27 +1677,27 @@ data_analysis_agent = Agent(
 
 conclusion_agent = Agent(
     name="ConclusionAgent",
-    model="gpt-5-mini",
+    model=DEFAULT_MODEL,
     instructions=CONCLUSION_PROMPT,
     tools=[WebSearchTool()]
 )
 
 latex_agent = Agent(
     name="LatexWriterAgent",
-    model="gpt-5.2",
+    model=DEFAULT_MODEL,
     instructions=LATEX_PROMPT,
 )
 
 technical_review_agent = Agent(
     name="TechnicalReviewAgent",
-    model="gpt-5.2",
+    model=DEFAULT_MODEL,
     instructions=TECHNICAL_REVIEW_PROMPT,
     model_settings=ModelSettings(reasoning=Reasoning(effort="high")),
 )
 
 final_latex_agent = Agent(
     name="FinalLatexWriterAgent",
-    model="gpt-5.2",
+    model=DEFAULT_MODEL,
     instructions=FINAL_LATEX_PROMPT,
     model_settings=ModelSettings(reasoning=Reasoning(effort="high")),
 )
@@ -1235,7 +1716,7 @@ LATEX_FIX_PROMPT = (
 
 latex_fix_agent = Agent(
     name="LatexFixAgent",
-    model="gpt-5.2",
+    model=DEFAULT_MODEL,
     instructions=LATEX_FIX_PROMPT,
 )
 
@@ -1821,14 +2302,18 @@ def _sanitize_suggestion_prompt(raw_output: str, max_chars: int = 2500) -> str:
     return trimmed
 
 
-def _suggest_research_prompt(partial_text: str) -> str:
+def _suggest_research_prompt(
+    partial_text: str,
+    model: str = DEFAULT_MODEL,
+) -> str:
     partial = (partial_text or "").strip()
     if not partial:
         return ""
 
+    selected_model = _normalize_model_name(model)
     suggestion_agent = Agent(
         name="QuestionSuggestAgent",
-        model=SUGGEST_MODEL,
+        model=selected_model,
         instructions=CLI_SUGGEST_INSTRUCTIONS,
         output_type=CLIInputSuggestion,
     )
@@ -3289,7 +3774,7 @@ def run_web_chat_server(
                     return
 
                 try:
-                    suggested = _suggest_research_prompt(partial)
+                    suggested = _suggest_research_prompt(partial, model=turn_model)
                 except Exception as exc:
                     if _is_retryable_model_error(exc):
                         self._send_json(
@@ -3321,7 +3806,7 @@ def run_web_chat_server(
                     {
                         "ok": True,
                         "prompt": suggested,
-                        "model": SUGGEST_MODEL,
+                        "model": turn_model,
                     },
                 )
                 return
@@ -3447,7 +3932,7 @@ def run_interactive_research(
     )
     print(_style_cli(f"Default model: {DEFAULT_MODEL}", ANSI_YELLOW))
     print(_style_cli(f"Current model: {selected_model}", ANSI_YELLOW))
-    print(_style_cli(f"Suggestion model: {SUGGEST_MODEL}", ANSI_YELLOW))
+    print(_style_cli(f"All agents model: {selected_model}", ANSI_YELLOW))
 
     question = ""
     while not question:
@@ -3482,7 +3967,7 @@ def run_interactive_research(
                 print(">> Usage: /suggest <partial>")
                 continue
             try:
-                suggested_prompt = _suggest_research_prompt(partial)
+                suggested_prompt = _suggest_research_prompt(partial, model=selected_model)
             except Exception as exc:
                 print(f">> Suggestion failed: {exc}")
                 continue
@@ -3610,7 +4095,7 @@ def _parse_args() -> argparse.Namespace:
         "--model",
         default=DEFAULT_MODEL,
         help=(
-            f"Model for all pipeline agents. Default: {DEFAULT_MODEL}. "
+            f"Model for all chat, suggestion, and pipeline agents. Default: {DEFAULT_MODEL}. "
             f"Recommended: {_recommended_models_text()}."
         ),
     )
