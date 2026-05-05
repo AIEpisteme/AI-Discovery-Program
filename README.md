@@ -138,8 +138,9 @@ From the menu you can choose:
 - `3` Web Chat Server
 - `0` Exit
 
-You can also switch models from the menu with:
 
+#### select Core Research  Pipleine
+You can also switch models from the menu with:
 ```text
 /model gpt-5.5-pro
 ```
@@ -326,6 +327,45 @@ python EinsteinResearch.py --save outputs interactive
 ```
 
 Enter your research question, optionally provide data, and review each pipeline stage as the system builds a structured report and LaTeX paper.
+
+## Lab Research
+```python
+
+                 .-""""-.
+               .'  _  _  '.
+              /   (o)(o)   \
+             |   .-.___.-.  |
+             |  /  \_/  \ \ |
+              \ \   ^   / /
+               '._'-=-'_.-'
+                  '---'
+  _____ _           _       _         ____                      _
+ | ____(_)_ __  ___| |_ ___(_)_ __   / ___|  ___  __ _ _ __ ___| |__
+ |  _| | | '_ \/ __| __/ _ \ | '_ \  \___ \ / _ \/ _` | '__/ __| '_ \
+ | |___| | | | \__ \ ||  __/ | | | |  ___) |  __/ (_| | | | (__| | | |
+ |_____|_|_| |_|___/\__\___|_|_| |_| |____/ \___|\__,_|_|  \___|_| |_|
+
+Einstein Search CLI
+Model: sonar-pro
+Type /quit at any prompt to exit.
+
++---------------------------------------+
+| 1) Literature Review                  |
+| 2) Data Analysis (file)               |
+| 3) Find References                    |
+| 4) Save Last Result to LaTeX + PDF    |
+| /quit) Exit                           |
++---------------------------------------+
+```
+### When select "1" (Exaple):
+```text
+> Choose 1, 2, 3, 4, or /quit: 1
+> Literature review topic/query: AI Discovery Engine for R&D
+> Specific focus (optional, press Enter to skip): R&D
+> Output style [concise bullet summary]:
+```
+
+
 
 
 # Contact
