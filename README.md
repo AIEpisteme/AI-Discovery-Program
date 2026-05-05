@@ -328,7 +328,7 @@ python EinsteinResearch.py --save outputs interactive
 
 Enter your research question, optionally provide data, and review each pipeline stage as the system builds a structured report and LaTeX paper.
 
-## Lab Research
+## Lab Research CLI interface and examples
 ```python
 
                  .-""""-.
