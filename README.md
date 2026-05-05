@@ -460,19 +460,186 @@ python EinsteinResearch.py serve \
 
 ## 16. Run Lab Research Mode
 
-Lab mode launches an additional research workflow if your local implementation includes one.
+Lab mode launches the separate Lab Research workflow from the main `EinsteinResearch.py` console. This mode is useful when you want a focused research utility for literature review, data analysis, reference discovery, and saving results to LaTeX or PDF.
 
-Run:
+### Step 1: Confirm the Lab Workflow File Exists
+
+Lab mode expects the lab workflow script to be available in the same project folder. The expected supporting file is:
+
+```text
+Perplexity-search.py
+```
+
+Your folder should look similar to this:
+
+```text
+project-folder/
+├── EinsteinResearch.py
+├── Perplexity-search.py        # required for Lab Research mode
+├── index.html                  # optional, only needed for web chat mode
+├── data/                       # optional, for input datasets
+└── outputs/                    # optional, for saved research outputs
+```
+
+### Step 2: Start Lab Research Mode
+
+Run this command from the project folder:
 
 ```bash
 python EinsteinResearch.py lab
 ```
 
-If a required lab workflow file is missing, the program will show an error message.
+If the lab workflow file is missing, the program will show an error message and stop.
+
+### Step 3: Use the Lab Research CLI Interface
+
+After Lab Research mode starts, you should see a command-line menu similar to this:
+
+```text
+Einstein Search CLI
+Model: sonar-pro
+Type /quit at any prompt to exit.
+
++---------------------------------------+
+| 1) Literature Review                  |
+| 2) Data Analysis (file)               |
+| 3) Find References                    |
+| 4) Save Last Result to LaTeX + PDF    |
+| /quit) Exit                           |
++---------------------------------------+
+> Choose 1, 2, 3, 4, or /quit:
+```
+
+Use the menu numbers to select the workflow you want.
+
+| Option | Purpose | When to Use It |
+|---|---|---|
+| `1` | Literature Review | Use this to summarize a research topic, identify themes, and create a literature-style overview. |
+| `2` | Data Analysis (file) | Use this to load and analyze a local CSV, TSV, JSON, or text file. |
+| `3` | Find References | Use this to search for relevant references, papers, guides, or supporting sources. |
+| `4` | Save Last Result to LaTeX + PDF | Use this after generating a result that you want to save as a formal report. |
+| `/quit` | Exit | Use this to close the Lab Research CLI. |
 
 ---
 
-## 17. Example Quick Start
+## 17. Lab Research CLI Interface and Examples
+
+This section shows exactly how to use each Lab Research CLI option.
+
+### Example 1: Run a Literature Review
+
+Choose option `1` when you want the lab workflow to generate a literature review for a topic.
+
+```text
+> Choose 1, 2, 3, 4, or /quit: 1
+> Literature review topic/query: AI Discovery Engine for R&D
+> Specific focus (optional, press Enter to skip): R&D
+> Output style [concise bullet summary]:
+```
+
+What happens next:
+
+1. The program searches or synthesizes information about the topic.
+2. It focuses the review around your optional focus area, if provided.
+3. It returns a literature-style summary using the selected output style.
+
+Use this option when you need a fast research overview before building hypotheses or designing experiments.
+
+### Example 2: Analyze a Data File
+
+Choose option `2` when you want to analyze a local data file.
+
+```text
+> Choose 1, 2, 3, 4, or /quit: 2
+> Path to data file (csv/tsv/json/txt): research_ai.csv
+```
+
+The program loads the file and shows a preview similar to this:
+
+```text
+Loaded file preview:
+
+File: C:\Users\Thomas_Yiu\Downloads\V-agent\webpage\research_ai.csv
+Detected format: CSV
+Columns: Table 5. Overview of research methods
+Rows excluding header: 11
+Preview rows:
+1. Research method | Approach | Percent
+2. Qualitative | Survey and interviews | 14.20%
+3. Quantitative | Experiment | 49.40%
+4. Conceptual | No methodology | 24.70%
+5. Other | Other | 11.70%
+```
+
+Then the program asks for your analysis objective:
+
+```text
+> Analysis objective [Identify trends, anomalies, and recommendations]: Identify trends
+```
+
+The output may include:
+
+1. Key findings.
+2. Trends in the data.
+3. Anomalies or unusual patterns.
+4. Recommendations for interpretation.
+5. Possible next research steps.
+
+Use this option when you already have a dataset and want the lab workflow to summarize or interpret it.
+
+### Example 3: Find References
+
+Choose option `3` when you need references for a research topic.
+
+```text
+> Choose 1, 2, 3, 4, or /quit: 3
+> Reference query/topic: Find references for AI research for R&D for science
+> Max references [8]:
+```
+
+If you press Enter at `Max references [8]`, the program uses the default value of 8 references.
+
+The output may look similar to this:
+
+```text
+References (8):
+
+1. Artificial Intelligence Resources: AI Tools for Research
+   URL: https://guides.library.georgetown.edu/ai/tools
+   Snippet: AI tools for research can help discover sources for literature review, synthesize scholarly information, and save researchers time.
+
+2. Additional reference title
+   URL: https://example.com/reference
+   Snippet: Short summary of the reference.
+```
+
+Use this option when you need source material for a report, literature review, hypothesis rationale, or research proposal.
+
+### Example 4: Save the Last Result to LaTeX and PDF
+
+Choose option `4` after you have generated a literature review, data analysis, or reference result that you want to save.
+
+```text
+> Choose 1, 2, 3, 4, or /quit: 4
+```
+
+The program attempts to save the latest generated result as a LaTeX file and, if a LaTeX compiler is available, compile it into a PDF.
+
+Use this option after you are satisfied with the latest result in the Lab Research CLI.
+
+### Example 5: Exit Lab Research Mode
+
+At any menu prompt, type:
+
+```text
+/quit
+```
+
+This exits the Lab Research CLI and returns control to your terminal.
+
+---
+
+## 18. Example Quick Start
 
 Use this sequence for a first successful run.
 
@@ -530,7 +697,7 @@ After the run finishes, open the `outputs` folder and review the generated Markd
 
 ---
 
-## 18. Command Reference
+## 19. Command Reference
 
 | Goal | Command |
 |---|---|
@@ -546,7 +713,7 @@ After the run finishes, open the `outputs` folder and review the generated Markd
 
 ---
 
-## 19. Output Files Explained
+## 20. Output Files Explained
 
 When `--save` is used, the program may generate these files:
 
@@ -575,7 +742,7 @@ If PDF generation succeeds, a PDF version of the report is also created.
 
 ---
 
-## 20. Troubleshooting
+## 21. Troubleshooting
 
 ### Problem: `python` Command Is Not Found
 
@@ -638,7 +805,7 @@ Check that:
 
 ---
 
-## 21. Best Practices
+## 22. Best Practices
 
 For stronger research results:
 
@@ -653,7 +820,7 @@ For stronger research results:
 
 ---
 
-## 22. Discussion
+## 23. Discussion
 
 `EinsteinResearch.py` is designed as a full AI-assisted research workflow rather than a simple chatbot. Its main value is that it connects the major stages of scientific work into a repeatable process: planning, literature review, hypothesis generation, experiment design, data analysis, conclusion writing, and report generation.
 
@@ -665,6 +832,6 @@ Interactive mode is best for careful research review because the user can inspec
 
 ---
 
-## 23. Contact
+## 24. Contact
 
 For questions, demos, or collaboration opportunities, contact Einsteinian Labs.
