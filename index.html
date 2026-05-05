@@ -185,6 +185,35 @@
       min-height: 28px;
     }
 
+    .suggestion {
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(247, 242, 232, 0.95), rgba(252, 248, 241, 0.98));
+      padding: 12px 16px 14px;
+    }
+
+    .suggestion[hidden] {
+      display: none;
+    }
+
+    .suggestion-title {
+      margin: 0 0 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #4d3f2a;
+    }
+
+    .suggestion-content {
+      margin: 0;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.92);
+      white-space: pre-wrap;
+      line-height: 1.42;
+      font-size: 0.92rem;
+      font-family: "IBM Plex Mono", monospace;
+    }
+
     .tabs {
       display: flex;
       gap: 8px;
@@ -306,6 +335,10 @@ Tip: type `/suggest <topic>` and Run to expand a rough idea into a full prompt."
     <main class="main">
       <div id="statusBar" class="topbar">Ready. Enter a question and run the pipeline.</div>
       <div id="metaBar" class="meta"></div>
+      <section id="suggestionPanel" class="suggestion" hidden>
+        <h2 id="suggestionTitle" class="suggestion-title">Suggested Prompt</h2>
+        <pre id="suggestionContent" class="suggestion-content"></pre>
+      </section>
       <nav id="tabs" class="tabs" aria-label="Pipeline steps"></nav>
       <section class="viewer">
         <h2 id="viewerTitle" class="viewer-title">Literature View</h2>
@@ -352,7 +385,8 @@ Tip: type `/suggest <topic>` and Run to expand a rough idea into a full prompt."
       busy: false,
       selectedTab: "literature_view",
       result: null,
-      apiUrl: ""
+      apiUrl: "",
+      suggestion: ""
     };
 
     const questionInputEl = document.getElementById("questionInput");
@@ -367,6 +401,9 @@ Tip: type `/suggest <topic>` and Run to expand a rough idea into a full prompt."
     const tabsEl = document.getElementById("tabs");
     const viewerTitleEl = document.getElementById("viewerTitle");
     const viewerContentEl = document.getElementById("viewerContent");
+    const suggestionPanelEl = document.getElementById("suggestionPanel");
+    const suggestionTitleEl = document.getElementById("suggestionTitle");
+    const suggestionContentEl = document.getElementById("suggestionContent");
     const errorEl = document.getElementById("error");
 
     function tabLabelFor(id) {
@@ -427,6 +464,10 @@ Tip: type `/suggest <topic>` and Run to expand a rough idea into a full prompt."
         statusBarEl.textContent = "Running all pipeline steps...";
         return;
       }
+      if (state.suggestion && !state.result) {
+        statusBarEl.textContent = "Suggested prompt ready. Review it above, then run the pipeline.";
+        return;
+      }
       if (!state.result) {
         statusBarEl.textContent = "Ready. Enter a question and run the pipeline.";
         return;
@@ -466,6 +507,19 @@ Tip: type `/suggest <topic>` and Run to expand a rough idea into a full prompt."
         lines.push(`data_note: ${state.result.data_note}`);
       }
       metaBarEl.textContent = lines.join(" | ");
+    }
+
+    function renderSuggestion() {
+      const suggestion = (state.suggestion || "").trim();
+      if (!suggestion) {
+        suggestionPanelEl.hidden = true;
+        suggestionContentEl.textContent = "";
+        return;
+      }
+
+      suggestionPanelEl.hidden = false;
+      suggestionTitleEl.textContent = "Suggested Prompt";
+      suggestionContentEl.textContent = suggestion;
     }
 
     async function postJson(candidates, payload, apiLabel) {
@@ -544,6 +598,7 @@ Tip: type `/suggest <topic>` and Run to expand a rough idea into a full prompt."
       renderTabs();
       renderStatus();
       renderMeta();
+      renderSuggestion();
       renderViewer();
       renderInputs();
     }
@@ -575,6 +630,8 @@ Tip: type `/suggest <topic>` and Run to expand a rough idea into a full prompt."
           return;
         }
         questionInputEl.value = suggested;
+        state.suggestion = suggested;
+        state.selectedTab = "literature_view";
       } catch (error) {
         setError(error.message || "Suggest request failed.");
       } finally {
@@ -628,6 +685,7 @@ Tip: type `/suggest <topic>` and Run to expand a rough idea into a full prompt."
     function clearResults() {
       state.result = null;
       state.apiUrl = "";
+      state.suggestion = "";
       state.selectedTab = "literature_view";
       setError("");
       render();
