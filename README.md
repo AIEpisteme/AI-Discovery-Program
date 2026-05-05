@@ -1,26 +1,210 @@
-# AI-Discovery-Program
-Einsteinian Labs helps researchers turn ideas into discovery by using end-to-end AI automation—from literature review to report generation—while keeping the process rigorous, measurable, and deeply human at its core
+# Einstein Research Console — How to Use Guide
 
-# Einstein Research Console
+Einsteinian Labs helps researchers turn ideas into discovery using end-to-end AI automation, from literature review to hypothesis generation, experiment design, data analysis, and report generation.
 
-## Overview
+This guide explains how to install, run, and use the program step by step.
 
-`EinsteinResearch.py` is a multi-mode AI research assistant built on the OpenAI Agents SDK. It can:
+---
 
-- run a guided research pipeline from question to report
-- search the web for background and supporting sources
-- generate hypotheses and experiment designs
-- run a prototype experiment or simulation with a code interpreter
-- analyze results and produce a conclusion
-- generate a LaTeX research report and optionally compile it to PDF
-- launch a local web chat server for browser-based interaction
-- launch a separate lab workflow through `Perplexity-search.py`
+## 1. Program Filename
 
-The script also includes model fallback logic, optional SQLAlchemy-backed session memory, ANSI-styled CLI menus, and helper commands for model switching and question suggestion.
+The main program file must be named:
 
-## Main workflow
+```text
+EinsteinResearch.py
+```
 
-The core pipeline runs these stages in order:
+Use this exact filename in all terminal commands.
+
+---
+
+## 2. What the Program Does
+
+`EinsteinResearch.py` is an AI research console that helps users move from a research question to a structured report.
+
+The program can:
+
+1. Help plan a research project.
+2. Search for background information and supporting sources.
+3. Generate research hypotheses.
+4. Design experiments or simulations.
+5. Run a prototype experiment or analysis.
+6. Analyze experiment results.
+7. Write a conclusion.
+8. Generate a LaTeX research report.
+9. Optionally compile the LaTeX report into a PDF.
+10. Run a local browser-based chat interface.
+11. Launch a separate lab research workflow, if configured.
+
+---
+
+## 3. Recommended Use Cases
+
+Use `EinsteinResearch.py` when you want to:
+
+- Start a new scientific research project.
+- Turn a broad idea into a testable hypothesis.
+- Create an experiment plan.
+- Analyze research data.
+- Generate an academic-style LaTeX report.
+- Produce a PDF research report.
+- Run repeatable AI-assisted research workflows.
+- Use a local web chat interface for research interaction.
+
+---
+
+## 4. Before You Start
+
+Make sure you have:
+
+1. Python installed.
+2. The file named `EinsteinResearch.py` in your project folder.
+3. An OpenAI API key, if the program requires OpenAI model access.
+4. The required Python packages installed.
+5. A terminal or command prompt open in the folder that contains `EinsteinResearch.py`.
+
+---
+
+## 5. Install Required Packages
+
+Open your terminal in the project folder and run:
+
+```bash
+pip install openai openai-agents pydantic
+```
+
+For optional session memory support, run:
+
+```bash
+pip install sqlalchemy aiosqlite
+```
+
+For full installation with both required and optional packages, run:
+
+```bash
+pip install openai openai-agents pydantic sqlalchemy aiosqlite
+```
+
+---
+
+## 6. Optional: Install a LaTeX Compiler
+
+To generate a PDF from the LaTeX report, install at least one of the following tools:
+
+- `tectonic`
+- `latexmk`
+- `pdflatex`
+
+If you do not install a LaTeX compiler, the program can still generate the `.tex` file, but PDF compilation may fail.
+
+---
+
+## 7. Recommended Folder Setup
+
+A simple project folder should look like this:
+
+```text
+project-folder/
+├── EinsteinResearch.py
+├── index.html                  # optional, only needed for web chat mode
+├── data/                       # optional, for input datasets
+└── outputs/                    # optional, for saved research outputs
+```
+
+The only required file for the main program is:
+
+```text
+EinsteinResearch.py
+```
+
+---
+
+## 8. Start the Program
+
+To open the interactive startup menu, run:
+
+```bash
+python EinsteinResearch.py interactive
+```
+
+You should see a menu similar to this:
+
+```text
++--------------------------------------------------------------------------+
+|  Active model: gpt-5.5                                                   |
+|                                                                          |
+|  [1] Core Research Pipeline                                              |
+|  [2] Lab Research                                                        |
+|  [3] Web Chat Server                                                     |
+|  [0] Exit                                                                |
++--------------------------------------------------------------------------+
+> Choose an option [0-3] (or /model <name>):
+```
+
+---
+
+## 9. Use the Core Research Pipeline
+
+The Core Research Pipeline is the main workflow for AI-assisted scientific discovery.
+
+### Step 1: Start Interactive Mode
+
+Run:
+
+```bash
+python EinsteinResearch.py interactive
+```
+
+### Step 2: Select the Core Research Pipeline
+
+At the menu, type:
+
+```text
+1
+```
+
+Then press Enter.
+
+### Step 3: Enter Your Research Question
+
+When prompted, enter a research question, such as:
+
+```text
+Does retrieval augmentation improve factual accuracy in biotech question-answering systems?
+```
+
+A strong research question should be:
+
+- Clear
+- Specific
+- Testable
+- Connected to a measurable outcome
+
+### Step 4: Add Experiment Data or a Data File
+
+When prompted, you can provide experiment data directly or enter a file path.
+
+Example data-file path:
+
+```text
+./data/results.csv
+```
+
+Example text input:
+
+```text
+sample_id,condition,score
+1,A,0.82
+2,B,0.76
+3,A,0.88
+4,B,0.73
+```
+
+If you do not have data, press Enter. The program can still generate a prototype experiment or synthetic example, depending on its configuration.
+
+### Step 5: Review Each Research Stage
+
+The program walks through the research workflow one stage at a time:
 
 1. Plan
 2. Background Research
@@ -33,158 +217,122 @@ The core pipeline runs these stages in order:
 9. Search Sources
 10. LaTeX Report
 
-Outputs can be saved to a timestamped run directory, and the final LaTeX report can also be converted into an academic PDF.
+At each stage, you can review the output before continuing.
 
-## Features
+### Step 6: Use Stage Commands
 
-### 1. Interactive research pipeline
-#### Example of CLI menu:
-```python
-+==========================================================================+
-|  Einstein Research Console                                               |
-|  AI Research + Lab Workflows                                             |
-+==========================================================================+
+During the step-by-step workflow, you may see a prompt like this:
 
- ______ _           _       _        _       _
-|  ____(_)         | |     (_)      | |     | |
-| |__   _ _ __  ___| |_ ___ _ _ __  | | __ _| |__  ___
-|  __| | | '_ \/ __| __/ _ \ | '_ \ | |/ _` | '_ \/ __|
-| |____| | | | \__ \ ||  __/ | | | || | (_| | |_) \__ \
-|______|_|_| |_|___/\__\___|_|_| |_||_|\__,_|_.__/|___/
-+--------------------------------------------------------------------------+
-|  Active model: gpt-5.5                                                   |
-|                                                                          |
-|  [1] Core Research Pipeline                                              |
-|  [2] Lab Research (Perplexity Search)                                    |
-|  [3] Web Chat Server                                                     |
-|  [0] Exit                                                                |
-+--------------------------------------------------------------------------+
-> Choose an option [0-3] (or /model <name>): 1
-+==========================================================================+
-|  Einstein Research Console                                               |
-|  Core Research Pipeline                                                  |
-+==========================================================================+
+```text
+> [Plan] Enter=next | text=/note | /ask | a=auto | q=quit:
 ```
 
-Interactive mode prompts you for a research question and optional experiment data or a data-file path. It then walks through the pipeline step by step, pausing between stages so you can review or stop.
+Use these controls:
 
-Helpful commands in interactive mode:
+| Command | What It Does |
+|---|---|
+| Press Enter | Move to the next stage. |
+| Type a note | Add your own note to the current stage. |
+| `/ask` | Ask the AI a question about the current stage. |
+| `a` | Automatically run the remaining stages. |
+| `q` | Quit the workflow. |
 
-- `/model` - show the current model and recommended models
-- `/model <name>` - switch models
-- `/suggest <partial>` - ask the agent to complete a partial research question
-- `/quit` - exit
+### Step 7: Review the Final Report
 
-### 2. Automated pipeline mode
+At the end of the pipeline, the program generates a LaTeX report. If PDF generation is enabled and a LaTeX compiler is installed, it may also generate a PDF.
 
-Auto mode runs the same pipeline non-interactively from command-line arguments. This is the best choice for repeatable runs, scripts, or batch use.
+---
 
-### 3. LaTeX and PDF generation
+## 10. Save Research Outputs
 
-The pipeline generates a LaTeX report, validates and fixes citations if needed, saves the `.tex` output, and can compile it into an academic PDF. A standalone `latex2pdf` mode is also provided for converting an existing `.tex` file.
+To save all outputs into a folder, use the `--save` option.
 
-### 4. Local web chat server
-
-Serve mode starts a local HTTP server that serves `index.html` and exposes a chat API at `/api/chat`. It also provides a `/health` endpoint.
-
-### 5. Lab research launcher
-
-Lab mode launches an external script named `Perplexity-search.py`. This makes the console extensible for a separate search-oriented lab workflow.
-
-## Requirements
-
-### Python packages
-
-Install the core dependencies used by the script:
+Example:
 
 ```bash
-pip install openai openai-agents pydantic
+python EinsteinResearch.py --save outputs interactive
 ```
 
-Optional memory support:
+This creates a timestamped run directory inside the `outputs` folder.
+
+Example output structure:
+
+```text
+outputs/
+└── run_YYYYMMDD_HHMMSS/
+    ├── 01_plan.md
+    ├── 01b_background_research.md
+    ├── 01b_background_sources.txt
+    ├── 02_hypothesis.md
+    ├── 03_experiment_design.md
+    ├── 04_experiment_run.md
+    ├── 05_data_analysis.md
+    ├── 06_conclusion.md
+    ├── 00_search_plan.md
+    ├── 00_search_summaries.md
+    ├── 00_sources.txt
+    └── 07_report.tex
+```
+
+---
+
+## 11. Choose a Model
+
+To choose a model when starting the program, use:
 
 ```bash
-pip install sqlalchemy aiosqlite
+python EinsteinResearch.py --model gpt-5.5 interactive
 ```
 
-### External requirements
-
-For PDF compilation, install at least one of these TeX tools:
-
-- `tectonic`
-- `latexmk`
-- `pdflatex`
-
-### Files expected by some modes
-
-- `index.html` for web server mode
-- `Perplexity-search.py` for lab mode
-
-## How to run
-
-### Show the startup menu
-
-If you run the script without a subcommand, it opens the interactive startup menu:
+To save outputs and choose a model at the same time, use:
 
 ```bash
-python EinsteinResearch.py interactive  # step by step AI discovery
-python EinsteinResearch.py auto # for end to end AI discovery
+python EinsteinResearch.py --save outputs --model gpt-5.5 interactive
 ```
 
-From the menu you can choose:
+Inside the interactive menu, you can switch models by typing:
 
-- `1` Core Research Pipeline
-- `2` Lab Research (Perplexity Search)
-- `3` Web Chat Server
-- `0` Exit
-
-
-#### select Core Research  Pipleine
-You can also switch models from the menu with:
 ```text
 /model gpt-5.5-pro
 ```
 
-You can ask for AI for suggest for a research topic:
+To view the current model and recommended models, type:
+
+```text
+/model
+```
+
+---
+
+## 12. Ask the AI to Suggest a Research Topic
+
+Inside interactive mode, you can ask the AI to complete or improve a partial research idea.
+
+Example:
+
 ```text
 /suggest Research on nanotechnology to heal humans
-# after it provide suggestion
->Press Enter to use this prompt in step mode, or type a replacement question, or /cancel
 ```
 
-You can enter your data or file path of the data:
-```text
-Experiment data or file path: ./researchdata.txt
-```
-Every step, you can add notes or chat with AI, a=auto, run all steps automatically, /notes: add your own notes for the research:
-```text
-> [Plan] Enter=next | text=/note | /ask | a=auto | q=quit:
+The program will suggest a stronger research prompt. After the suggestion appears, you can:
 
-```
+1. Press Enter to use the suggested prompt.
+2. Type your own replacement question.
+3. Type `/cancel` to cancel the suggestion.
 
+---
 
+## 13. Run the Automated Pipeline
 
-### Run interactive mode directly
+Automated mode runs the research pipeline without pausing after every stage. Use this mode for repeatable runs, scripts, or batch workflows.
+
+### Run with a Research Question Only
 
 ```bash
-python EinsteinResearch.py interactive
+python EinsteinResearch.py auto --question "Does retrieval augmentation improve factual accuracy in biotech QA systems?"
 ```
 
-Save outputs and choose a model:
-
-```bash
-python EinsteinResearch.py interactive --save outputs --model gpt-5.2 interactive
-```
-
-### Run automated mode
-
-With an inline question only:
-
-```bash
-python EinsteinResearch.py interactive auto --question "Does retrieval augmentation improve factual accuracy in biotech QA systems?"
-```
-
-With inline data:
+### Run with Inline Data
 
 ```bash
 python EinsteinResearch.py auto \
@@ -192,7 +340,15 @@ python EinsteinResearch.py auto \
   --data "sample_id,condition,score\n1,A,0.82\n2,B,0.76"
 ```
 
-With a data file and saved outputs:
+### Run with a Data File
+
+```bash
+python EinsteinResearch.py auto \
+  --question "Does retrieval augmentation improve factual accuracy in biotech QA systems?" \
+  --data-file ./data/results.csv
+```
+
+### Run with a Data File and Save Outputs
 
 ```bash
 python EinsteinResearch.py --save outputs auto \
@@ -200,47 +356,82 @@ python EinsteinResearch.py --save outputs auto \
   --data-file ./data/results.csv
 ```
 
-Pause after every stage:
+### Pause After Each Stage in Automated Mode
 
 ```bash
-python  EinsteinResearch.py interactive auto --question "Your question here" --pause
+python EinsteinResearch.py auto \
+  --question "Your research question here" \
+  --pause
 ```
 
-Skip PDF generation:
+### Skip PDF Generation
 
 ```bash
-python EinsteinResearch.py interactive --no-pdf auto --question "Your question here"
+python EinsteinResearch.py --no-pdf auto \
+  --question "Your research question here"
 ```
 
-### Convert an existing LaTeX file to PDF
+---
+
+## 14. Convert an Existing LaTeX File to PDF
+
+Use `latex2pdf` mode when you already have a `.tex` file and only want to compile it into a PDF.
+
+### Basic Conversion
 
 ```bash
-python EinsteinResearch.py interactive latex2pdf --tex-file ./report.tex
+python EinsteinResearch.py latex2pdf --tex-file ./report.tex
 ```
 
-Write the academic `.tex` and `.pdf` into a specific folder:
+### Save the Compiled Files to a Specific Folder
 
 ```bash
-python python EinsteinResearch.py interactive latex2pdf --tex-file ./report.tex --output-dir ./compiled
+python EinsteinResearch.py latex2pdf \
+  --tex-file ./report.tex \
+  --output-dir ./compiled
 ```
 
-### Run the web chat server
+If PDF conversion succeeds, the PDF is saved next to the `.tex` file or inside the folder specified by `--output-dir`.
+
+---
+
+## 15. Run the Local Web Chat Server
+
+Use serve mode when you want to interact with the research assistant through a browser interface.
+
+### Step 1: Make Sure `index.html` Exists
+
+Your project folder should contain:
+
+```text
+index.html
+```
+
+### Step 2: Start the Server
 
 ```bash
-python EinsteinResearch.py interactive serve
+python EinsteinResearch.py serve
 ```
 
-Custom host, port, and HTML entry file:
+### Step 3: Open the Browser Interface
 
-```bash
-python EinsteinResearch.py interactive serve --host 127.0.0.1 --port 8000 --index index.html
+Open your browser and go to the local address shown by the program.
+
+Common default address:
+
+```text
+http://localhost:8000
 ```
 
-Then open the served page in your browser and use the backend chat endpoint:
+### Step 4: Use the Chat API
 
-- `GET /`
-- `GET /health`
-- `POST /api/chat`
+The server exposes these endpoints:
+
+| Endpoint | Method | Purpose |
+|---|---|---|
+| `/` | GET | Opens the browser interface. |
+| `/health` | GET | Checks whether the server is running. |
+| `/api/chat` | POST | Sends a chat message to the backend. |
 
 Example JSON request for `/api/chat`:
 
@@ -251,180 +442,229 @@ Example JSON request for `/api/chat`:
     {"role": "user", "content": "I am researching biotech automation."},
     {"role": "assistant", "content": "Got it. What aspect are you exploring?"}
   ],
-  "model": "gpt-5.2",
+  "model": "gpt-5.5",
   "session_id": "demo_session_1"
 }
 ```
 
-### Run lab mode
+### Use a Custom Host, Port, or HTML File
 
 ```bash
-python python EinsteinResearch.py interactive lab
+python EinsteinResearch.py serve \
+  --host 127.0.0.1 \
+  --port 8000 \
+  --index index.html
 ```
 
-This looks for and runs:
+---
+
+## 16. Run Lab Research Mode
+
+Lab mode launches an additional research workflow if your local implementation includes one.
+
+Run:
+
+```bash
+python EinsteinResearch.py lab
+```
+
+If a required lab workflow file is missing, the program will show an error message.
+
+---
+
+## 17. Example Quick Start
+
+Use this sequence for a first successful run.
+
+### Step 1: Install Packages
+
+```bash
+pip install openai openai-agents pydantic sqlalchemy aiosqlite
+```
+
+### Step 2: Start the Program
+
+```bash
+python EinsteinResearch.py --save outputs interactive
+```
+
+### Step 3: Select the Core Research Pipeline
+
+At the menu, type:
 
 ```text
-Perplexity-search.py
+1
 ```
 
-If that file is missing, the lab launcher exits with an error message.
+### Step 4: Enter a Research Question
 
-## Command-line options
+Example:
 
-### Global options
+```text
+Can AI-assisted literature review improve the speed and quality of early-stage scientific hypothesis generation?
+```
 
-- `--save` - directory where pipeline outputs are saved
-- `--model` - model used for pipeline and chat agents
-- `--no-pdf` - skip LaTeX-to-PDF conversion
+### Step 5: Provide Data or Press Enter
 
-### Subcommands
+If you have data, enter a file path:
 
-- `interactive` - prompt-driven research run
-- `lab` - launch the lab research script
-- `auto` - run the pipeline with CLI inputs
-- `latex2pdf` - convert `.tex` to academic `.pdf`
-- `serve` - run the local web server
+```text
+./data/research_results.csv
+```
 
-## Output files
+If you do not have data, press Enter.
 
-When `--save` is used, the pipeline writes a timestamped run directory containing step outputs such as:
+### Step 6: Review Each Stage
 
-- `01_plan.md`
-- `01b_background_research.md`
-- `01b_background_sources.txt`
-- `02_hypothesis.md`
-- `03_experiment_design.md`
-- `04_experiment_run.md`
-- `05_data_analysis.md`
-- `06_conclusion.md`
-- `00_search_plan.md`
-- `00_search_summaries.md`
-- `00_sources.txt`
-- `07_report.tex`
+Press Enter to move through each stage, or type:
 
-It also writes a timestamped LaTeX file in the current directory like:
+```text
+a
+```
+
+to automatically run the remaining stages.
+
+### Step 7: Open the Output Folder
+
+After the run finishes, open the `outputs` folder and review the generated Markdown, source, LaTeX, and PDF files.
+
+---
+
+## 18. Command Reference
+
+| Goal | Command |
+|---|---|
+| Open interactive mode | `python EinsteinResearch.py interactive` |
+| Save outputs | `python EinsteinResearch.py --save outputs interactive` |
+| Choose a model | `python EinsteinResearch.py --model gpt-5.5 interactive` |
+| Run automated mode | `python EinsteinResearch.py auto --question "Your question"` |
+| Use a data file | `python EinsteinResearch.py auto --question "Your question" --data-file ./data/results.csv` |
+| Skip PDF generation | `python EinsteinResearch.py --no-pdf auto --question "Your question"` |
+| Convert LaTeX to PDF | `python EinsteinResearch.py latex2pdf --tex-file ./report.tex` |
+| Start web server | `python EinsteinResearch.py serve` |
+| Start lab mode | `python EinsteinResearch.py lab` |
+
+---
+
+## 19. Output Files Explained
+
+When `--save` is used, the program may generate these files:
+
+| File | Purpose |
+|---|---|
+| `01_plan.md` | Research plan and workflow structure. |
+| `01b_background_research.md` | Background research summary. |
+| `01b_background_sources.txt` | Sources used during background research. |
+| `02_hypothesis.md` | Primary hypothesis, null hypothesis, and predictions. |
+| `03_experiment_design.md` | Experiment design, variables, controls, and method. |
+| `04_experiment_run.md` | Experiment or simulation output. |
+| `05_data_analysis.md` | Analysis of results. |
+| `06_conclusion.md` | Final conclusion and interpretation. |
+| `00_search_plan.md` | Search strategy. |
+| `00_search_summaries.md` | Search result summaries. |
+| `00_sources.txt` | Final source list. |
+| `07_report.tex` | Final LaTeX research report. |
+
+The program may also create a timestamped LaTeX file, such as:
 
 ```text
 research_report_YYYYMMDD.HHMMSS.tex
 ```
 
-If PDF conversion succeeds, the compiled academic PDF is saved next to the TeX file.
+If PDF generation succeeds, a PDF version of the report is also created.
 
-## Notes and behavior
+---
 
-- Default model: `gpt-5.5`
-- Recommended models include `gpt-5.5`, `gpt-5.5-pro`, `gpt-5.4`, `gpt-5.4-mini`, and `gpt-5.4-nano`
-- The script retries with fallback models on retryable API or timeout errors
-- If no dataset is provided, the experiment runner can generate synthetic data and still produce a prototype analysis
-- SQLAlchemy-backed session memory is optional and controlled through environment variables
+## 20. Troubleshooting
 
-## Example quick start
+### Problem: `python` Command Is Not Found
+
+Try:
+
+```bash
+python3 EinsteinResearch.py interactive
+```
+
+or reinstall Python and make sure it is added to your system path.
+
+### Problem: Required Package Is Missing
+
+Install the required packages again:
 
 ```bash
 pip install openai openai-agents pydantic sqlalchemy aiosqlite
-python EinsteinResearch.py --save outputs interactive
 ```
 
-Enter your research question, optionally provide data, and review each pipeline stage as the system builds a structured report and LaTeX paper.
+### Problem: PDF Generation Fails
 
-## Lab Research CLI interface and examples
-```python
+Possible causes:
 
-                 .-""""-.
-               .'  _  _  '.
-              /   (o)(o)   \
-             |   .-.___.-.  |
-             |  /  \_/  \ \ |
-              \ \   ^   / /
-               '._'-=-'_.-'
-                  '---'
-  _____ _           _       _         ____                      _
- | ____(_)_ __  ___| |_ ___(_)_ __   / ___|  ___  __ _ _ __ ___| |__
- |  _| | | '_ \/ __| __/ _ \ | '_ \  \___ \ / _ \/ _` | '__/ __| '_ \
- | |___| | | | \__ \ ||  __/ | | | |  ___) |  __/ (_| | | | (__| | | |
- |_____|_|_| |_|___/\__\___|_|_| |_| |____/ \___|\__,_|_|  \___|_| |_|
+1. No LaTeX compiler is installed.
+2. The generated `.tex` file contains a syntax issue.
+3. Required LaTeX packages are missing.
 
-Einstein Search CLI
-Model: sonar-pro
-Type /quit at any prompt to exit.
+Recommended fix:
 
-+---------------------------------------+
-| 1) Literature Review                  |
-| 2) Data Analysis (file)               |
-| 3) Find References                    |
-| 4) Save Last Result to LaTeX + PDF    |
-| /quit) Exit                           |
-+---------------------------------------+
-```
-### When select "1" (Example):
-```text
-> Choose 1, 2, 3, 4, or /quit: 1
-> Literature review topic/query: AI Discovery Engine for R&D
-> Specific focus (optional, press Enter to skip): R&D
-> Output style [concise bullet summary]:
+1. Install `tectonic`, `latexmk`, or `pdflatex`.
+2. Re-run the program.
+3. If PDF generation still fails, use the `.tex` file and compile it manually.
+
+### Problem: Web Server Does Not Start
+
+Check that:
+
+1. `index.html` exists in the project folder.
+2. The selected port is not already in use.
+3. You are running the command from the correct folder.
+
+Try a different port:
+
+```bash
+python EinsteinResearch.py serve --port 8080
 ```
 
-### When select "2" (Example):
-```text
-> Choose 1, 2, 3, 4, or /quit: 2
-> Path to data file (csv/tsv/json/txt): research_ai.csv
+### Problem: Lab Mode Fails
 
-Loaded file preview:
+Lab mode may require extra local files or configuration. If a required lab workflow file is missing, add the file to the project folder or run the Core Research Pipeline instead.
 
-File: C:\Users\Thomas_Yiu\Downloads\V-agent\webpage\research_ai.csv
-Detected format: CSV
-Columns: Table 5.Overview of research methods ., ,
-Rows (excluding header): 11
-Preview rows:
-1. Research method | Approach | Percent
-2. Qualitative | Survey and interviews | 14.20%
-3.  | Case studies and interviews |
-4. Quantitative | Experiment | 49.40%
-5.  | Statistical analysis |
-6.  | Experiment and case study |
-7.  | Survey and experiment |
-8.  | Design science |
-9. Conceptual | No methodology | 24.70%
-10.  | Other | 11.70%
-> Analysis objective [Identify trends, anomalies, and recommendations]: Identify trends
+### Problem: The Model Does Not Respond
 
-Data Analysis:
+Check that:
 
-### 1) Key findings
-- **Dominant research approach**: Quantitative methods are the most prevalent at 49.40%, indicating a strong emphasis on empirical, data-driven research in the dataset (likely AI-related studies based on file context).
-- **Secondary approaches**: Conceptual methods follow at 24.70%, often with "No methodology" or "Other" labels, suggesting theoretical or non-empirical work. Qualitative methods account for 14.20%, primarily via surveys and interviews.
-- **Remaining share**: An "Other" category captures 11.70%, potentially encompassing unclassified or hybrid methods.
-- **Trend insight**: The data reveals a clear skew toward quantitative rigor (nearly half of studies), with declining reliance on qualitative (14%) and conceptual (25%) approaches. Percentages sum to ~100% (49.40% + 24.70% + 14.20% + 11.70% = 100%), confirming comprehensive coverage of 11 research instances.
-```
+1. Your API key is configured correctly.
+2. Your internet connection is working.
+3. The selected model name is valid.
+4. You have access to the selected model.
 
-### When select "3" in Einstein Search CLI
-```python
-> Choose 1, 2, 3, 4, or /quit: 3
-> Reference query/topic: Find references for AI research for R&D for science
-> Max references [8]:
+---
 
-References (8):
+## 21. Best Practices
 
-1. Artificial Intelligence (Generative) Resources: AI Tools for Research (2023-10-02)
-   URL: https://guides.library.georgetown.edu/ai/tools
-   Snippet: # Artificial Intelligence (Generative) Resources: AI Tools for Research
-## AI Research Tools
-AI tools for research can help you to discover new sources for your literature review or research assignment.
-These tools will synthesize information from large databases of scholarly output with the aim of finding the most relevant articles and saving researchers' time.
-As with our research databases or any other search tool, however, it's important not to rely on one tool for all of your research, as you will risk missing important information on your topic of interest.
-|AI-Powered Research Tools|AI-Powered Research Tools|AI-Powered Research Tools|AI-Powered Research Tools|AI-Powered Research Tools|
-|--|--|--|--|--|
-|NAME|WHAT IT DOES|UNDERLYING DATA|IS IT FREE?|MORE INFORMATION|
-|Connected Papers|Like Research Rabbit (see below), Connected Papers focuses on the relationships between research papers to find similar research.
-You can also use Connected Papers to get a visual overview of an academic field.|Semantic Scholar database|Free with paid subscriptions available.|Connected Papers - About|
-|Consensus|Consensus uses large language models (LLMs) to help researchers find and synthesize answers to research questions, focusing on the scholarly authors' findings and claims in each paper.|Semantic Scholar database|Free with paid subscriptions available.|Consensus FAQs|
-|Elicit|Elicit uses LLMs to find papers relevant to your topic by searching through papers and citations and extracting and synthesizing key information.|Semantic Scholar database|Free with paid subscriptions available.|Elicit FAQs|
-|Keenious|Keenious is a recommendation tool for academic articles and topics based on papers you upload.|Open Alex|Free with paid subscriptions available.|Keenious Help File|
-|Research Rabbit|Research Rabbit is a citation-based mapping tool that focuses on the relationships between research works.
-It uses visualizations to help researchers find similar papers and other researchers in their field.|Open Alex, Semantic Scholar, and other databases|Research Rabbit is currently free.|Research Rabbit FAQs|
-|scite|scite has a suite of products that help researchers develop their topics, find papers, and search citations in context (describing whether the article provides supporting or contrasting evidence)|Many different sources (an incomplete list can be found on this page)|No. See pricing information.|scite FAQs; how scite works|
-```
+For stronger research results:
 
-# Contact
-please add Discussion for the program
+1. Use a specific research question.
+2. Provide real data when possible.
+3. Review each stage before accepting the output.
+4. Verify citations and sources manually.
+5. Check all generated hypotheses for scientific plausibility.
+6. Treat generated experiment designs as drafts, not final protocols.
+7. Use the LaTeX report as a starting point for a polished research paper.
+8. Keep human review and domain expertise in the loop.
+
+---
+
+## 22. Discussion
+
+`EinsteinResearch.py` is designed as a full AI-assisted research workflow rather than a simple chatbot. Its main value is that it connects the major stages of scientific work into a repeatable process: planning, literature review, hypothesis generation, experiment design, data analysis, conclusion writing, and report generation.
+
+The program is especially useful during early-stage research exploration. A researcher can start with a broad topic, refine it into a testable question, generate measurable predictions, design a prototype experiment, analyze preliminary data, and produce an academic-style report. This can reduce the manual overhead involved in organizing research, but it does not remove the need for human expertise.
+
+The best way to use the program is as a research partner. The AI can accelerate background synthesis, structure ideas, and create drafts, but the researcher should still verify source quality, inspect assumptions, validate methods, and confirm whether the conclusions are scientifically justified.
+
+Interactive mode is best for careful research review because the user can inspect each stage before continuing. Automated mode is best for repeatable workflows, batch experiments, and scripted research runs. Web chat mode is best for browser-based interaction, while LaTeX/PDF mode is useful for producing formal research artifacts.
+
+---
+
+## 23. Contact
+
+For questions, demos, or collaboration opportunities, contact Einsteinian Labs.
