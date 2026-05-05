@@ -398,6 +398,33 @@ Data Analysis:
 - **Trend insight**: The data reveals a clear skew toward quantitative rigor (nearly half of studies), with declining reliance on qualitative (14%) and conceptual (25%) approaches. Percentages sum to ~100% (49.40% + 24.70% + 14.20% + 11.70% = 100%), confirming comprehensive coverage of 11 research instances.
 ```
 
+### When select "3" in Einstein Search CLI
+```python
+> Choose 1, 2, 3, 4, or /quit: 3
+> Reference query/topic: Find references for AI research for R&D for science
+> Max references [8]:
+
+References (8):
+
+1. Artificial Intelligence (Generative) Resources: AI Tools for Research (2023-10-02)
+   URL: https://guides.library.georgetown.edu/ai/tools
+   Snippet: # Artificial Intelligence (Generative) Resources: AI Tools for Research
+## AI Research Tools
+AI tools for research can help you to discover new sources for your literature review or research assignment.
+These tools will synthesize information from large databases of scholarly output with the aim of finding the most relevant articles and saving researchers' time.
+As with our research databases or any other search tool, however, it's important not to rely on one tool for all of your research, as you will risk missing important information on your topic of interest.
+|AI-Powered Research Tools|AI-Powered Research Tools|AI-Powered Research Tools|AI-Powered Research Tools|AI-Powered Research Tools|
+|--|--|--|--|--|
+|NAME|WHAT IT DOES|UNDERLYING DATA|IS IT FREE?|MORE INFORMATION|
+|Connected Papers|Like Research Rabbit (see below), Connected Papers focuses on the relationships between research papers to find similar research.
+You can also use Connected Papers to get a visual overview of an academic field.|Semantic Scholar database|Free with paid subscriptions available.|Connected Papers - About|
+|Consensus|Consensus uses large language models (LLMs) to help researchers find and synthesize answers to research questions, focusing on the scholarly authors' findings and claims in each paper.|Semantic Scholar database|Free with paid subscriptions available.|Consensus FAQs|
+|Elicit|Elicit uses LLMs to find papers relevant to your topic by searching through papers and citations and extracting and synthesizing key information.|Semantic Scholar database|Free with paid subscriptions available.|Elicit FAQs|
+|Keenious|Keenious is a recommendation tool for academic articles and topics based on papers you upload.|Open Alex|Free with paid subscriptions available.|Keenious Help File|
+|Research Rabbit|Research Rabbit is a citation-based mapping tool that focuses on the relationships between research works.
+It uses visualizations to help researchers find similar papers and other researchers in their field.|Open Alex, Semantic Scholar, and other databases|Research Rabbit is currently free.|Research Rabbit FAQs|
+|scite|scite has a suite of products that help researchers develop their topics, find papers, and search citations in context (describing whether the article provides supporting or contrasting evidence)|Many different sources (an incomplete list can be found on this page)|No. See pricing information.|scite FAQs; how scite works|
+```
 
 # Contact
 please add Discussion for the program
