@@ -187,8 +187,11 @@ def ask_model(
             {"role": "user", "content": user_prompt},
         ],
         "disable_search": disable_search,
-        "num_search_results": num_search_results,
     }
+    if not disable_search:
+        # Perplexity enforces search-result bounds when search is enabled.
+        # Clamp to the documented range so callers do not trigger validation errors.
+        request_kwargs["num_search_results"] = max(3, min(100, num_search_results))
     if search_mode and not disable_search:
         request_kwargs["search_mode"] = search_mode
 
