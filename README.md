@@ -90,6 +90,17 @@ pip install openai openai-agents pydantic sqlalchemy aiosqlite
 
 ---
 
+## 5a. Export an API key
+For Windows:
+```
+setx OPENAI_API_KEY "your_api_key_here"
+```
+
+For Linux/MacOS: 
+```
+export OPENAI_API_KEY="your_api_key_here"
+```
+
 ## 6. Optional: Install a LaTeX Compiler
 
 To generate a PDF from the LaTeX report, install at least one of the following tools:
