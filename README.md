@@ -849,3 +849,6 @@ Interactive mode is best for careful research review because the user can inspec
 ## 24. Contact
 
 For questions, demos, or collaboration opportunities, contact Einsteinian Labs.
+
+## 25. Note
+This respository is for YC batch 2026 demo. Please do not clone without consent
