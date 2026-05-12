@@ -101,6 +101,17 @@ For Linux/MacOS:
 export OPENAI_API_KEY="your_api_key_here"
 ```
 
+### For Lab Research & Search
+For Windows:
+```
+setx PERPLEXITY_API_KEY "your_api_key_here"
+```
+
+For Linux/MacOS: 
+```
+export PERPLEXITY_API_KEY="your_api_key_here"
+```
+
 ## 6. Optional: Install a LaTeX Compiler
 
 To generate a PDF from the LaTeX report, install at least one of the following tools:
