@@ -26,6 +26,16 @@ In interactive mode, typing any research question starts the end-to-end workflow
 ai-discovery> Can a new catalyst improve CO2 reduction yield?
 ```
 
+For each research workflow:
+
+```text
+ai-discovery> /hypothesis Can AI improve catalyst screening?
+ai-discovery:hypothesis> expand with a stronger null hypothesis
+ai-discovery:hypothesis> /exit
+ai-discovery> /writer Draft the paper
+ai-discovery:writer> rewrite the conclusion more carefully
+```
+
 The live literature-review stage uses the hosted Responses API web-search tool. Disable that stage's web-search tool with `--no-web-search` or `AI_DISCOVERY_DISABLE_WEB_SEARCH=1` when the prompt contains sensitive material or when hosted search is unavailable.
 
 ## Slash Commands
