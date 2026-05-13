@@ -1,6 +1,9 @@
 # AI Discovery Program
 Einsteinian Labs helps researchers turn ideas into discovery by using end-to-end AI automation—from literature review to report generation—while keeping the process rigorous, measurable, and deeply human at its core
 
+# NPM Implementation
+Go to (NPM)[https://github.com/einstein-labs-ai/AI-Discovery-Program/tree/main/AI-discovery-npm]
+
 # Einstein Research Console — How to Use Guide
 
 Einsteinian Labs helps researchers turn ideas into discovery using end-to-end AI automation, from literature review to hypothesis generation, experiment design, data analysis, and report generation.
