@@ -26,11 +26,11 @@ In interactive mode, typing any research question starts the end-to-end workflow
 ai-discovery> Can a new catalyst improve CO2 reduction yield?
 ```
 
-For each research workflow:
+Focused commands keep the terminal in that mode. After `/hypothesis`, `/experiment`, or `/writer`, type normal follow-up text to expand, change, or rewrite that artifact and save the updated files. Use `/exit` to leave the active mode; use `/quit` to close the CLI.
 
 ```text
-ai-discovery> /hypothesis Can AI improve catalyst screening?
-ai-discovery:hypothesis> expand with a stronger null hypothesis
+ai-discovery> /hypothesis Can a new catalyst improve CO2 reduction yield?
+ai-discovery:hypothesis> expand the null hypothesis and add measurement risks
 ai-discovery:hypothesis> /exit
 ai-discovery> /writer Draft the paper
 ai-discovery:writer> rewrite the conclusion more carefully
@@ -42,16 +42,17 @@ The live literature-review stage uses the hosted Responses API web-search tool. 
 
 - `/research <question>` runs the full workflow: plan, literature review, hypothesis, experiment, experiment runner, data analysis, draft paper, technical review, final Markdown paper, and final LaTeX paper.
 - Bare text also runs `/research`.
-- `/hypothesis [question]` generates a falsifiable hypothesis package. In interactive mode, `/hypothesis` without a question prompts for one.
-- `/experiment [brief]` creates an experiment design and saves runnable Node.js experiment code.
-- `/writer [instructions]` writes a final-format paper from the current session artifacts.
+- `/hypothesis [question]` generates a falsifiable hypothesis package, enters hypothesis mode, and keeps follow-up text in that mode until `/exit`. In interactive mode, `/hypothesis` without a question prompts for one.
+- `/experiment [brief]` creates an experiment design, saves runnable Node.js experiment code, runs the built-in deterministic synthetic experiment runner, saves the run output, enters experiment mode, and keeps follow-up text in that mode until `/exit`.
+- `/writer [instructions]` writes a final-format paper from the current session artifacts, saves the generated Markdown and LaTeX output, enters writer mode, and keeps follow-up text in that mode until `/exit`.
 - `/model [name]` shows or changes the model used by all science agents.
 - `/status` shows model, mode, output path, artifacts, and token usage.
 - `/new` starts a fresh science session.
 - `/clear` clears the terminal view and resets visible session artifacts.
 - `/history` lists completed commands.
 - `/output [directory]` shows or changes the artifact output directory.
-- `/quit` or `/exit` exits the CLI.
+- `/exit` leaves the active focused mode, or exits the CLI when no focused mode is active.
+- `/quit` exits the CLI.
 
 ## Artifacts
 
@@ -78,11 +79,13 @@ Single-stage commands also write their focused artifacts:
 - `01_hypothesis.md`
 - `02_experiment_design.md`
 - `02_experiment_code.js`
+- `02_experiment_run.json`
+- `02_experiment_run.md`
 - `03_research_paper.md`
 - `03_research_paper.tex`
 - `session.json`
 
-Generated experiment code is not executed automatically. The full workflow's experiment-runner stage uses deterministic synthetic data so the pipeline can proceed safely. Review generated code first, then run it in a controlled environment:
+Generated experiment code is not executed automatically. The `/experiment` command and the full workflow's experiment-runner stage use deterministic synthetic data so the pipeline can proceed safely. Review generated code first, then run it in a controlled environment:
 
 ```powershell
 node .\ai_discovery_runs\<run>\05_experiment_code.js
@@ -98,4 +101,6 @@ Dry-run smoke check:
 
 ```powershell
 npm start -- --dry-run "Can a new catalyst improve CO2 reduction yield?"
+npm start -- --dry-run /experiment "Design a controlled catalyst screening experiment"
+npm start -- --dry-run /writer "Draft a final-format paper from the current experiment"
 ```
