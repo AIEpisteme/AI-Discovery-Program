@@ -8,6 +8,18 @@
 npm start
 ```
 
+## 5a. Export an API key
+For Windows:
+```
+setx OPENAI_API_KEY "your_api_key_here"
+```
+
+For Linux/MacOS: 
+```
+export OPENAI_API_KEY="your_api_key_here"
+```
+
+
 One-shot examples:
 
 ```powershell
